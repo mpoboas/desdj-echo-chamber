@@ -1,0 +1,100 @@
+[
+ {
+  "id": 0,
+  "name": "Dona Rosa",
+  "trait": "solidária",
+  "color": "#C0392B",
+  "home": "casasN"
+ },
+ {
+  "id": 1,
+  "name": "Sr. Armando",
+  "trait": "cético",
+  "color": "#6C5B7B",
+  "home": "casasS"
+ },
+ {
+  "id": 2,
+  "name": "Inês",
+  "trait": "ansiosa",
+  "color": "#E67E22",
+  "home": "casasN"
+ },
+ {
+  "id": 3,
+  "name": "Tiago",
+  "trait": "viciado",
+  "color": "#16A085",
+  "home": "casasS"
+ },
+ {
+  "id": 4,
+  "name": "Beatriz",
+  "trait": "solidária",
+  "color": "#2980B9",
+  "home": "casasN"
+ },
+ {
+  "id": 5,
+  "name": "Rui",
+  "trait": "cético",
+  "color": "#7F8C8D",
+  "home": "casasS"
+ },
+ {
+  "id": 6,
+  "name": "Fátima",
+  "trait": "ansiosa",
+  "color": "#D35400",
+  "home": "casasN"
+ },
+ {
+  "id": 7,
+  "name": "Joaquim",
+  "trait": "consumista",
+  "color": "#8E44AD",
+  "home": "casasS"
+ },
+ {
+  "id": 8,
+  "name": "Carla",
+  "trait": "viciada",
+  "color": "#27AE60",
+  "home": "casasN"
+ },
+ {
+  "id": 9,
+  "name": "Nuno",
+  "trait": "ansioso",
+  "color": "#C0392B",
+  "home": "casasS"
+ },
+ {
+  "id": 10,
+  "name": "Leonor",
+  "trait": "leitora",
+  "color": "#2C3E50",
+  "home": "casasN"
+ },
+ {
+  "id": 11,
+  "name": "Hugo",
+  "trait": "consumista",
+  "color": "#F39C12",
+  "home": "casasS"
+ },
+ {
+  "id": 12,
+  "name": "Marta",
+  "trait": "leitora",
+  "color": "#1ABC9C",
+  "home": "casasN"
+ },
+ {
+  "id": 13,
+  "name": "Zé Manel",
+  "trait": "viciado",
+  "color": "#34495E",
+  "home": "casasS"
+ }
+]

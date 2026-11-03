@@ -1,0 +1,24 @@
+{
+    "name": "EchoChamber.Editor",
+    "rootNamespace": "EchoChamber.Editor",
+    "references": [
+        "EchoChamber.Simulation",
+        "EchoChamber.Game",
+        "Unity.InputSystem",
+        "Unity.AI.Navigation",
+        "Unity.AI.Navigation.Editor",
+        "Unity.Cinemachine",
+        "Unity.ugui"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

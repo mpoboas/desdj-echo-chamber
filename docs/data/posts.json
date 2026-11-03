@@ -1,0 +1,435 @@
+{
+ "categories": {
+  "sens": {
+   "label": "Sensacionalismo",
+   "col": "#FF4F8B"
+  },
+  "com": {
+   "label": "Comunidade",
+   "col": "#4C7DFF"
+  },
+  "ent": {
+   "label": "Entretenimento",
+   "col": "#F2B705"
+  },
+  "pub": {
+   "label": "Publicidade",
+   "col": "#9AA0B8"
+  },
+  "loc": {
+   "label": "Notícias locais",
+   "col": "#2FB37E"
+  }
+ },
+ "pool": [
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Viram aquele carro preto parado na Rua das Flores há três dias? Ninguém sabe de quem é.",
+   "author": null,
+   "effects": {
+    "medo": 2,
+    "desc": 1
+   },
+   "value": 1.4,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Dizem que as rendas vão subir no bairro todo. Preparem-se.",
+   "author": null,
+   "effects": {
+    "medo": 2,
+    "desc": 2
+   },
+   "value": 1.5,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "A água da fonte da praça está contaminada? Alguém confirma?",
+   "author": null,
+   "effects": {
+    "medo": 3,
+    "desc": 1
+   },
+   "value": 1.6,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Mais um assalto ao multibanco da esquina. Onde está a polícia?",
+   "author": null,
+   "effects": {
+    "medo": 3,
+    "desc": 2
+   },
+   "value": 1.7,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Vi gente estranha a tirar fotos às portas dos prédios. Cuidado.",
+   "author": null,
+   "effects": {
+    "medo": 3,
+    "desc": 1
+   },
+   "value": 1.5,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Sopa solidária no sábado na Junta. Tragam tupperwares!",
+   "author": null,
+   "effects": {
+    "emp": 3
+   },
+   "value": 0.6,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Perdi o gato (malhado, chama-se Tostas). Se o virem, avisem!",
+   "author": null,
+   "effects": {
+    "emp": 2
+   },
+   "value": 0.8,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Precisamos de voluntários para limpar o jardim da praça.",
+   "author": null,
+   "effects": {
+    "emp": 2,
+    "desc": -1
+   },
+   "value": 0.5,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Obrigada a quem me ajudou com as compras ontem. Bairro bom.",
+   "author": null,
+   "effects": {
+    "emp": 3,
+    "apat": -1
+   },
+   "value": 0.55,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Troca de livros e sementes no café, quinta ao fim da tarde.",
+   "author": null,
+   "effects": {
+    "emp": 2,
+    "apat": -1
+   },
+   "value": 0.5,
+   "livraria": 1
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Top 10 cães mais fofos do bairro (o nº 3 vai surpreender-te).",
+   "author": null,
+   "effects": {
+    "apat": 2
+   },
+   "value": 1.3,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Desafio: três francesinhas seguidas. Quem alinha?",
+   "author": null,
+   "effects": {
+    "apat": 2,
+    "cons": 1
+   },
+   "value": 1.4,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Vídeo: pombo rouba uma nata na pastelaria.",
+   "author": null,
+   "effects": {
+    "apat": 2
+   },
+   "value": 1.5,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Sondagem: tripas ou francesinha? Vota já.",
+   "author": null,
+   "effects": {
+    "apat": 1
+   },
+   "value": 1.2,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "Leve 2, pague 1 na Mercearia Central até domingo!",
+   "author": "Mercearia Central",
+   "effects": {
+    "cons": 3
+   },
+   "value": 0.7,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "MegaShop online: entrega em 30 min, nem precisas de sair de casa.",
+   "author": "MegaShop",
+   "effects": {
+    "cons": 2,
+    "apat": 1,
+    "emp": -1
+   },
+   "value": 0.9,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "Ginásio low-cost abre a 2 km. Inscrição grátis.",
+   "author": "FitGo",
+   "effects": {
+    "cons": 2
+   },
+   "value": 0.6,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Reunião da Junta quinta às 19h: orçamento para a praça.",
+   "author": "Junta de Freguesia",
+   "effects": {
+    "desc": -1,
+    "emp": 1
+   },
+   "value": 0.4,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Obras na Rua do Bonfim até sexta. Atenção ao trânsito.",
+   "author": "Junta de Freguesia",
+   "effects": {},
+   "value": 0.3,
+   "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "A Letra Viva tem leitura para crianças amanhã às 17h.",
+   "author": "Livraria Letra Viva",
+   "effects": {
+    "emp": 2
+   },
+   "value": 0.4,
+   "livraria": 1
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Autocarro 207 passa a ter horário até à meia-noite.",
+   "author": "STCP",
+   "effects": {
+    "emp": 1,
+    "desc": -1
+   },
+   "value": 0.4,
+   "livraria": 0
+  }
+ ],
+ "scripted": [
+  {
+   "id": "t1",
+   "cat": "com",
+   "text": "Sopa solidária no sábado na Junta. Tragam tupperwares!",
+   "author": "Dona Rosa",
+   "effects": {
+    "emp": 3
+   },
+   "value": 0.6,
+   "livraria": 0
+  },
+  {
+   "id": "t2",
+   "cat": "ent",
+   "text": "Vídeo: pombo rouba uma nata na pastelaria.",
+   "author": "Tiago",
+   "effects": {
+    "apat": 2
+   },
+   "value": 1.5,
+   "livraria": 0
+  },
+  {
+   "id": "t3",
+   "cat": "sens",
+   "text": "Viram aquele carro preto parado na Rua das Flores há três dias? Ninguém sabe de quem é.",
+   "author": "Inês",
+   "effects": {
+    "medo": 2,
+    "desc": 1
+   },
+   "value": 1.4,
+   "livraria": 0
+  },
+  {
+   "id": "liv1",
+   "cat": "loc",
+   "text": "A Letra Viva pode fechar no fim do mês. Faltam clientes.",
+   "author": "Sr. Armando",
+   "effects": {
+    "emp": 2,
+    "desc": 1
+   },
+   "value": 0.8,
+   "livraria": 2
+  },
+  {
+   "id": "liv2",
+   "cat": "sens",
+   "text": "A Junta já vendeu o prédio da livraria a um fundo estrangeiro!",
+   "author": "Hugo",
+   "effects": {
+    "desc": 4,
+    "medo": 1
+   },
+   "value": 1.8,
+   "livraria": 0
+  },
+  {
+   "id": "liv3",
+   "cat": "com",
+   "text": "Vamos todos comprar um livro esta semana? #SalvarALetraViva",
+   "author": "Leonor",
+   "effects": {
+    "emp": 3,
+    "cons": 1
+   },
+   "value": 0.8,
+   "livraria": 3
+  },
+  {
+   "id": "liv4",
+   "cat": "pub",
+   "text": "Livros a 1 € na MegaShop. Porquê pagar mais?",
+   "author": "MegaShop",
+   "effects": {
+    "cons": 2,
+    "emp": -1
+   },
+   "value": 1,
+   "livraria": -2
+  },
+  {
+   "id": "liv5",
+   "cat": "sens",
+   "text": "Presidente da Junta visto a jantar com promotores imobiliários.",
+   "author": "Rui",
+   "effects": {
+    "desc": 3
+   },
+   "value": 1.6,
+   "livraria": 0
+  },
+  {
+   "id": "r1",
+   "cat": "sens",
+   "text": "ALERTA: gangue a assaltar casas no bairro à noite. Fechem tudo!",
+   "author": "Fátima",
+   "effects": {
+    "medo": 4,
+    "desc": 2
+   },
+   "value": 2,
+   "livraria": 0
+  },
+  {
+   "id": "r2",
+   "cat": "sens",
+   "text": "Fundo imobiliário quer transformar a praça em parque de estacionamento pago.",
+   "author": "Nuno",
+   "effects": {
+    "desc": 3,
+    "medo": 2
+   },
+   "value": 1.7,
+   "livraria": 0
+  },
+  {
+   "id": "r3",
+   "cat": "loc",
+   "text": "PSP desmente vaga de assaltos: zero ocorrências esta semana.",
+   "author": "PSP Porto",
+   "effects": {
+    "medo": -3,
+    "desc": -1
+   },
+   "value": 0.5,
+   "livraria": 0
+  },
+  {
+   "id": "r4",
+   "cat": "com",
+   "text": "Jantar de rua na praça no sábado. Cada um traz um prato.",
+   "author": "Dona Rosa",
+   "effects": {
+    "emp": 4,
+    "medo": -1
+   },
+   "value": 0.8,
+   "livraria": 0
+  },
+  {
+   "id": "r5",
+   "cat": "com",
+   "text": "Abaixo-assinado para manter a praça pública. Já vamos em 200!",
+   "author": "Beatriz",
+   "effects": {
+    "emp": 2,
+    "desc": 1
+   },
+   "value": 0.9,
+   "livraria": 0
+  },
+  {
+   "id": "r6",
+   "cat": "pub",
+   "text": "Condomínio Praça Nova: apartamentos de luxo, reserve já.",
+   "author": "Praça Nova Living",
+   "effects": {
+    "cons": 2,
+    "emp": -2
+   },
+   "value": 0.8,
+   "livraria": 0
+  }
+ ]
+}
