@@ -43,7 +43,7 @@ namespace EchoChamber
             c.pivot = new Vector2(0.5f, 1f);
             c.anchoredPosition = Vector2.zero;
             c.sizeDelta = Vector2.zero;
-            var v = UiFactory.VLayout(c.gameObject, 8f, new RectOffset(48, 48, 40, 40));
+            var v = UiFactory.VLayout(c.gameObject, 8f, new RectOffset(48, 48, 30, 30));
             content = c;
 
             scroll = paper.gameObject.AddComponent<ScrollRect>();
@@ -169,10 +169,10 @@ namespace EchoChamber
         public void Stat(string label, string value, Color? valueColor = null, Transform into = null)
         {
             var row = UiFactory.Rect("Stat", into ?? parent);
-            var h = UiFactory.HLayout(row.gameObject, 8f, new RectOffset(0, 0, 6, 6));
+            var h = UiFactory.HLayout(row.gameObject, 8f, new RectOffset(0, 0, 3, 3));
             h.childForceExpandWidth = true;
-            var l = UiFactory.Text(row, label, 26, UiPalette.Ink, TextAnchor.MiddleLeft, FontStyle.Normal, "Label");
-            var v = UiFactory.Text(row, value, 26, valueColor ?? UiPalette.Ink, TextAnchor.MiddleRight, FontStyle.Bold, "Value");
+            var l = UiFactory.Text(row, label, 23, UiPalette.Ink, TextAnchor.MiddleLeft, FontStyle.Normal, "Label");
+            var v = UiFactory.Text(row, value, 23, valueColor ?? UiPalette.Ink, TextAnchor.MiddleRight, FontStyle.Bold, "Value");
             l.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 30);
             var le = l.gameObject.AddComponent<LayoutElement>();
             le.flexibleWidth = 3f;

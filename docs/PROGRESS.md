@@ -9,8 +9,8 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 - M2 World: done (street, square, crosswalks, traffic lights, NavMesh, 14 neighbours following the simulation, day/night). Verified in Play Mode
 - M3 Control room: done (room built by code, KayKit furniture, interactive objects, Cinemachine rig with 6 views, live CRT map via RenderTexture, mixer, lever, stamps, clock). Verified in Play Mode
 - M4 Full turn (D2.2): done. Printer slips, stamps A/O/N, tube, lever, 26 s simulation, newspaper, day-end card, HUD, subtitles. A QA bot (`DebugTurnBot`) played 3 full days in Play Mode with no console errors
-- M5 Discovery: pending
-- M6 Full game (D3.1): pending
+- M5 Discovery: done. Click neighbours with a visible reaction to note it (subtitles), cork board fills with traits, chips and red strings, slip footers show observed patterns, perceived neighbourhood in HUD, newspaper and final report. Newspaper never states causes
+- M6 Full game (D3.1): done. Main menu, how-to card, 3 days with scripted posts, day objectives, 5 endings (headless-verified), final report with coesao/tensao chart, tutorial hints, restart. A bot played the whole game and restarted without console errors
 - M7 Polish and build: pending
 
 ## How to run things
@@ -41,4 +41,4 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 
 ## Next step
 
-M5: cork board view (traits, relations, category patterns), observation polish. Then M6: menu, ending report with chart, restart.
+M7: procedural audio, lighting polish, balance with the headless simulator, macOS build, 10+ minutes of play.

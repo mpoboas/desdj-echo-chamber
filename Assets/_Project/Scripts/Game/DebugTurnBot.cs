@@ -8,6 +8,7 @@ namespace EchoChamber
         public DecisionMode[] cycle = { DecisionMode.Amplify, DecisionMode.Hide, DecisionMode.Normal };
         public bool observe = true;
         public bool closeOverlays = true;
+        public bool stopAtEnd = true;
         public float actionDelay = 0.4f;
 
         private int next;
@@ -25,7 +26,7 @@ namespace EchoChamber
 
             if (OverlayView.Instance != null && OverlayView.Instance.IsOpen)
             {
-                if (closeOverlays)
+                if (closeOverlays && !(stopAtEnd && sim.Phase == GamePhase.End))
                 {
                     OverlayView.Instance.InvokePrimary();
                     wait = 0.5f;

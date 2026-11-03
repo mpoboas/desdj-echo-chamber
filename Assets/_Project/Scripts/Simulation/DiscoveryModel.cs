@@ -19,6 +19,9 @@ namespace EchoChamber
             t = tuning;
         }
 
+        /// <summary>Incremented every time something new is noted, so views can redraw lazily.</summary>
+        public int Version { get; private set; }
+
         public int RelationCount => relations.Count;
 
         public static string RelationKey(int a, int b)
@@ -64,6 +67,7 @@ namespace EchoChamber
             co[r.Kind] = count + 1;
             result.Noted = true;
             result.Reaction = r;
+            Version++;
 
             if (!n.TraitKnown)
             {

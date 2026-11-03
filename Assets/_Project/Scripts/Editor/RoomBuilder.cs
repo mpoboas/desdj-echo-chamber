@@ -397,6 +397,8 @@ namespace EchoChamber.Editor
             var boardQuad = Quad("BoardSurface", new Vector2(1.12f, 0.77f), TextureGen.TexMat("tex_cork", Vector2.one, 0.95f), Vector3.zero, boardAnchor.transform);
             Hit(boardQuad, new Vector3(1f, 1f, 0.1f), Vector3.zero, ClickAction.Zoom, "Quadro dos vizinhos (clica para ver)", ViewId.Board);
             res.boardAnchor = boardAnchor.transform;
+            var cork = boardAnchor.AddComponent<CorkBoardView>();
+            cork.disc = TextureGen.Spr("spr_disc");
 
             // pneumatic tube
             var tubeGlass = Mat("#DDE8F0", 0.05f, 0f, null, 1f, 0.28f);

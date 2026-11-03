@@ -122,6 +122,7 @@ namespace EchoChamber
 
         public void ResetForNewGame()
         {
+            if (sim != null) sim.EventRaised -= OnSimEvent;
             sim = GameManager.Instance.Sim;
             sim.EventRaised += OnSimEvent;
             ClearSlips();
