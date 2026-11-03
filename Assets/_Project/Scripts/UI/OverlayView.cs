@@ -96,7 +96,7 @@ namespace EchoChamber
         {
             Canvas.ForceUpdateCanvases();
             LayoutRebuilder.ForceRebuildLayoutImmediate(content);
-            float h = Mathf.Clamp(content.rect.height, 360f, 960f);
+            float h = Mathf.Clamp(LayoutUtility.GetPreferredHeight(content), 360f, 960f);
             paper.sizeDelta = new Vector2(paper.sizeDelta.x, h);
         }
 

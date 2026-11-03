@@ -115,6 +115,9 @@ namespace EchoChamber.Editor
             camGo.transform.position = rig.views[0].position;
             camGo.transform.rotation = Quaternion.LookRotation((rig.views[0].lookAt - rig.views[0].position).normalized);
 
+            // Audio (procedural)
+            new GameObject("Audio").AddComponent<ProceduralAudio>();
+
             // Input and UI roots
             var inputGo = new GameObject("RoomInput");
             var ri = inputGo.AddComponent<RoomInput>();

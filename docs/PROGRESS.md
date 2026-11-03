@@ -2,43 +2,48 @@
 
 Branch: `feature/unity-port`. Resume here after any interruption (also read `git log`).
 
-## Milestones
+## Final status (all milestones done)
 
-- M0 Project setup: done
-- M1 Simulation (pure C#, tests, headless): done. 52 EditMode tests green, all 5 endings reachable headless
-- M2 World: done (street, square, crosswalks, traffic lights, NavMesh, 14 neighbours following the simulation, day/night). Verified in Play Mode
-- M3 Control room: done (room built by code, KayKit furniture, interactive objects, Cinemachine rig with 6 views, live CRT map via RenderTexture, mixer, lever, stamps, clock). Verified in Play Mode
-- M4 Full turn (D2.2): done. Printer slips, stamps A/O/N, tube, lever, 26 s simulation, newspaper, day-end card, HUD, subtitles. A QA bot (`DebugTurnBot`) played 3 full days in Play Mode with no console errors
-- M5 Discovery: done. Click neighbours with a visible reaction to note it (subtitles), cork board fills with traits, chips and red strings, slip footers show observed patterns, perceived neighbourhood in HUD, newspaper and final report. Newspaper never states causes
-- M6 Full game (D3.1): done. Main menu, how-to card, 3 days with scripted posts, day objectives, 5 endings (headless-verified), final report with coesao/tensao chart, tutorial hints, restart. A bot played the whole game and restarted without console errors
-- M7 Polish and build: pending
+| Milestone | State | Notes |
+|---|---|---|
+| M0 Project setup | done | folders, asmdefs, Cinemachine, glTFast, Newtonsoft, `.gitignore` |
+| M1 Simulation | done | pure C# (`EchoChamber.Simulation`), 52 EditMode tests green, headless 3-day runner |
+| M2 World | done | street, square, crosswalks, traffic lights, NavMesh, 14 neighbours driven by the utility AI, day/night |
+| M3 Control room | done | room built by code, interactive objects, Cinemachine rig with 6 views, live CRT map |
+| M4 Full turn (D2.2) | done | printer slips, stamps A/O/N, tube, lever, 26 s simulation, newspaper, HUD |
+| M5 Discovery | done | click reactions to note them, cork board, perceived neighbourhood, newspaper without causes |
+| M6 Full game (D3.1) | done | menu, 3 days, objectives, 5 endings, final report with chart, tutorial hints, restart |
+| M7 Polish and build | done | procedural audio, time-of-day lighting, balance report, macOS build |
 
-## How to run things
+Completion criteria check:
 
-- Tests: Unity menu `Echo Chamber/Run EditMode Tests`, result in `Logs/test-results.txt`.
-- Re-import docs/data into assets: menu `Echo Chamber/Import Content From docs-data`.
-- Headless run: `HeadlessRunner.Run(content, tuning, PolicyLibrary.TargetSleep(), seed)` (about 14 ms per full 3-day game).
+- Menu, 3 days, 9 turns, no console errors: a QA bot (`DebugTurnBot`) played the full game twice in Play Mode through the menu (including restart) with no errors.
+- 5 endings reachable: confirmed by the headless simulator (`docs/BALANCE.md`, unit tests `EveryEndingIsReachableWithAScriptedPlayer`).
+- Discovery and "bairro percebido": HUD pill, newspaper, final report, cork board.
+- macOS build: `Builds/macOS/EchoChamber.app` (214 MB) builds with 0 errors and launches (Metal, Apple M4) with no exceptions in `Player.log`. Not visually checked inside the build because the Mac screen was locked during the check; Play Mode in the Editor was checked with screenshots.
+- 10 minutes of play: about 90 s per turn (printing 3 to 4 slips, decision time, 26 s simulation, newspaper) so 9 turns are 12 to 14 minutes plus intro and day cards. Not timed with a human.
 
-## Headless results (40 seeds each)
+## How to run everything
 
-- all-normal: Alive 100%
-- all-amplify: mostly Locked
-- all-hide: Alive 100%, revenue 0
-- target-sleep: Sleep 24, Alive 15, Gentry 1
-- target-locked: Locked 39
-- target-alive: Alive 40
-- target-balance: Balance 30, Alive 7, Sleep 2, Locked 1
-- target-gentry: Gentry 21, Alive 9, Locked 7, Balance 3
+- Play: open `Assets/_Project/Scenes/Main.unity` and press Play (needs Unity 6000.6.1f1). Or run the build `Builds/macOS/EchoChamber.app`.
+- Rebuild the scene from code: menu `Echo Chamber/Build Main Scene` (street, room, camera rig, UI, audio, NavMesh). Manual scene edits are lost on rebuild; change the builders in `Assets/_Project/Scripts/Editor`.
+- Re-import content: menu `Echo Chamber/Import Content From docs-data` (`docs/data/*.json` to `GameContent` asset). Tuning numbers live in `Assets/_Project/Data/TuningConfig.asset`.
+- Tests: menu `Echo Chamber/Run EditMode Tests`, results in `Logs/test-results.txt` (52 tests).
+- Balance report: menu `Echo Chamber/Write Balance Report` writes `docs/BALANCE.md` (about 1 min).
+- Console mirror: `Logs/console.txt` (written by `ConsoleCapture`).
+- Build: `unity command build run --target StandaloneOSX --outputPath <path>.app --confirm true`, then poll `unity command build status`.
+- QA bot: add `DebugTurnBot` to the GameManager object in Play Mode (not in the scene by default) and raise `GameManager.timeScale`.
+- Controls: A amplify, O hide, N normal, Space lever, Esc back to desk view, mouse for everything else. Debug: `GameManager.timeScale`.
 
-## Known problems
+## Known problems and future improvements
 
-- Reaction symbols use ASCII glyphs; prototype used heart/euro icons.
-- Characters look good but small from the window view (same scale as prototype).
+- Reaction symbols use ASCII glyphs (`!`, `#`, `+`, `$`, `z`) instead of the prototype heart and euro icons.
+- Room extras not ported: dust motes, light shafts, cables, framed poster artwork (posters are flat colours).
+- Characters are small from the window view (same scale as the prototype). Window view camera shows the building edge at the bottom.
 - Square string lights at night were not confirmed visually.
-- Room extras not ported yet: dust motes, light shafts, cables.
-- Window view camera sits outside the building and shows the wall edge at the bottom.
-- all-normal ends Alive with day revenue under target (cohesion high). Balance pass planned for M7.
-
-## Next step
-
-M7: procedural audio, lighting polish, balance with the headless simulator, macOS build, 10+ minutes of play.
+- Relations are discovered generously: one observation can reveal many pairs (same rule as the prototype), so the cork board can get crowded with red strings late in the game.
+- Doing nothing (all NORMAL) ends as "Bairro vivo, app em perda" every time (see `docs/BALANCE.md`), as in the prototype numbers.
+- The Unity AI generators (audio, image) report `NoSubscription` for this account, so audio is synthesised in code. Sound design is functional, not polished; levels were not checked by ear.
+- URP logs that Depth of Field and Panini post-process shaders are stripped in the build. They are not used.
+- Windows build not done (only the macOS module is installed).
+- `unity test` cannot run while the Editor has the project open, hence the menu-based test runner.
