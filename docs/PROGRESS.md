@@ -6,7 +6,7 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 
 - M0 Project setup: done
 - M1 Simulation (pure C#, tests, headless): done. 52 EditMode tests green, all 5 endings reachable headless
-- M2 World: next
+- M2 World: done (street, square, crosswalks, traffic lights, NavMesh, 14 neighbours following the simulation, day/night). Verified in Play Mode
 - M3 Control room: pending
 - M4 Full turn (D2.2): pending
 - M5 Discovery: pending
@@ -32,8 +32,11 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 
 ## Known problems
 
+- Reaction symbols use ASCII glyphs; prototype used heart/euro icons.
+- Characters look good but small from the window view (same scale as prototype).
+- Square string lights at night were not confirmed visually.
 - all-normal ends Alive with day revenue under target (cohesion high). Balance pass planned for M7.
 
 ## Next step
 
-M2: street world scene (GLB import, WorldMap, NavMesh, neighbours bound to the simulation).
+M3: control room (build in `RoomBuilder`), camera rig with views, interactive objects.
