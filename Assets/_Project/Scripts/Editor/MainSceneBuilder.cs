@@ -2,6 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using Unity.AI.Navigation;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -50,8 +51,6 @@ namespace EchoChamber.Editor
             camGo.AddComponent<AudioListener>();
             var urpCam = camGo.AddComponent<UniversalAdditionalCameraData>();
             urpCam.renderPostProcessing = true;
-            camGo.transform.position = P(0f, 2.25f, -3.4f);
-            camGo.transform.LookAt(P(0f, -0.9f, -12.9f));
 
             // Lights
             var sunGo = new GameObject("Sun");
@@ -84,7 +83,48 @@ namespace EchoChamber.Editor
             BuildPostProcessing();
 
             // Street
+            TextureGen.GenerateAll();
             var street = StreetBuilder.Build(content.content, tuning.data);
+
+            // Room
+            var room = RoomBuilder.Build(content.content, tuning.data, null);
+            var toggle = room.root.gameObject.AddComponent<GlassClickToggle>();
+            toggle.glass = room.glass;
+
+            // Camera rig (Cinemachine virtual cameras for each view)
+            var rigGo = new GameObject("CameraRig");
+            var rig = rigGo.AddComponent<CameraRig>();
+            rig.mainCamera = cam;
+            var viewDefs = new (ViewId id, Vector3 p, Vector3 l)[]
+            {
+                (ViewId.Home, new Vector3(0f, 1.9f, 2.25f), new Vector3(0f, 1.0f, -1.0f)),
+                (ViewId.Crt, new Vector3(-0.6f, 1.2f, 0.62f), new Vector3(-0.93f, 1.12f, -0.2f)),
+                (ViewId.Mixer, new Vector3(-0.68f, 1.42f, 0.95f), new Vector3(-0.74f, 0.82f, 0.55f)),
+                (ViewId.Board, new Vector3(-0.7f, 1.52f, -0.25f), new Vector3(-1.75f, 1.5f, -0.25f)),
+                (ViewId.Window, new Vector3(0f, 2.25f, -3.4f), new Vector3(0f, -0.9f, -12.9f)),
+                (ViewId.Stand, new Vector3(0f, 1.55f, 1.05f), new Vector3(0f, 0.99f, 0.33f)),
+            };
+            foreach (var vd in viewDefs)
+            {
+                var vgo = new GameObject("VCam_" + vd.id);
+                vgo.transform.SetParent(rigGo.transform, false);
+                var vcam = vgo.AddComponent<CinemachineCamera>();
+                rig.views.Add(new CameraRig.View { id = vd.id, position = P(vd.p.x, vd.p.y, vd.p.z), lookAt = P(vd.l.x, vd.l.y, vd.l.z), vcam = vcam });
+            }
+            rig.Setup();
+            foreach (var v in rig.views) v.vcam.Priority.Value = v.id == ViewId.Home ? 20 : 0;
+            camGo.transform.position = rig.views[0].position;
+            camGo.transform.rotation = Quaternion.LookRotation((rig.views[0].lookAt - rig.views[0].position).normalized);
+
+            // Input and UI roots
+            var inputGo = new GameObject("RoomInput");
+            var ri = inputGo.AddComponent<RoomInput>();
+            ri.cam = cam;
+            var uiGo = new GameObject("UI");
+            uiGo.AddComponent<TooltipView>();
+            uiGo.AddComponent<SubtitleView>();
+            var mixerView = room.mixer;
+            mixerView.cam = cam;
 
             // Time of day
             var todGo = new GameObject("TimeOfDay");
@@ -93,6 +133,8 @@ namespace EchoChamber.Editor
             tod.sun = sun;
             tod.windowLight = win;
             tod.streetLights = street.streetLights;
+            tod.pendantLight = room.pendantLight;
+            tod.deskLamp = room.deskLamp;
             tod.presets.Add(new TimeOfDayController.Preset
             {
                 sky = Hex("#BFD9EC"), sun = Hex("#FFF1DC"), sunIntensity = 1.2f, ambient = new Color(0.52f, 0.56f, 0.64f),
@@ -116,6 +158,8 @@ namespace EchoChamber.Editor
             var scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
             EditorBuildSettings.scenes = scenes;
             AssetDatabase.SaveAssets();
+            // Re-open from disk so the in-memory scene has fresh asset references (imports above can invalidate them).
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
             Debug.Log("[EchoChamber] Built " + ScenePath);
         }
 

@@ -7,7 +7,7 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 - M0 Project setup: done
 - M1 Simulation (pure C#, tests, headless): done. 52 EditMode tests green, all 5 endings reachable headless
 - M2 World: done (street, square, crosswalks, traffic lights, NavMesh, 14 neighbours following the simulation, day/night). Verified in Play Mode
-- M3 Control room: pending
+- M3 Control room: done (room built by code, KayKit furniture, interactive objects, Cinemachine rig with 6 views, live CRT map via RenderTexture, mixer, lever, stamps, clock). Verified in Play Mode
 - M4 Full turn (D2.2): pending
 - M5 Discovery: pending
 - M6 Full game (D3.1): pending
@@ -35,8 +35,10 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 - Reaction symbols use ASCII glyphs; prototype used heart/euro icons.
 - Characters look good but small from the window view (same scale as prototype).
 - Square string lights at night were not confirmed visually.
+- Room extras not ported yet: dust motes, light shafts, cables.
+- Window view camera sits outside the building and shows the wall edge at the bottom.
 - all-normal ends Alive with day revenue under target (cohesion high). Balance pass planned for M7.
 
 ## Next step
 
-M3: control room (build in `RoomBuilder`), camera rig with views, interactive objects.
+M4: TurnManager (Decide/Publish/Simulate/Report), slips from the printer, HUD, newspaper overlay, estimated revenue on the slip.

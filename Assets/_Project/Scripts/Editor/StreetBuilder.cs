@@ -302,6 +302,10 @@ namespace EchoChamber.Editor
                 agent.avoidancePriority = 30 + i;
                 agent.enabled = false;
 
+                var rc = go.AddComponent<RoomClickable>();
+                rc.action = ClickAction.Neighbour;
+                rc.neighbourIndex = i;
+                rc.tooltip = "Observar " + nd.name;
                 var col = go.AddComponent<CapsuleCollider>();
                 col.center = new Vector3(0f, 0.42f, 0f);
                 col.radius = 0.2f;
