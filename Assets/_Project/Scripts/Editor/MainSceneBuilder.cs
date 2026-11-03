@@ -37,7 +37,6 @@ namespace EchoChamber.Editor
             var gm = host.AddComponent<GameManager>();
             gm.content = content;
             gm.tuning = tuning;
-            host.AddComponent<DebugAutoplay>();
 
             // Camera
             var camGo = new GameObject("Main Camera");
@@ -123,6 +122,23 @@ namespace EchoChamber.Editor
             var uiGo = new GameObject("UI");
             uiGo.AddComponent<TooltipView>();
             uiGo.AddComponent<SubtitleView>();
+            uiGo.AddComponent<OverlayView>();
+            uiGo.AddComponent<HudView>();
+            uiGo.AddComponent<GameFlow>();
+            uiGo.AddComponent<ObservationController>();
+            UiFactoryEditor.EnsureEventSystem();
+            var tm = uiGo.AddComponent<TurnManager>();
+            tm.printerSlot = room.printerSlot;
+            tm.printerRoot = room.printerRoot;
+            tm.standPose = room.standPose;
+            tm.tubeMouth = room.tubeMouth;
+            tm.trayPoint = room.trayPoint;
+            tm.slipParent = room.root;
+            tm.printer = room.printer;
+            tm.stamps = room.stamps;
+            tm.lever = room.lever;
+            tm.tube = room.tube;
+            tm.paperEdge = Mat("#EEE7D7", 0.95f);
             var mixerView = room.mixer;
             mixerView.cam = cam;
 

@@ -30,6 +30,8 @@ namespace EchoChamber.Editor
             public Material paperMat;
             public Transform slipRoot;
             public Transform trayPoint;
+            public PrinterAnimator printer;
+            public TubeView tube;
             public Transform printerRoot;
             public List<Renderer> lampHeads = new List<Renderer>();
         }
@@ -270,6 +272,7 @@ namespace EchoChamber.Editor
             pc.carriage = carriage.transform;
             pc.platenKnob = knob.transform;
             res.printerRoot = printer;
+            res.printer = pc;
 
             // reading stand
             var stand = G("Stand", t, new Vector3(0f, dy, 0.32f));
@@ -400,6 +403,13 @@ namespace EchoChamber.Editor
             Cyl("Tube", 0.065f, 0.065f, 1.4f, tubeGlass, P(1.58f, 1.68f, -0.42f), t, false);
             foreach (float y in new[] { 1.06f, 1.5f, 1.95f, 2.36f }) Cyl("TubeRing", 0.075f, 0.075f, 0.04f, pipe, P(1.58f, y, -0.42f), t);
             foreach (float y in new[] { 1.5f, 2.2f }) B("TubeBracket", t, new Vector3(0.16f, 0.035f, 0.035f), new Vector3(1.71f, y, -0.42f), pipe);
+            var tubeRoot = new GameObject("TubeView");
+            tubeRoot.transform.SetParent(t, false);
+            var capsule = Cyl("Capsule", 0.05f, 0.05f, 0.14f, Mat("#C9A86A", 0.3f, 0.8f), P(1.58f, 1.1f, -0.42f), tubeRoot.transform);
+            capsule.SetActive(false);
+            var tv = tubeRoot.AddComponent<TubeView>();
+            tv.capsule = capsule.transform;
+            res.tube = tv;
             var mouth = Cyl("TubeMouth", 0.1f, 0.075f, 0.14f, pipe, P(1.58f, 0.98f, -0.42f), t);
             res.tubeMouth = mouth.transform;
             Cyl("TubeTop", 0.065f, 0.065f, 0.4f, pipe, P(1.58f, 2.55f, -0.42f), t);

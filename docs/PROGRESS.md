@@ -8,7 +8,7 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 - M1 Simulation (pure C#, tests, headless): done. 52 EditMode tests green, all 5 endings reachable headless
 - M2 World: done (street, square, crosswalks, traffic lights, NavMesh, 14 neighbours following the simulation, day/night). Verified in Play Mode
 - M3 Control room: done (room built by code, KayKit furniture, interactive objects, Cinemachine rig with 6 views, live CRT map via RenderTexture, mixer, lever, stamps, clock). Verified in Play Mode
-- M4 Full turn (D2.2): pending
+- M4 Full turn (D2.2): done. Printer slips, stamps A/O/N, tube, lever, 26 s simulation, newspaper, day-end card, HUD, subtitles. A QA bot (`DebugTurnBot`) played 3 full days in Play Mode with no console errors
 - M5 Discovery: pending
 - M6 Full game (D3.1): pending
 - M7 Polish and build: pending
@@ -41,4 +41,4 @@ Branch: `feature/unity-port`. Resume here after any interruption (also read `git
 
 ## Next step
 
-M4: TurnManager (Decide/Publish/Simulate/Report), slips from the printer, HUD, newspaper overlay, estimated revenue on the slip.
+M5: cork board view (traits, relations, category patterns), observation polish. Then M6: menu, ending report with chart, restart.

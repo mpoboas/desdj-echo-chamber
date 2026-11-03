@@ -19,3 +19,6 @@ Format: date, decision, reason.
 - 2026-11-03: Unity AI generators report `NoSubscription` in this account, so audio (M7) will be synthesised procedurally in code (WAV generation), not generated with Unity AI.
 - 2026-11-03: The scene is built by code (`Echo Chamber/Build Main Scene`, `MainSceneBuilder` + `StreetBuilder`), not hand-placed. Re-running it rebuilds Main.unity from scratch, so manual scene edits must go in the builder.
 - 2026-11-03: Play Mode in the background needs `set_run_in_background` + auto tick via the MCP, otherwise frames do not advance while the Editor is unfocused.
+- 2026-11-03: Slips are 3D boxes with a world-space uGUI canvas on top (Text/Image), not canvas textures. The print reveal uses a paper-coloured cover that shrinks line by line instead of a clipping plane; the printer body hides the part still inside.
+- 2026-11-03: The CRT is a uGUI hierarchy rendered by an orthographic camera into a RenderTexture (`CRTMonitor`), updated at 20 Hz. Neighbours show as neutral dots only.
+- 2026-11-03: `DebugTurnBot` plays the game for QA (menu-free). It is not added to the scene by default.
