@@ -1,0 +1,750 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea42d9cac791469584d8516ac640da1, type: 3}
+  m_Name: GameContent
+  m_EditorClassIdentifier: EchoChamber.Game::EchoChamber.GameContent
+  content:
+    pool:
+    - id: 
+      category: 0
+      text: "Viram aquele carro preto parado na Rua das Flores h\xE1 tr\xEAs dias? Ningu\xE9m sabe de quem \xE9."
+      author: 
+      effects:
+        medo: 2
+        emp: 0
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 1.4
+      livraria: 0
+    - id: 
+      category: 0
+      text: "Dizem que as rendas v\xE3o subir no bairro todo. Preparem-se."
+      author: 
+      effects:
+        medo: 2
+        emp: 0
+        desc: 2
+        cons: 0
+        apat: 0
+      value: 1.5
+      livraria: 0
+    - id: 
+      category: 0
+      text: "A \xE1gua da fonte da pra\xE7a est\xE1 contaminada? Algu\xE9m confirma?"
+      author: 
+      effects:
+        medo: 3
+        emp: 0
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 1.6
+      livraria: 0
+    - id: 
+      category: 0
+      text: "Mais um assalto ao multibanco da esquina. Onde est\xE1 a pol\xEDcia?"
+      author: 
+      effects:
+        medo: 3
+        emp: 0
+        desc: 2
+        cons: 0
+        apat: 0
+      value: 1.7
+      livraria: 0
+    - id: 
+      category: 0
+      text: "Vi gente estranha a tirar fotos \xE0s portas dos pr\xE9dios. Cuidado."
+      author: 
+      effects:
+        medo: 3
+        emp: 0
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 1.5
+      livraria: 0
+    - id: 
+      category: 1
+      text: "Sopa solid\xE1ria no s\xE1bado na Junta. Tragam tupperwares!"
+      author: 
+      effects:
+        medo: 0
+        emp: 3
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.6
+      livraria: 0
+    - id: 
+      category: 1
+      text: Perdi o gato (malhado, chama-se Tostas). Se o virem, avisem!
+      author: 
+      effects:
+        medo: 0
+        emp: 2
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.8
+      livraria: 0
+    - id: 
+      category: 1
+      text: "Precisamos de volunt\xE1rios para limpar o jardim da pra\xE7a."
+      author: 
+      effects:
+        medo: 0
+        emp: 2
+        desc: -1
+        cons: 0
+        apat: 0
+      value: 0.5
+      livraria: 0
+    - id: 
+      category: 1
+      text: Obrigada a quem me ajudou com as compras ontem. Bairro bom.
+      author: 
+      effects:
+        medo: 0
+        emp: 3
+        desc: 0
+        cons: 0
+        apat: -1
+      value: 0.55
+      livraria: 0
+    - id: 
+      category: 1
+      text: "Troca de livros e sementes no caf\xE9, quinta ao fim da tarde."
+      author: 
+      effects:
+        medo: 0
+        emp: 2
+        desc: 0
+        cons: 0
+        apat: -1
+      value: 0.5
+      livraria: 1
+    - id: 
+      category: 2
+      text: "Top 10 c\xE3es mais fofos do bairro (o n\xBA 3 vai surpreender-te)."
+      author: 
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 0
+        apat: 2
+      value: 1.3
+      livraria: 0
+    - id: 
+      category: 2
+      text: "Desafio: tr\xEAs francesinhas seguidas. Quem alinha?"
+      author: 
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 1
+        apat: 2
+      value: 1.4
+      livraria: 0
+    - id: 
+      category: 2
+      text: "V\xEDdeo: pombo rouba uma nata na pastelaria."
+      author: 
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 0
+        apat: 2
+      value: 1.5
+      livraria: 0
+    - id: 
+      category: 2
+      text: "Sondagem: tripas ou francesinha? Vota j\xE1."
+      author: 
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 0
+        apat: 1
+      value: 1.2
+      livraria: 0
+    - id: 
+      category: 3
+      text: "Leve 2, pague 1 na Mercearia Central at\xE9 domingo!"
+      author: Mercearia Central
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 3
+        apat: 0
+      value: 0.7
+      livraria: 0
+    - id: 
+      category: 3
+      text: 'MegaShop online: entrega em 30 min, nem precisas de sair de casa.'
+      author: MegaShop
+      effects:
+        medo: 0
+        emp: -1
+        desc: 0
+        cons: 2
+        apat: 1
+      value: 0.9
+      livraria: 0
+    - id: 
+      category: 3
+      text: "Gin\xE1sio low-cost abre a 2 km. Inscri\xE7\xE3o gr\xE1tis."
+      author: FitGo
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 2
+        apat: 0
+      value: 0.6
+      livraria: 0
+    - id: 
+      category: 4
+      text: "Reuni\xE3o da Junta quinta \xE0s 19h: or\xE7amento para a pra\xE7a."
+      author: Junta de Freguesia
+      effects:
+        medo: 0
+        emp: 1
+        desc: -1
+        cons: 0
+        apat: 0
+      value: 0.4
+      livraria: 0
+    - id: 
+      category: 4
+      text: "Obras na Rua do Bonfim at\xE9 sexta. Aten\xE7\xE3o ao tr\xE2nsito."
+      author: Junta de Freguesia
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.3
+      livraria: 0
+    - id: 
+      category: 4
+      text: "A Letra Viva tem leitura para crian\xE7as amanh\xE3 \xE0s 17h."
+      author: Livraria Letra Viva
+      effects:
+        medo: 0
+        emp: 2
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.4
+      livraria: 1
+    - id: 
+      category: 4
+      text: "Autocarro 207 passa a ter hor\xE1rio at\xE9 \xE0 meia-noite."
+      author: STCP
+      effects:
+        medo: 0
+        emp: 1
+        desc: -1
+        cons: 0
+        apat: 0
+      value: 0.4
+      livraria: 0
+    scripted:
+    - id: t1
+      category: 1
+      text: "Sopa solid\xE1ria no s\xE1bado na Junta. Tragam tupperwares!"
+      author: Dona Rosa
+      effects:
+        medo: 0
+        emp: 3
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.6
+      livraria: 0
+    - id: t2
+      category: 2
+      text: "V\xEDdeo: pombo rouba uma nata na pastelaria."
+      author: Tiago
+      effects:
+        medo: 0
+        emp: 0
+        desc: 0
+        cons: 0
+        apat: 2
+      value: 1.5
+      livraria: 0
+    - id: t3
+      category: 0
+      text: "Viram aquele carro preto parado na Rua das Flores h\xE1 tr\xEAs dias? Ningu\xE9m sabe de quem \xE9."
+      author: "In\xEAs"
+      effects:
+        medo: 2
+        emp: 0
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 1.4
+      livraria: 0
+    - id: liv1
+      category: 4
+      text: "A Letra Viva pode fechar no fim do m\xEAs. Faltam clientes."
+      author: Sr. Armando
+      effects:
+        medo: 0
+        emp: 2
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 0.8
+      livraria: 2
+    - id: liv2
+      category: 0
+      text: "A Junta j\xE1 vendeu o pr\xE9dio da livraria a um fundo estrangeiro!"
+      author: Hugo
+      effects:
+        medo: 1
+        emp: 0
+        desc: 4
+        cons: 0
+        apat: 0
+      value: 1.8
+      livraria: 0
+    - id: liv3
+      category: 1
+      text: Vamos todos comprar um livro esta semana? #SalvarALetraViva
+      author: Leonor
+      effects:
+        medo: 0
+        emp: 3
+        desc: 0
+        cons: 1
+        apat: 0
+      value: 0.8
+      livraria: 3
+    - id: liv4
+      category: 3
+      text: "Livros a 1 \u20AC na MegaShop. Porqu\xEA pagar mais?"
+      author: MegaShop
+      effects:
+        medo: 0
+        emp: -1
+        desc: 0
+        cons: 2
+        apat: 0
+      value: 1
+      livraria: -2
+    - id: liv5
+      category: 0
+      text: "Presidente da Junta visto a jantar com promotores imobili\xE1rios."
+      author: Rui
+      effects:
+        medo: 0
+        emp: 0
+        desc: 3
+        cons: 0
+        apat: 0
+      value: 1.6
+      livraria: 0
+    - id: r1
+      category: 0
+      text: "ALERTA: gangue a assaltar casas no bairro \xE0 noite. Fechem tudo!"
+      author: "F\xE1tima"
+      effects:
+        medo: 4
+        emp: 0
+        desc: 2
+        cons: 0
+        apat: 0
+      value: 2
+      livraria: 0
+    - id: r2
+      category: 0
+      text: "Fundo imobili\xE1rio quer transformar a pra\xE7a em parque de estacionamento pago."
+      author: Nuno
+      effects:
+        medo: 2
+        emp: 0
+        desc: 3
+        cons: 0
+        apat: 0
+      value: 1.7
+      livraria: 0
+    - id: r3
+      category: 4
+      text: "PSP desmente vaga de assaltos: zero ocorr\xEAncias esta semana."
+      author: PSP Porto
+      effects:
+        medo: -3
+        emp: 0
+        desc: -1
+        cons: 0
+        apat: 0
+      value: 0.5
+      livraria: 0
+    - id: r4
+      category: 1
+      text: "Jantar de rua na pra\xE7a no s\xE1bado. Cada um traz um prato."
+      author: Dona Rosa
+      effects:
+        medo: -1
+        emp: 4
+        desc: 0
+        cons: 0
+        apat: 0
+      value: 0.8
+      livraria: 0
+    - id: r5
+      category: 1
+      text: "Abaixo-assinado para manter a pra\xE7a p\xFAblica. J\xE1 vamos em 200!"
+      author: Beatriz
+      effects:
+        medo: 0
+        emp: 2
+        desc: 1
+        cons: 0
+        apat: 0
+      value: 0.9
+      livraria: 0
+    - id: r6
+      category: 3
+      text: "Condom\xEDnio Pra\xE7a Nova: apartamentos de luxo, reserve j\xE1."
+      author: "Pra\xE7a Nova Living"
+      effects:
+        medo: 0
+        emp: -2
+        desc: 0
+        cons: 2
+        apat: 0
+      value: 0.8
+      livraria: 0
+    days:
+    - name: "Dia 1 \xB7 Segunda"
+      target: 140
+      boss: "Bom dia. Sou o Dr. Valente, da Vizinhan\xE7a S.A. Quero 140 euros de publicidade hoje. Como l\xE1 chegas \xE9 contigo."
+      brief: "\xC9s o algoritmo da app <b>Vizinhan\xE7a</b>. Ningu\xE9m te v\xEA, mas tudo o que 14 vizinhos sabem do bairro passa pela tua mesa."
+      turns:
+      - entries:
+        - kind: 0
+          postId: t1
+          count: 1
+        - kind: 0
+          postId: t2
+          count: 1
+        - kind: 0
+          postId: t3
+          count: 1
+      - entries:
+        - kind: 2
+          postId: 
+          count: 3
+        - kind: 1
+          postId: 
+          count: 1
+      - entries:
+        - kind: 2
+          postId: 
+          count: 4
+    - name: "Dia 2 \xB7 Quarta"
+      target: 220
+      boss: "A Letra Viva est\xE1 nas lonas e o bairro anda agitado. \xD3ptimo para os cliques. Quero 220 euros, mas se a tens\xE3o passar dos 70% os anunciantes fogem."
+      brief: "A <b>Livraria Letra Viva</b> est\xE1 a perder clientes e corre o boato de que a Junta vendeu o pr\xE9dio."
+      turns:
+      - entries:
+        - kind: 0
+          postId: liv1
+          count: 1
+        - kind: 2
+          postId: 
+          count: 3
+      - entries:
+        - kind: 0
+          postId: liv2
+          count: 1
+        - kind: 0
+          postId: liv3
+          count: 1
+        - kind: 2
+          postId: 
+          count: 2
+      - entries:
+        - kind: 0
+          postId: liv5
+          count: 1
+        - kind: 0
+          postId: liv4
+          count: 1
+        - kind: 2
+          postId: 
+          count: 3
+    - name: "Dia 3 \xB7 S\xE1bado"
+      target: 260
+      boss: "\xDAltimo dia antes da reuni\xE3o com os investidores. 260 euros. Sem desculpas."
+      brief: "Um boato de assaltos vai rebentar e um fundo imobili\xE1rio quer a pra\xE7a. O bairro j\xE1 tem os h\xE1bitos que lhe deste."
+      turns:
+      - entries:
+        - kind: 0
+          postId: r1
+          count: 1
+        - kind: 2
+          postId: 
+          count: 4
+      - entries:
+        - kind: 0
+          postId: r2
+          count: 1
+        - kind: 0
+          postId: r3
+          count: 1
+        - kind: 2
+          postId: 
+          count: 3
+      - entries:
+        - kind: 0
+          postId: r4
+          count: 1
+        - kind: 0
+          postId: r5
+          count: 1
+        - kind: 0
+          postId: r6
+          count: 1
+        - kind: 2
+          postId: 
+          count: 3
+    neighbours:
+    - id: 0
+      name: Dona Rosa
+      trait: 3
+      traitLabel: "solid\xE1ria"
+      color: '#C0392B'
+      home: 2
+    - id: 1
+      name: Sr. Armando
+      trait: 1
+      traitLabel: "c\xE9tico"
+      color: '#6C5B7B'
+      home: 5
+    - id: 2
+      name: "In\xEAs"
+      trait: 0
+      traitLabel: ansiosa
+      color: '#E67E22'
+      home: 2
+    - id: 3
+      name: Tiago
+      trait: 2
+      traitLabel: viciado
+      color: '#16A085'
+      home: 5
+    - id: 4
+      name: Beatriz
+      trait: 3
+      traitLabel: "solid\xE1ria"
+      color: '#2980B9'
+      home: 2
+    - id: 5
+      name: Rui
+      trait: 1
+      traitLabel: "c\xE9tico"
+      color: '#7F8C8D'
+      home: 5
+    - id: 6
+      name: "F\xE1tima"
+      trait: 0
+      traitLabel: ansiosa
+      color: '#D35400'
+      home: 2
+    - id: 7
+      name: Joaquim
+      trait: 4
+      traitLabel: consumista
+      color: '#8E44AD'
+      home: 5
+    - id: 8
+      name: Carla
+      trait: 2
+      traitLabel: viciada
+      color: '#27AE60'
+      home: 2
+    - id: 9
+      name: Nuno
+      trait: 0
+      traitLabel: ansioso
+      color: '#C0392B'
+      home: 5
+    - id: 10
+      name: Leonor
+      trait: 5
+      traitLabel: leitora
+      color: '#2C3E50'
+      home: 2
+    - id: 11
+      name: Hugo
+      trait: 4
+      traitLabel: consumista
+      color: '#F39C12'
+      home: 5
+    - id: 12
+      name: Marta
+      trait: 5
+      traitLabel: leitora
+      color: '#1ABC9C'
+      home: 2
+    - id: 13
+      name: "Z\xE9 Manel"
+      trait: 2
+      traitLabel: viciado
+      color: '#34495E'
+      home: 5
+    places:
+    - id: 0
+      shortName: "CAF\xC9"
+      displayName: "Caf\xE9 Aurora"
+      rect:
+      - 40
+      - 70
+      - 150
+      - 150
+      door:
+      - 115
+      - 220
+      zone:
+      - 55
+      - 226
+      - 120
+      - 22
+      indoor: 0
+      open: 0
+      height: 2.2
+    - id: 1
+      shortName: MERCEARIA
+      displayName: Mercearia Central
+      rect:
+      - 205
+      - 85
+      - 135
+      - 135
+      door:
+      - 272
+      - 220
+      zone: []
+      indoor: 1
+      open: 0
+      height: 1.5
+    - id: 2
+      shortName: CASAS
+      displayName: Casas da esquina
+      rect:
+      - 355
+      - 55
+      - 120
+      - 180
+      door:
+      - 415
+      - 235
+      zone: []
+      indoor: 1
+      open: 0
+      height: 2.8
+    - id: 3
+      shortName: JUNTA
+      displayName: Junta de Freguesia
+      rect:
+      - 530
+      - 60
+      - 160
+      - 165
+      door:
+      - 610
+      - 225
+      zone:
+      - 545
+      - 232
+      - 130
+      - 18
+      indoor: 0
+      open: 0
+      height: 2.6
+    - id: 4
+      shortName: LIVRARIA
+      displayName: Livraria Letra Viva
+      rect:
+      - 705
+      - 75
+      - 130
+      - 145
+      door:
+      - 770
+      - 220
+      zone: []
+      indoor: 1
+      open: 0
+      height: 2
+    - id: 5
+      shortName: "PR\xC9DIO"
+      displayName: "Pr\xE9dio do fundo"
+      rect:
+      - 850
+      - 55
+      - 120
+      - 180
+      door:
+      - 910
+      - 235
+      zone: []
+      indoor: 1
+      open: 0
+      height: 2.5
+    - id: 6
+      shortName: "PRA\xC7A"
+      displayName: "Pra\xE7a"
+      rect:
+      - 120
+      - 395
+      - 760
+      - 215
+      door:
+      - 500
+      - 395
+      zone:
+      - 240
+      - 425
+      - 520
+      - 160
+      indoor: 0
+      open: 1
+      height: 0
+    endings:
+    - id: 0
+      headline: Bairro adormecido
+      text: "O feed ganhou: toda a gente est\xE1 no telem\xF3vel e ningu\xE9m foi \xE0 pra\xE7a quando o fundo imobili\xE1rio a comprou."
+    - id: 1
+      headline: Bairro trancado
+      text: "O medo fez o resto. Portas fechadas cedo, patrulhas na rua, vizinhos que j\xE1 n\xE3o se cumprimentam. Os assaltos nunca existiram."
+    - id: 2
+      headline: Bairro vivo, app em perda
+      text: "O jantar de rua encheu a pra\xE7a e o abaixo-assinado venceu. Os vizinhos falam uns com os outros, e por isso usam menos a app. Os investidores n\xE3o gostaram."
+    - id: 3
+      headline: "Equil\xEDbrio raro"
+      text: "Um bairro unido e uma plataforma que paga as contas. O sistema invis\xEDvel trabalhou para as pessoas."
+    - id: 4
+      headline: "Gentrifica\xE7\xE3o silenciosa"
+      text: "Nada explodiu, nada se salvou. A pra\xE7a mudou de dono sem que ningu\xE9m reparasse a tempo."

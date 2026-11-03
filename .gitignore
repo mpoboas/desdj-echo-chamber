@@ -225,3 +225,7 @@ __pycache__/
 *.bak
 *.orig
 *.rej
+
+# Screenshots saved by the MCP game_view tool (relative to Assets/)
+/[Aa]ssets/Temp/
+/[Aa]ssets/Temp.meta

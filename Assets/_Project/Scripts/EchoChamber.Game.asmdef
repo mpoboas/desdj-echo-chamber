@@ -1,0 +1,21 @@
+{
+    "name": "EchoChamber.Game",
+    "rootNamespace": "EchoChamber",
+    "references": [
+        "EchoChamber.Simulation",
+        "Unity.InputSystem",
+        "Unity.TextMeshPro",
+        "Unity.AI.Navigation",
+        "Unity.Cinemachine",
+        "Unity.ugui"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

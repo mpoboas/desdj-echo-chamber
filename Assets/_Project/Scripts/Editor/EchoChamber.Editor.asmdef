@@ -1,0 +1,30 @@
+{
+    "name": "EchoChamber.Editor",
+    "rootNamespace": "EchoChamber.Editor",
+    "references": [
+        "EchoChamber.Simulation",
+        "EchoChamber.Game",
+        "Unity.InputSystem",
+        "Unity.AI.Navigation",
+        "Unity.AI.Navigation.Editor",
+        "Unity.Cinemachine",
+        "Unity.ugui",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

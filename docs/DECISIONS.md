@@ -1,0 +1,24 @@
+# Decisions
+
+Format: date, decision, reason.
+
+- 2026-11-03: GLB sources live in `prototipo-assets/` (the docs say `assets/`). Reason: `assets/` would collide with `Assets/` on case-insensitive macOS. Imported copies go to `Assets/_Project/Art/`.
+- 2026-11-03: No Git LFS. Reason: `git-lfs` is not installed and the binaries are small (about 5 MB); the user chose to skip it. No `.gitattributes` LFS rules.
+- 2026-11-03: Commits stay local on `feature/unity-port`, no pushes, no co-author trailer. Author is the repo git identity. Reason: user instruction.
+- 2026-11-03: Simulation assembly (`EchoChamber.Simulation`) has `noEngineReferences`. Data classes are plain `[Serializable]` C# classes; ScriptableObjects in `EchoChamber.Game` only wrap them. Reason: keeps the simulation testable and runnable headless without a scene.
+- 2026-11-03: One `EchoChamber.Game` assembly covers `Scripts/Game`, `Scripts/Room` and `Scripts/UI`. Editor tooling is `EchoChamber.Editor`; tests are `EchoChamber.Tests` (EditMode). Reason: fewer cross-assembly references, same separation that matters (Simulation vs presentation).
+- 2026-11-03: Input uses the new Input System only (project already has `activeInputHandler: 1`).
+- 2026-11-03: Windows build is out of scope tonight: only the macOS Standalone module is installed. The completion build is macOS.
+- 2026-11-03: Content is one `GameContent` ScriptableObject (all posts, days, neighbours, places, endings) and one `TuningConfig` ScriptableObject, instead of one asset per post. Reason: fewer assets, same editability, import from docs/data/*.json is one click (`Echo Chamber/Import Content From docs-data`). TuningConfig is only created if missing so inspector edits survive re-imports.
+- 2026-11-03: The simulation owns the logical 2D positions and paths of the neighbours (1000x640 world, speed 62/s, crosswalk waits on the pedestrian light). The 3D NeighbourAgent follows the simulated position through WorldMap using a NavMeshAgent. Reason: contagion radii, relation discovery and headless balancing must not depend on the scene.
+- 2026-11-03: Enum members use English names (Sens/Com/Ent/Pub/Loc, Anxious/Sceptic/...). Player-facing Portuguese strings (event texts, reaction labels, trait descriptions) live in the Game layer, not in the simulation.
+- 2026-11-03: Unity MCP drops during domain reloads. Workflow: write files, `Assets/Refresh`, wait for `unity pipeline list` to show the server reachable, then call MCP tools. Tests run through the `Echo Chamber/Run EditMode Tests` menu item because `unity test` needs the project closed.
+- 2026-11-03: The 3D scene keeps the prototype coordinates but mirrors X (`WorldMap.FromProto`, `SceneBuilderUtil.P`), because glTFast mirrors X on import. This keeps the render identical to the prototype (camera looks along -Z, +X to the right of the screen in prototype space).
+- 2026-11-03: World-space text (signs, reaction glyphs) uses legacy `TextMesh` with the built-in LegacyRuntime font, and screen UI will use uGUI `Text`. Reason: dynamic font, covers Portuguese accents, no TextMeshPro essentials import needed.
+- 2026-11-03: Reaction glyphs are ASCII-safe (`!`, `#`, `+`, `$`, `z`, `..`) instead of the prototype symbols (heart, euro), because the built-in font may lack them.
+- 2026-11-03: Unity AI generators report `NoSubscription` in this account, so audio (M7) will be synthesised procedurally in code (WAV generation), not generated with Unity AI.
+- 2026-11-03: The scene is built by code (`Echo Chamber/Build Main Scene`, `MainSceneBuilder` + `StreetBuilder`), not hand-placed. Re-running it rebuilds Main.unity from scratch, so manual scene edits must go in the builder.
+- 2026-11-03: Play Mode in the background needs `set_run_in_background` + auto tick via the MCP, otherwise frames do not advance while the Editor is unfocused.
+- 2026-11-03: Slips are 3D boxes with a world-space uGUI canvas on top (Text/Image), not canvas textures. The print reveal uses a paper-coloured cover that shrinks line by line instead of a clipping plane; the printer body hides the part still inside.
+- 2026-11-03: The CRT is a uGUI hierarchy rendered by an orthographic camera into a RenderTexture (`CRTMonitor`), updated at 20 Hz. Neighbours show as neutral dots only.
+- 2026-11-03: `DebugTurnBot` plays the game for QA (menu-free). It is not added to the scene by default.

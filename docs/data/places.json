@@ -1,0 +1,154 @@
+{
+ "note": "r = [x,y,w,h] no mundo 2D 1000x640; door e zone em coordenadas 2D",
+ "places": {
+  "cafe": {
+   "short": "CAFÉ",
+   "name": "Café Aurora",
+   "r": [
+    40,
+    70,
+    150,
+    150
+   ],
+   "door": [
+    115,
+    220
+   ],
+   "zone": [
+    55,
+    226,
+    120,
+    22
+   ],
+   "indoor": false,
+   "h": 2.2,
+   "col": "#C46A4A",
+   "shape": "circle"
+  },
+  "mercearia": {
+   "short": "MERCEARIA",
+   "name": "Mercearia Central",
+   "r": [
+    205,
+    85,
+    135,
+    135
+   ],
+   "door": [
+    272,
+    220
+   ],
+   "indoor": true,
+   "h": 1.5,
+   "col": "#D9A441",
+   "shape": "square"
+  },
+  "casasN": {
+   "short": "CASAS",
+   "name": "Casas da esquina",
+   "r": [
+    355,
+    55,
+    120,
+    180
+   ],
+   "door": [
+    415,
+    235
+   ],
+   "indoor": true,
+   "h": 2.8,
+   "col": "#B9A27E",
+   "shape": "house"
+  },
+  "junta": {
+   "short": "JUNTA",
+   "name": "Junta de Freguesia",
+   "r": [
+    530,
+    60,
+    160,
+    165
+   ],
+   "door": [
+    610,
+    225
+   ],
+   "zone": [
+    545,
+    232,
+    130,
+    18
+   ],
+   "indoor": false,
+   "h": 2.6,
+   "col": "#D9D2C2",
+   "shape": "diamond"
+  },
+  "livraria": {
+   "short": "LIVRARIA",
+   "name": "Livraria Letra Viva",
+   "r": [
+    705,
+    75,
+    130,
+    145
+   ],
+   "door": [
+    770,
+    220
+   ],
+   "indoor": true,
+   "h": 2,
+   "col": "#3E6B5A",
+   "shape": "triangle"
+  },
+  "casasS": {
+   "short": "PRÉDIO",
+   "name": "Prédio do fundo",
+   "r": [
+    850,
+    55,
+    120,
+    180
+   ],
+   "door": [
+    910,
+    235
+   ],
+   "indoor": true,
+   "h": 2.5,
+   "col": "#A88F7A",
+   "shape": "house"
+  },
+  "praca": {
+   "short": "PRAÇA",
+   "name": "Praça",
+   "r": [
+    120,
+    395,
+    760,
+    215
+   ],
+   "door": [
+    500,
+    395
+   ],
+   "zone": [
+    240,
+    425,
+    520,
+    160
+   ],
+   "indoor": false,
+   "open": true,
+   "h": 0,
+   "col": "#5E8A55",
+   "shape": "star"
+  }
+ },
+ "trafficLightCycle": {
+  "t": 0,
+  "cycle": 16
+ }
+}
