@@ -8,15 +8,19 @@
         "Unity.AI.Navigation",
         "Unity.AI.Navigation.Editor",
         "Unity.Cinemachine",
-        "Unity.ugui"
+        "Unity.ugui",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner"
     ],
     "includePlatforms": [
         "Editor"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
