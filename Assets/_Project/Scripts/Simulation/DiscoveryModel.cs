@@ -24,6 +24,9 @@ namespace EchoChamber
 
         public int RelationCount => relations.Count;
 
+        /// <summary>Times the player noted a silenced author (hiding a post makes its author react).</summary>
+        public int SilencedNoted { get; private set; }
+
         public static string RelationKey(int a, int b)
         {
             return a < b ? a + "-" + b : b + "-" + a;
@@ -58,6 +61,15 @@ namespace EchoChamber
                 return result;
 
             n.Notes.Add(new ObservationNote { ReactionId = r.Id, Category = r.Category, Kind = r.Kind, Strong = r.Strong, Base = r.Base });
+            if (r.Kind == ReactionKind.Silenciado)
+            {
+                // Caused by the player's own stamp: says nothing about personality, categories or relations.
+                SilencedNoted++;
+                result.Noted = true;
+                result.Reaction = r;
+                Version++;
+                return result;
+            }
             if (!CategoryObservations.TryGetValue(r.Category, out var co))
             {
                 co = new Dictionary<ReactionKind, int>();

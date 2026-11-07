@@ -84,6 +84,7 @@ namespace EchoChamber
             card.Eyebrow("Relatório de impacto social");
             card.Title(ending.headline, 50);
             card.Para(ending.text, 25);
+            card.Para("<i>" + Texts.Epilogue(sim.Understanding, sim.Tuning, sim.BalanceMissedForUnderstanding) + "</i>", 24);
             BuildChart(card.Root, sim);
             for (int i = 0; i < sim.DayResults.Count; i++)
             {

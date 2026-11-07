@@ -35,6 +35,25 @@ Completion criteria check:
 - QA bot: add `DebugTurnBot` to the GameManager object in Play Mode (not in the scene by default) and raise `GameManager.timeScale`.
 - Controls: A amplify, O hide, N normal, Space lever, Esc back to desk view, mouse for everything else. Debug: `GameManager.timeScale`.
 
+## Design iteration (2026-11-06)
+
+Point 1 of the design review done: boss pressure and imposed posts (see `docs/DECISIONS.md`). 58 EditMode tests green. In `docs/BALANCE.md` all-normal went from 100% "Alive" to 85% (7% Locked), tension 25% to 47%; target-balance still wins 72%. Not yet checked visually in Play Mode: the "IMPOSTO" tag on the slip, the boss line and the end-of-day warning.
+Point 4 done: limited stamp ink (2 hides per turn) plus resentment of silenced authors; all-hide went from 100% to 76% "Alive", target-balance 76%. 63 EditMode tests green. Silenced authors now show a visible `Silenciado` reaction (`x`, purple) that can be noted on the cork board; 67 tests green. 
+Next from the review: point 2 (proposal approved in principle but parked, see `docs/PROPOSAL_PinsOnCorkBoard.md`; decisions still to confirm), point 3 is done (epilogue by tier and "Equilibrio raro" needs 40% understanding; the slip forecast is parked in `docs/PROPOSAL_ForecastOnSlip.md`). 72 EditMode tests green. Point 5 done: 15 dilemma posts imported (`dilemma: true` in `docs/data/posts.json`, reviewed by the user; post 12 is Seguros Fonseca), 50% of random slots. Balance report: oracle-per-post 84% Balance vs target-balance 52% (was 76%), so reading posts beats the category rule; 78 EditMode tests green. Side effect: all-normal is back to 95% Alive. Remaining from the review: 6 (playtest with someone who never saw the game).
+
+Visual check (2026-11-07): the user played and tested all of points 1, 3, 4 and 5 (slip tags and ink label, boss lines, `x` Silenciado icon, epilogue, dilemma posts) in the editor and confirmed everything works. Sixth ending "Despedido" is deferred until there are more days and posts.
+
+## Open items after the design review (2026-11-07)
+
+- Point 6: playtest with someone who never saw the game (are the reactions readable from the window? is the tutorial enough?). Not done.
+- Passivity is still safe: all-normal ends "Alive" in 95% of runs (`docs/BALANCE.md`).
+- The "Bairro percebido" threshold for "Equilibrio raro" (40%) is lenient: 1 note per turn already passes. Raise `endingBalanceUnderstanding` in `TuningData` (and in `TuningConfig.asset`) if it should demand more.
+- Dilemma posts make target-balance (rule by category) lock the neighbourhood in 16% of runs and the slip pattern "observado: medo x3" less reliable. Feel it in play, and add a tutorial hint that the category colour no longer says everything.
+- Parked proposals: pins on the cork board (`docs/PROPOSAL_PinsOnCorkBoard.md`) and slip forecast (`docs/PROPOSAL_ForecastOnSlip.md`), best done together.
+- Sixth ending "Despedido": only when there are more days and posts.
+- Nothing from the design review is committed to git yet (points 1, 3, 4, 5 and the Silenciado reaction).
+- `Builds/macOS/EchoChamber.app` was built before the design review changes; rebuild it before delivering. No Windows build.
+
 ## Known problems and future improvements
 
 - Reaction symbols use ASCII glyphs (`!`, `#`, `+`, `$`, `z`) instead of the prototype heart and euro icons.
@@ -42,7 +61,7 @@ Completion criteria check:
 - Characters are small from the window view (same scale as the prototype). Window view camera shows the building edge at the bottom.
 - Square string lights at night were not confirmed visually.
 - Relations are discovered generously: one observation can reveal many pairs (same rule as the prototype), so the cork board can get crowded with red strings late in the game.
-- Doing nothing (all NORMAL) ends as "Bairro vivo, app em perda" every time (see `docs/BALANCE.md`), as in the prototype numbers.
+- Doing nothing (all NORMAL) now ends as "Bairro vivo, app em perda" in 85% of seeds (was 100%), see `docs/BALANCE.md`. Hiding everything is 76% (stamp ink and silenced authors).
 - The Unity AI generators (audio, image) report `NoSubscription` for this account, so audio is synthesised in code. Sound design is functional, not polished; levels were not checked by ear.
 - URP logs that Depth of Field and Panini post-process shaders are stripped in the build. They are not used.
 - Windows build not done (only the macOS module is installed).

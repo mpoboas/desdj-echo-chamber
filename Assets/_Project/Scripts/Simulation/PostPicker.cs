@@ -28,6 +28,34 @@ namespace EchoChamber
             return w;
         }
 
+        /// <summary>
+        /// Picks a high-value sensationalism or advertising post for the boss to impose.
+        /// Skips posts already in the turn. Falls back to any high-value sensationalism post.
+        /// </summary>
+        public PostData PickImposed(ICollection<PostData> alreadyInTurn)
+        {
+            PostCategory cat = rng.Value() < t.imposedSensChance ? PostCategory.Sens : PostCategory.Pub;
+            var opts = ImposedOptions(cat, alreadyInTurn);
+            if (opts.Count == 0) opts = ImposedOptions(cat == PostCategory.Sens ? PostCategory.Pub : PostCategory.Sens, alreadyInTurn);
+            if (opts.Count == 0) opts = ImposedOptions(PostCategory.Sens, null);
+            return opts[rng.Index(opts.Count)];
+        }
+
+        private List<PostData> ImposedOptions(PostCategory cat, ICollection<PostData> exclude)
+        {
+            var opts = new List<PostData>();
+            foreach (var p in content.pool)
+                if (p.category == cat && !p.dilemma && p.value >= t.imposedMinValue && (exclude == null || !exclude.Contains(p))) opts.Add(p);
+            return opts;
+        }
+
+        private bool HasDilemma(PostCategory cat)
+        {
+            foreach (var p in content.pool)
+                if (p.category == cat && p.dilemma) return true;
+            return false;
+        }
+
         public PostData Pick(IList<Neighbour> all)
         {
             float[] w = Weights(Metrics.AvgStress(all), Metrics.AvgDesc(all), Metrics.AvgPert(all), Metrics.AvgApat(all));
@@ -45,12 +73,14 @@ namespace EchoChamber
                 }
             }
 
+            // Dilemma posts are only rolled for when the category has some, so content without them plays as before.
+            bool wantDilemma = HasDilemma(cat) && rng.Value() < t.dilemmaChance;
             var opts = new List<PostData>();
             foreach (var p in content.pool)
-                if (p.category == cat && !recent.Contains(p.text)) opts.Add(p);
+                if (p.category == cat && p.dilemma == wantDilemma && !recent.Contains(p.text)) opts.Add(p);
             if (opts.Count == 0)
                 foreach (var p in content.pool)
-                    if (p.category == cat) opts.Add(p);
+                    if (p.category == cat && p.dilemma == wantDilemma) opts.Add(p);
 
             PostData chosen = opts[rng.Index(opts.Count)];
             recent.Add(chosen.text);

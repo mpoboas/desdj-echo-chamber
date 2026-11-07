@@ -8,6 +8,8 @@ namespace EchoChamber
         Empatia,
         Compra,
         Apatia,
-        Indiferente
+        Indiferente,
+        /// <summary>Shown by an author whose post the player hid. Caused by the player, not by personality.</summary>
+        Silenciado
     }
 }

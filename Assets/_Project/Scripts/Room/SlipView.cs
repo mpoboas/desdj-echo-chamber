@@ -25,6 +25,9 @@ namespace EchoChamber
         public int Id { get; private set; }
         public DecisionMode? Mark { get; private set; }
         public bool Decided;
+        public bool Imposed { get; private set; }
+        private RectTransform canvasRt;
+        private Text ink;
         public bool Moving { get; private set; }
 
         private RectTransform cover;
@@ -70,6 +73,7 @@ namespace EchoChamber
             var rt = cgo.GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(CanvasW, CanvasH);
             rt.pivot = new Vector2(0.5f, 0.5f);
+            canvasRt = rt;
 
             Color paper = ReactionStyle.Hex("#F6F1E4");
             var bg = UiFactory.Image(rt, paper, "Paper");
@@ -141,6 +145,29 @@ namespace EchoChamber
             r.pivot = new Vector2(0f, 1f);
             r.anchoredPosition = new Vector2(x, -y);
             r.sizeDelta = new Vector2(w, h);
+        }
+
+        /// <summary>Shows how many OCULTAR stamps are left this turn.</summary>
+        public void SetInk(int left)
+        {
+            if (ink == null)
+            {
+                ink = UiFactory.Text(canvasRt, "", 20, ReactionStyle.Hex("#8A8270"), TextAnchor.MiddleRight, FontStyle.Bold, "Ink");
+                Place(ink.rectTransform, 40f, 352f, CanvasW - 80f, 34f);
+            }
+            ink.text = Imposed ? "imposto: não se oculta" : left > 0 ? $"tinta OCULTAR: {left}" : "sem tinta OCULTAR";
+            ink.color = Imposed || left <= 0 ? ReactionStyle.Hex("#C8344F") : ReactionStyle.Hex("#8A8270");
+        }
+
+        /// <summary>Marks the slip as imposed by the boss (stamp OCULTAR is not allowed).</summary>
+        public void SetImposed()
+        {
+            Imposed = true;
+            // sits inside the coloured header, between the category label and the post number
+            var tag = UiFactory.Image(canvasRt, ReactionStyle.Hex("#1A1A22"), "ImposedTag");
+            Place(tag.rectTransform, 278f, 12f, 150f, 32f);
+            var t = UiFactory.Text(tag.transform, "IMPOSTO", 20, Color.white, TextAnchor.MiddleCenter, FontStyle.Bold, "ImposedText");
+            UiFactory.Stretch(t.rectTransform);
         }
 
         public void SetEstimates(int est, string patternOrNull)

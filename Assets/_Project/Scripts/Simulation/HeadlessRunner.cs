@@ -15,6 +15,8 @@ namespace EchoChamber
             sim.StartGame();
 
             int guard = 0;
+            int notedThisTurn = 0;
+            float noteClock = 0f;
             while (sim.Phase != GamePhase.End)
             {
                 if (++guard > 5_000_000) throw new InvalidOperationException("Headless run did not finish");
@@ -22,9 +24,17 @@ namespace EchoChamber
                 {
                     case GamePhase.Decide:
                         RunDecide(sim, policy, dt, decideSecondsPerPost);
+                        notedThisTurn = 0;
+                        noteClock = 0f;
                         break;
                     case GamePhase.Simulate:
                         sim.Tick(dt);
+                        noteClock += dt;
+                        if (noteClock >= NoteInterval && notedThisTurn < policy.NotesPerTurn)
+                        {
+                            noteClock = 0f;
+                            if (NoteOneReaction(sim)) notedThisTurn++;
+                        }
                         break;
                     case GamePhase.Report:
                         result.TurnsPlayed++;
@@ -41,6 +51,8 @@ namespace EchoChamber
             result.Cohesion = sim.Metrics.Cohesion;
             result.Tension = sim.Metrics.Tension;
             result.Apathy = Metrics.AvgApat(sim.Neighbours);
+            result.Understanding = sim.Understanding;
+            result.BalanceMissedForUnderstanding = sim.BalanceMissedForUnderstanding;
             foreach (var day in sim.DayResults)
                 foreach (var g in day)
                 {
@@ -49,6 +61,22 @@ namespace EchoChamber
                 }
             result.History.AddRange(sim.History);
             return result;
+        }
+
+        /// <summary>Seconds between two clicks of the simulated notebook player.</summary>
+        private const float NoteInterval = 1.5f;
+
+        /// <summary>Clicks one neighbour that shows a notable reaction, like a diligent human would.</summary>
+        private static bool NoteOneReaction(GameSimulation sim)
+        {
+            Neighbour pick = null;
+            foreach (var n in sim.Neighbours)
+            {
+                Reaction r = n.Reaction;
+                if (r == null || r.TimeLeft <= 0f || n.Notes.Exists(x => x.ReactionId == r.Id)) continue;
+                if (pick == null || (pick.Reaction.Kind == ReactionKind.Indiferente && r.Kind != ReactionKind.Indiferente)) pick = n;
+            }
+            return pick != null && sim.Observe(pick).Noted;
         }
 
         private static void RunDecide(GameSimulation sim, AutoPolicy policy, float dt, float perPost)

@@ -21,6 +21,29 @@ namespace EchoChamber
             return k == SimEventKind.PoliceStarted ? "A PSP reforçou a patrulha no bairro depois de várias queixas." : EventText(k);
         }
 
+        /// <summary>Last line of the final report, by how much of the neighbourhood the player understood.</summary>
+        public static string Epilogue(float understanding, TuningData t, bool balanceMissed)
+        {
+            string line = understanding >= t.epilogueHigh
+                ? "Conhecias o bairro melhor do que ele se conhecia."
+                : understanding >= t.epilogueMid
+                    ? "Percebeste parte do bairro: o suficiente para o ler, não para o conhecer."
+                    : "Nunca chegaste a saber quem eram. Para ti, o bairro foi sempre um número.";
+            if (balanceMissed) line += " Tinhas o equilíbrio ao alcance, mas conheceste o bairro de menos para o conseguires segurar.";
+            return line;
+        }
+
+        public const string NoInkLine = "A tinta do carimbo OCULTAR acabou neste turno. O que sobrar vai ter de passar.";
+
+        /// <summary>What the boss adds to his morning call when he is imposing posts.</summary>
+        public static string PressureLine(int level)
+        {
+            if (level <= 0) return null;
+            return level == 1
+                ? "E como ontem ficaste aquém, a empresa vai mandar um post por turno. Esses não se ocultam."
+                : "Dois dias seguidos sem a meta. Agora a empresa manda dois posts por turno, e esses não se ocultam.";
+        }
+
         public static string ModeLabel(DecisionMode m)
         {
             switch (m)

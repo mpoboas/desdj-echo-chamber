@@ -39,6 +39,11 @@ namespace EchoChamber.Tests
             Assert.AreEqual(EndingId.Balance, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.6f, 300, 260));
             Assert.AreEqual(EndingId.Balance, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.52f, 100, 260));
             Assert.AreEqual(EndingId.Gentry, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.4f, 300, 260));
+            // Balance also needs the neighbourhood to be understood; Alive does not.
+            Assert.AreEqual(EndingId.Gentry, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.6f, 300, 260, 0.1f));
+            Assert.AreEqual(EndingId.Gentry, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.52f, 100, 260, 0.1f));
+            Assert.AreEqual(EndingId.Balance, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.6f, 300, 260, t.endingBalanceUnderstanding));
+            Assert.AreEqual(EndingId.Alive, EndingResolver.Resolve(t, 0.3f, 0.3f, 0.6f, 200, 260, 0f));
         }
 
         [Test]

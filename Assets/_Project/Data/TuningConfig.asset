@@ -161,6 +161,13 @@ MonoBehaviour:
     histInterval: 1.5
     daysCount: 3
     turnsPerDay: 3
+    hidesPerTurn: 2
+    hiddenAuthorDesc: 0.35
+    hiddenAuthorPert: 0.2
+    pressureMax: 2
+    imposedPerLevel: 1
+    imposedSensChance: 0.6
+    imposedMinValue: 0.9
     mixerDefault: 50
     tensionStress: 0.65
     tensionDesc: 0.35

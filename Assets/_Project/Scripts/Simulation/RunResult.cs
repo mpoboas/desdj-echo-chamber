@@ -11,6 +11,8 @@ namespace EchoChamber
         public float Cohesion;
         public float Tension;
         public float Apathy;
+        public float Understanding;
+        public bool BalanceMissedForUnderstanding;
         public int TurnsPlayed;
         public int GoalsAchieved;
         public int GoalsTotal;

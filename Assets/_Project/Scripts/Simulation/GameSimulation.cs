@@ -40,9 +40,21 @@ namespace EchoChamber
         public float DecideMax;
         /// <summary>The decide clock only runs once the first slip exists (set by the presentation).</summary>
         public bool DecideClockRunning;
+        /// <summary>
+        /// Boss pressure: 0 when the last revenue goal was met, otherwise +1 per failed day in a row (capped).
+        /// Each level adds imposed posts to every turn of the next day.
+        /// </summary>
+        public int Pressure;
+        /// <summary>Posts of the current turn that the boss imposed (cannot be hidden).</summary>
+        public readonly HashSet<PostData> ImposedPosts = new HashSet<PostData>();
+        /// <summary>OCULTAR stamps left this turn.</summary>
+        public int InkLeft;
+        private readonly Dictionary<PostData, string> authors = new Dictionary<PostData, string>();
         public readonly List<List<DayGoal>> DayResults = new List<List<DayGoal>>();
         public readonly List<KeyValuePair<float, float>> History = new List<KeyValuePair<float, float>>();
         public EndingId? FinalEnding;
+        /// <summary>True when the neighbourhood was balanced but the player had not understood it enough.</summary>
+        public bool BalanceMissedForUnderstanding;
 
         public readonly Dictionary<PostCategory, int> CategorySeen = new Dictionary<PostCategory, int>();
 
@@ -136,7 +148,32 @@ namespace EchoChamber
                         break;
                 }
             }
+            ImposedPosts.Clear();
+            int imposed = Pressure * Tuning.imposedPerLevel;
+            for (int i = 0; i < imposed; i++)
+            {
+                PostData p = Picker.PickImposed(posts);
+                posts.Add(p);
+                ImposedPosts.Add(p);
+            }
             return posts;
+        }
+
+        public bool IsImposed(PostData post) => ImposedPosts.Contains(post);
+
+        /// <summary>Author shown on the slip. Posts without an author get a random neighbour, fixed for the turn.</summary>
+        public string AuthorOf(PostData post)
+        {
+            if (!string.IsNullOrEmpty(post.author)) return post.author;
+            return authors.TryGetValue(post, out string a) ? a : "";
+        }
+
+        /// <summary>True if the player may still stamp OCULTAR on this post.</summary>
+        public bool CanHide(PostData post) => InkLeft > 0 && !IsImposed(post);
+
+        public void SpendInk()
+        {
+            if (InkLeft > 0) InkLeft--;
         }
 
         public void StartTurn()
@@ -145,6 +182,11 @@ namespace EchoChamber
             Deliveries.Clear();
             TurnPosts.Clear();
             TurnPosts.AddRange(BuildTurnPosts());
+            InkLeft = Tuning.hidesPerTurn;
+            authors.Clear();
+            foreach (PostData post in TurnPosts)
+                if (string.IsNullOrEmpty(post.author) && !authors.ContainsKey(post))
+                    authors[post] = Neighbours[Rng.Index(Neighbours.Count)].Name;
             DecideTime = 0f;
             DecideClockRunning = false;
             DecideMax = IsFirstTurnEver ? float.PositiveInfinity : Tuning.decideBase + TurnPosts.Count * Tuning.decidePerPost;
@@ -177,9 +219,17 @@ namespace EchoChamber
         {
             Log.Posts.Clear();
             Deliveries.Clear();
+            int hidden = 0;
             for (int i = 0; i < decisions.Count; i++)
             {
-                var entry = new TurnPostEntry { Post = decisions[i].Key, Mode = decisions[i].Value };
+                PostData post = decisions[i].Key;
+                bool imposed = IsImposed(post);
+                DecisionMode mode = decisions[i].Value;
+                // The boss does not allow hiding imposed posts.
+                if (imposed && mode == DecisionMode.Hide) mode = DecisionMode.Normal;
+                // The stamp runs out of ink: hides beyond the turn budget go out as normal.
+                if (mode == DecisionMode.Hide && ++hidden > Tuning.hidesPerTurn) mode = DecisionMode.Normal;
+                var entry = new TurnPostEntry { Post = post, Mode = mode, Imposed = imposed, Author = AuthorOf(post) };
                 Log.Posts.Add(entry);
                 Deliveries.Add(new Delivery { Entry = entry, At = Tuning.firstDeliveryAt + i * Tuning.deliveryInterval });
             }
@@ -241,6 +291,30 @@ namespace EchoChamber
             int rev = Deliverer.Deliver(d, Neighbours, Weights, Rings.AdsNervous);
             RevenueDay += rev;
             RevenueTotal += rev;
+            if (d.Entry.Mode == DecisionMode.Hide) ResentSilencing(d.Entry);
+        }
+
+        /// <summary>A neighbour whose post was hidden feels silenced: more distrust, less belonging.</summary>
+        private void ResentSilencing(TurnPostEntry entry)
+        {
+            foreach (Neighbour n in Neighbours)
+            {
+                if (n.Name != entry.Author) continue;
+                n.Desc = SimMath.Clamp01(n.Desc + Tuning.hiddenAuthorDesc);
+                n.Pert = SimMath.Clamp01(n.Pert - Tuning.hiddenAuthorPert);
+                // The author visibly reacts, so the player can link the silencing to the behaviour.
+                n.Reaction = new Reaction
+                {
+                    Id = Deliverer.NextReactionId(),
+                    Kind = ReactionKind.Silenciado,
+                    Base = ReactionKind.Silenciado,
+                    Strong = false,
+                    Category = entry.Post.category,
+                    TimeLeft = Tuning.reactionDuration
+                };
+                n.IconTime = 0f;
+                return;
+            }
         }
 
         private void EndTurn()
@@ -281,6 +355,7 @@ namespace EchoChamber
             if (Day == 1) goals.Add(new DayGoal { Kind = DayGoalKind.LivrariaOpen, Achieved = Rings.LivrariaOpen });
             goals.Add(new DayGoal { Kind = DayGoalKind.TensionBelow, Achieved = Metrics.Tension < Tuning.nervousTension });
             DayResults.Add(goals);
+            Pressure = goals[0].Achieved ? 0 : Math.Min(Pressure + 1, Tuning.pressureMax);
 
             if (Day == Tuning.daysCount - 1)
             {
@@ -303,7 +378,11 @@ namespace EchoChamber
         public EndingId ResolveEnding()
         {
             float lastTarget = Content.days[Tuning.daysCount - 1].target;
-            return EndingResolver.Resolve(Tuning, Metrics.AvgApat(Neighbours), Metrics.Tension, Metrics.Cohesion, RevenueDay, lastTarget);
+            float apat = Metrics.AvgApat(Neighbours);
+            EndingId ending = EndingResolver.Resolve(Tuning, apat, Metrics.Tension, Metrics.Cohesion, RevenueDay, lastTarget, Understanding);
+            BalanceMissedForUnderstanding = ending == EndingId.Gentry
+                && EndingResolver.Resolve(Tuning, apat, Metrics.Tension, Metrics.Cohesion, RevenueDay, lastTarget, 1f) == EndingId.Balance;
+            return ending;
         }
 
         /// <summary>Called when the player closes the end-of-day card.</summary>

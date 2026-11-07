@@ -168,6 +168,35 @@ namespace EchoChamber
         public int daysCount = 3;
         public int turnsPerDay = 3;
 
+        // ---- Dilemma posts ----
+        /// <summary>Chance that a random slot is filled with a dilemma post (when the category has any).</summary>
+        public float dilemmaChance = 0.5f;
+
+        // ---- Perceived neighbourhood ----
+        /// <summary>Minimum "Bairro percebido" (0 to 1) for the ending "Equilibrio raro".</summary>
+        public float endingBalanceUnderstanding = 0.40f;
+        /// <summary>Epilogue tiers of the final report: below mid is little, from high is a lot.</summary>
+        public float epilogueMid = 0.35f;
+        public float epilogueHigh = 0.65f;
+
+        // ---- Stamp ink and silenced authors ----
+        /// <summary>Posts the player can stamp OCULTAR in one turn (imposed posts never count).</summary>
+        public int hidesPerTurn = 2;
+        /// <summary>Distrust added to the author of a post that was hidden.</summary>
+        public float hiddenAuthorDesc = 0.35f;
+        /// <summary>Belonging taken from the author of a post that was hidden.</summary>
+        public float hiddenAuthorPert = 0.20f;
+
+        // ---- Boss pressure (failed revenue goal -> imposed posts next day) ----
+        /// <summary>Highest pressure level (each failed revenue goal in a row adds one).</summary>
+        public int pressureMax = 2;
+        /// <summary>Imposed posts added to every turn, per pressure level.</summary>
+        public int imposedPerLevel = 1;
+        /// <summary>Chance that an imposed post is sensationalism (otherwise advertising).</summary>
+        public float imposedSensChance = 0.6f;
+        /// <summary>Only posts with at least this revenue weight can be imposed.</summary>
+        public float imposedMinValue = 0.9f;
+
         // ---- Mixer ----
         public float mixerDefault = 50f;
 

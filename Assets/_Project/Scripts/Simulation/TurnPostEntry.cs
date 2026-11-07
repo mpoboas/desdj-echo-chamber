@@ -7,6 +7,10 @@ namespace EchoChamber
     {
         public PostData Post;
         public DecisionMode Mode;
+        /// <summary>Who wrote it: a neighbour's name or an entity such as the Junta.</summary>
+        public string Author;
+        /// <summary>Forced into the queue by the boss: cannot be hidden.</summary>
+        public bool Imposed;
         public int Viewers;
         public int Revenue;
         public readonly List<string> ViewerNames = new List<string>();

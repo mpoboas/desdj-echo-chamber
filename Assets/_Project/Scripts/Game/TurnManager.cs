@@ -163,11 +163,13 @@ namespace EchoChamber
             if (sim.Turn == 0)
             {
                 string boss = sim.CurrentDay.boss;
+                string pressure = Texts.PressureLine(sim.Pressure);
+                if (pressure != null) boss += " " + pressure;
                 StartCoroutine(After(0.6f, () =>
                 {
                     GameAudio.Ring();
                     if (PhoneView.Instance != null) PhoneView.Instance.Ring(1.2f);
-                    StartCoroutine(After(0.7f, () => SubtitleView.Say("Telefone · Dr. Valente", boss, SubtitleView.Style.Normal, 8.5f)));
+                    StartCoroutine(After(0.7f, () => SubtitleView.Say("Telefone · Dr. Valente", boss, SubtitleView.Style.Normal, pressure != null ? 12f : 8.5f)));
                 }));
             }
             if (sim.IsFirstTurnEver)
@@ -234,8 +236,10 @@ namespace EchoChamber
         private void StartPrint()
         {
             var post = printQueue.Dequeue();
-            string author = !string.IsNullOrEmpty(post.author) ? post.author : sim.Neighbours[Random.Range(0, sim.Neighbours.Count)].Name;
+            string author = sim.AuthorOf(post);
             var slip = SlipView.Create(post, author, paperEdge, slipParent);
+            if (sim.IsImposed(post)) slip.SetImposed();
+            slip.SetInk(sim.InkLeft);
             slips.Add(slip);
             printing = slip;
             slip.SetEstimates(sim.EstimateRevenue(post), PatternText(post.category));
@@ -351,6 +355,17 @@ namespace EchoChamber
             }
             if (s == null || s.Moving || s.Decided || stamps.Busy) return;
 
+            if (mode == DecisionMode.Hide && s.Imposed)
+            {
+                SubtitleView.Say("Dr. Valente", "Esse post vem de cima. Não o podes ocultar.", SubtitleView.Style.Hint, 3f);
+                return;
+            }
+            if (mode == DecisionMode.Hide && !sim.CanHide(s.Post))
+            {
+                SubtitleView.Say("Dr. Valente", Texts.NoInkLine, SubtitleView.Style.Hint, 4f);
+                return;
+            }
+
             if (mode == DecisionMode.Normal)
             {
                 s.SetMark(DecisionMode.Normal);
@@ -366,8 +381,19 @@ namespace EchoChamber
             }, () => FinishSlip(s, false));
         }
 
+        private void RefreshInk()
+        {
+            foreach (var sl in slips)
+                if (sl != null && !sl.Decided) sl.SetInk(sim.InkLeft);
+        }
+
         private void FinishSlip(SlipView s, bool toTray)
         {
+            if (s.Mark == DecisionMode.Hide)
+            {
+                sim.SpendInk();
+                RefreshInk();
+            }
             s.Decided = true;
             onStand = null;
             decided.Add(new KeyValuePair<PostData, DecisionMode>(s.Post, s.Mark ?? DecisionMode.Normal));
@@ -472,7 +498,7 @@ namespace EchoChamber
             card.Eyebrow("Invisible Systems · Echo Chamber");
             card.Title("Bem-vindo à cave da Vizinhança.");
             card.Para(sim.Content.days[0].brief);
-            card.Para("• <b>Decidir:</b> os posts saem da impressora. Carimba <b>AMPLIFICAR</b> ou <b>OCULTAR</b>, ou atira para o cesto <b>NORMAL</b>. A mesa de mistura define o alcance de cada categoria.", 26);
+            card.Para("• <b>Decidir:</b> os posts saem da impressora. Carimba <b>AMPLIFICAR</b> ou <b>OCULTAR</b> (a tinta só dá para 2 por turno, e quem é silenciado não esquece), ou atira para o cesto <b>NORMAL</b>. A mesa de mistura define o alcance de cada categoria.", 26);
             card.Para("• <b>Publicar:</b> puxa a alavanca. O tempo corre e observas no monitor e pela janela o que os vizinhos fazem com o que viram.", 26);
             card.Para("• <b>Perceber:</b> a app não sabe o que as pessoas sentem, só o que fazem. Pela janela, clica nos vizinhos quando reagem a um post e anota. O quadro de cortiça junta o que descobres.", 26);
             card.Para("• O jornal conta o que aconteceu, não porquê. As causas descobres tu.", 26);
@@ -574,6 +600,12 @@ namespace EchoChamber
                 string label = g.Kind == DayGoalKind.Revenue ? $"Meta do chefe: {day.target} €"
                     : g.Kind == DayGoalKind.LivrariaOpen ? "Letra Viva aberta" : "Tensão abaixo de 70%";
                 card.Stat(label, g.Achieved ? "cumprido" : "falhado", g.Achieved ? UiPalette.Good : UiPalette.Claret);
+            }
+            if (sim.Pressure > 0 && sim.Phase == GamePhase.DayEnd)
+            {
+                card.Para(sim.Pressure == 1
+                    ? "Meta falhada: amanhã a empresa impõe um post por turno, que não podes ocultar."
+                    : "Metas falhadas dois dias seguidos: amanhã a empresa impõe dois posts por turno, que não podes ocultar.", 26);
             }
             card.Para("Os vizinhos dormem sobre o que viram hoje. Acordam um pouco mais calmos, mas a desconfiança e os hábitos ficam.", 26);
             card.Space(6f);

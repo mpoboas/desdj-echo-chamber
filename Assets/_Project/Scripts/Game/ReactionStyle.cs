@@ -14,6 +14,7 @@ namespace EchoChamber
                 case ReactionKind.Empatia: return Hex("#4C7DFF");
                 case ReactionKind.Compra: return Hex("#D9A441");
                 case ReactionKind.Apatia: return Hex("#8C93AB");
+                case ReactionKind.Silenciado: return Hex("#7A5CC8");
                 default: return Hex("#BDB6A5");
             }
         }
@@ -27,6 +28,7 @@ namespace EchoChamber
                 case ReactionKind.Empatia: return "+";
                 case ReactionKind.Compra: return "$";
                 case ReactionKind.Apatia: return "z";
+                case ReactionKind.Silenciado: return "x";
                 default: return "..";
             }
         }
@@ -40,6 +42,7 @@ namespace EchoChamber
                 case ReactionKind.Empatia: return "comoveu-se";
                 case ReactionKind.Compra: return "quis ir às compras";
                 case ReactionKind.Apatia: return "ficou agarrado ao ecrã";
+                case ReactionKind.Silenciado: return "ficou calado e zangado";
                 default: return "não ligou";
             }
         }
@@ -53,6 +56,7 @@ namespace EchoChamber
                 case ReactionKind.Empatia: return "empatia";
                 case ReactionKind.Compra: return "compras";
                 case ReactionKind.Apatia: return "scroll";
+                case ReactionKind.Silenciado: return "silenciado";
                 default: return "ignoram";
             }
         }

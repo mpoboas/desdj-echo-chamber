@@ -160,7 +160,8 @@ namespace EchoChamber.Editor
                     apat = e["apat"] != null ? (float)e["apat"] : 0f
                 },
                 value = (float)p["value"],
-                livraria = p["livraria"] != null ? (float)p["livraria"] : 0f
+                livraria = p["livraria"] != null ? (float)p["livraria"] : 0f,
+                dilemma = p["dilemma"] != null && (bool)p["dilemma"]
             };
         }
 

@@ -15,6 +15,9 @@ namespace EchoChamber
             this.rng = rng;
         }
 
+        /// <summary>Unique id for a reaction created outside of a delivery.</summary>
+        public int NextReactionId() => ++reactionSeq;
+
         public float ModeMultiplier(DecisionMode mode)
         {
             switch (mode)

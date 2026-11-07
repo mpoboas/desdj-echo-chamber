@@ -63,10 +63,13 @@ namespace EchoChamber.Tests
         }
 
         [Test]
-        public void HidingEverythingEarnsNothing()
+        public void HidingEverythingIsLimitedByTheStampInk()
         {
-            var r = HeadlessRunner.Run(TestContent.Content(), TestContent.Tuning(), PolicyLibrary.AllHide(), 3);
-            Assert.AreEqual(0, r.RevenueByDay[0] + r.RevenueByDay[1] + r.RevenueByDay[2]);
+            var normal = HeadlessRunner.Run(TestContent.Content(), TestContent.Tuning(), PolicyLibrary.AllNormal(), 3);
+            var hide = HeadlessRunner.Run(TestContent.Content(), TestContent.Tuning(), PolicyLibrary.AllHide(), 3);
+            // The ink only covers a few posts per turn, so the rest still earns money.
+            Assert.Greater(hide.RevenueByDay[0], 0);
+            Assert.Less(hide.RevenueByDay[0], normal.RevenueByDay[0]);
         }
 
         [Test]

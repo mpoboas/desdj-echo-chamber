@@ -1,0 +1,8 @@
+﻿<Solution>
+  <Project Path="EchoChamber.Simulation.csproj" />
+  <Project Path="EchoChamber.Game.csproj" />
+  <Project Path="EchoChamber.Tests.csproj" />
+  <Project Path="EchoChamber.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>

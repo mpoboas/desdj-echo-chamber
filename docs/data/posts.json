@@ -263,6 +263,201 @@
    },
    "value": 0.4,
    "livraria": 0
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Vizinhos a organizar patrulha de bairro esta noite. Quem se junta?",
+   "author": null,
+   "effects": {
+    "medo": 2,
+    "emp": 2
+   },
+   "value": 1.3,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Cuidado com burlas por telefone: não atendam números desconhecidos.",
+   "author": null,
+   "effects": {
+    "medo": 1,
+    "apat": -2
+   },
+   "value": 1.1,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "sens",
+   "text": "Abaixo-assinado contra o novo horário do lixo: já vamos em 40 assinaturas.",
+   "author": null,
+   "effects": {
+    "desc": 2,
+    "emp": 1
+   },
+   "value": 1.2,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Quem deixa o lixo à porta dos outros? Já sabemos quem é.",
+   "author": null,
+   "effects": {
+    "emp": 1,
+    "desc": 2
+   },
+   "value": 0.9,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "Feira de Natal dos vizinhos: bancas, comes e bebes e sorteios.",
+   "author": null,
+   "effects": {
+    "emp": 2,
+    "cons": 2
+   },
+   "value": 0.8,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "com",
+   "text": "O senhor do 3.º esquerdo está doente e não tem ninguém. Quem pode passar por lá?",
+   "author": null,
+   "effects": {
+    "emp": 3,
+    "medo": 1
+   },
+   "value": 0.6,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Noite de jogos de tabuleiro no café, sábado às 21h. Tragam os vossos.",
+   "author": null,
+   "effects": {
+    "apat": 1,
+    "emp": 2
+   },
+   "value": 1.1,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Meme: o presidente da Junta a dormir na reunião (a foto é de ontem).",
+   "author": null,
+   "effects": {
+    "apat": 2,
+    "desc": 2
+   },
+   "value": 1.5,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "ent",
+   "text": "Passatempo: partilha este post e ganha um jantar a dois.",
+   "author": null,
+   "effects": {
+    "apat": 1,
+    "cons": 2
+   },
+   "value": 1.4,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "Café Aurora: 10% a quem trouxer um livro da Letra Viva.",
+   "author": "Café Aurora",
+   "effects": {
+    "cons": 2,
+    "emp": 1
+   },
+   "value": 0.7,
+   "livraria": 1,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "Black Friday em tudo, só hoje! Últimas unidades!",
+   "author": "MegaShop",
+   "effects": {
+    "cons": 3,
+    "medo": 1
+   },
+   "value": 1.0,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "pub",
+   "text": "Seguros Fonseca: e se acontece um assalto? Esteja preparado.",
+   "author": "Seguros Fonseca",
+   "effects": {
+    "cons": 2,
+    "medo": 2
+   },
+   "value": 0.9,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Corte de água na zona norte amanhã das 9h às 14h.",
+   "author": "Águas do Porto",
+   "effects": {
+    "medo": 1,
+    "desc": 1
+   },
+   "value": 0.3,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Junta abre inscrições para a limpeza da praça. Vagas limitadas.",
+   "author": "Junta de Freguesia",
+   "effects": {
+    "emp": 2,
+    "apat": -1
+   },
+   "value": 0.4,
+   "livraria": 0,
+   "dilemma": true
+  },
+  {
+   "id": null,
+   "cat": "loc",
+   "text": "Polícia reforça patrulhamento depois de dois furtos na semana.",
+   "author": "PSP Porto",
+   "effects": {
+    "medo": 2,
+    "desc": -1
+   },
+   "value": 0.5,
+   "livraria": 0,
+   "dilemma": true
   }
  ],
  "scripted": [

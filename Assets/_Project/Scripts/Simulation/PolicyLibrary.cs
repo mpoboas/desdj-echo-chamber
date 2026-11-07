@@ -31,6 +31,36 @@ namespace EchoChamber
         /// <summary>Community and ads boosted, fear muted.</summary>
         public static AutoPolicy TargetBalance() => Make("target-balance", new[] { A, A, A, A, H }, new[] { 10f, 90f, 90f, 90f, 90f });
 
+        /// <summary>Same as target-balance but never notes a reaction, so it never understands the neighbourhood.</summary>
+        public static AutoPolicy TargetBalanceNoNotes()
+        {
+            var p = TargetBalance();
+            p.Name = "target-balance-no-notes";
+            p.NotesPerTurn = 0;
+            return p;
+        }
+
+        /// <summary>
+        /// Upper bound for a player who reads every post: decides by the real effects of the post, not by its category.
+        /// Used to check that the category label alone is no longer enough.
+        /// </summary>
+        public static AutoPolicy OraclePerPost()
+        {
+            var p = Make("oracle-per-post", new[] { N, N, N, N, N }, new[] { 90f, 90f, 90f, 90f, 90f });
+            p.Custom = post =>
+            {
+                PostEffects e = post.effects;
+                // Net effect on the neighbourhood: belonging up, distrust, fear and apathy down.
+                float net = e.emp - e.desc - e.medo - 0.5f * e.apat;
+                if (net >= 1f) return A;
+                if (net <= -5f) return H;
+                // Money matters too: amplify anything that is not clearly harmful.
+                if (net >= -3f && post.value >= 0.3f) return A;
+                return N;
+            };
+            return p;
+        }
+
         public static AutoPolicy TargetGentry() => Make("target-gentry", new[] { N, H, H, A, N }, new[] { 90f, 50f, 50f, 90f, 10f });
 
         public static List<AutoPolicy> All()
@@ -38,7 +68,7 @@ namespace EchoChamber
             return new List<AutoPolicy>
             {
                 AllNormal(), AllAmplify(), AllHide(),
-                TargetSleep(), TargetLocked(), TargetAlive(), TargetBalance(), TargetGentry()
+                TargetSleep(), TargetLocked(), TargetAlive(), TargetBalance(), TargetBalanceNoNotes(), OraclePerPost(), TargetGentry()
             };
         }
 

@@ -14,5 +14,7 @@ namespace EchoChamber
         public float value;
         /// <summary>Effect on the bookshop affinity.</summary>
         public float livraria;
+        /// <summary>Mixed-effect post: the category label is a poor guide to what it does.</summary>
+        public bool dilemma;
     }
 }

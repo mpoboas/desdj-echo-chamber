@@ -8,7 +8,8 @@ namespace EchoChamber.Tests
         public void ImportedContentMatchesDataFiles()
         {
             var c = TestContent.Content();
-            Assert.AreEqual(21, c.pool.Count);
+            Assert.AreEqual(36, c.pool.Count); // 21 regular + 15 dilemma posts
+            Assert.AreEqual(15, c.pool.FindAll(p => p.dilemma).Count);
             Assert.AreEqual(14, c.scripted.Count);
             Assert.AreEqual(3, c.days.Count);
             Assert.AreEqual(14, c.neighbours.Count);

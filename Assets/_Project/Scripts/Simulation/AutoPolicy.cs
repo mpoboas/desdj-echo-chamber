@@ -13,6 +13,8 @@ namespace EchoChamber
         };
         /// <summary>Optional override: decides per post.</summary>
         public Func<PostData, DecisionMode> Custom;
+        /// <summary>How many reactions the simulated player clicks to note per turn (0 = never opens the notebook).</summary>
+        public int NotesPerTurn = 4;
 
         public DecisionMode Decide(PostData post)
         {

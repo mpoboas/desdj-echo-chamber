@@ -27,7 +27,10 @@ namespace EchoChamber
                 return;
             }
             var sb = new StringBuilder();
-            sb.Append($"{n.Name} {ReactionStyle.Label(r.Reaction.Kind)}{(r.Reaction.Strong ? " <b>com força</b>" : "")} com um post de {ReactionStyle.CategoryLabel(r.Reaction.Category)}.");
+            if (r.Reaction.Kind == ReactionKind.Silenciado)
+                sb.Append($"{n.Name} {ReactionStyle.Label(r.Reaction.Kind)} depois de um post seu de {ReactionStyle.CategoryLabel(r.Reaction.Category)} não ter saído.");
+            else
+                sb.Append($"{n.Name} {ReactionStyle.Label(r.Reaction.Kind)}{(r.Reaction.Strong ? " <b>com força</b>" : "")} com um post de {ReactionStyle.CategoryLabel(r.Reaction.Category)}.");
             if (r.TraitDiscovered)
             {
                 sb.Append($" <b>Percebeste: {n.Name} é {n.Data.traitLabel}</b> ({Texts.TraitDescription(n.Trait, n.Data.traitLabel)}).");
