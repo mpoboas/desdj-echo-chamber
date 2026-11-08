@@ -1,6 +1,21 @@
 # Progress
 
-Branch: `feature/unity-port`. Resume here after any interruption (also read `git log`).
+## ATUAL (2026-11-08): redesign v2 em curso
+
+O protótipo v1 (tudo o que está abaixo) foi jogado pelo dono do projeto e rejeitado como design: sem objetivo claro, informação em excesso, tutorial a dizer a premissa, caderno e cortiça dispensáveis, e "amplificar tudo" ganha. Foi feito um novo design de raiz.
+
+- Estado: **Fase 0 (design) concluída**. Código ainda não alterado.
+- Design: `docs/GDD.md` (v0.2) e `docs/GDD_Posts.md` (39 posts).
+- Plano e próximo passo: `PLAN.md`. Próximo passo: Fase 1, núcleo mínimo (dia 1, 3 vizinhos, Central de Feeds, arrastar post para o feed de um vizinho).
+- Decisões: ver `docs/DECISIONS.md`, entradas de 2026-11-08.
+- O que se mantém do v1: simulação (estados, utilidade, contágio, NavMesh), cena da rua, sala de controlo, testes de simulação, build scripts.
+- O que sai do design (código ainda lá): impressora e talões, carimbos, alavanca, mesa de mistura, jornal longo, categorias de cor, tinta, tensão e coesão como números visíveis.
+
+Tudo o que se segue é o histórico do v1 e **não descreve o jogo atual**.
+
+---
+
+Branch (v1): `feature/unity-port`. Resume here after any interruption (also read `git log`).
 
 ## Final status (all milestones done)
 

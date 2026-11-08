@@ -1,3 +1,5 @@
+> **LEGADO (v1).** Este documento descreve o design v1, abandonado a 2026-11-08. O design atual esta em `docs/GDD.md` e `docs/GDD_Posts.md`. Manter apenas como referencia da simulacao (estados dos vizinhos, utilidade, contagio), que continua a ser usada.
+
 # Plano de conversão para Unity
 
 ## Arquitetura alvo

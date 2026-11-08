@@ -1,3 +1,5 @@
+> **LEGADO (v1).** Este documento descreve o design v1, abandonado a 2026-11-08. O design atual esta em `docs/GDD.md` e `docs/GDD_Posts.md`. Manter apenas como referencia da simulacao (estados dos vizinhos, utilidade, contagio), que continua a ser usada.
+
 # Especificação do protótipo (fonte da verdade para a conversão)
 
 Este documento descreve o que o protótipo three.js (`prototipo/echo-chamber-3d.html`) faz, com os números exatos. A conversão para Unity deve reproduzir estas regras. Quando este ficheiro e o código do protótipo discordarem, vale o código do protótipo, e este ficheiro deve ser corrigido.
