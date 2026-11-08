@@ -143,11 +143,11 @@ namespace EchoChamber
             r.sizeDelta = new Vector2(w, h);
         }
 
-        public void SetEstimates(int est, string patternOrNull)
+        public void SetEstimates(int est)
         {
             revenue.text = $"rende ≈ {est} € · ampl. ≈ {Mathf.RoundToInt(est * 2.2f)} €";
-            footer.text = patternOrNull != null ? "observado: " + patternOrNull : "efeito no bairro: ? (observa quem o lê)";
-            footer.color = patternOrNull != null ? UiPalette.Claret : ReactionStyle.Hex("#8A8270");
+            footer.text = "efeito no bairro: ? (observa quem o lê)";
+            footer.color = ReactionStyle.Hex("#8A8270");
         }
 
         /// <summary>0 = blank paper, 1 = fully printed.</summary>

@@ -1,5 +1,7 @@
 # Progress
 
+> **Branch `first-prototype` (D2.2).** Reduced to the First Prototype user stories: one day with three turns, no discovery/cork board, no days 2 and 3, no endings, no boss phone, no balance report. See `docs/DECISIONS.md` (2026-11-07). The history below describes the full game on `main`. Tests: 34 EditMode green. Not yet checked in Play Mode after the cut; the macOS build must be rebuilt.
+
 Branch: `feature/unity-port`. Resume here after any interruption (also read `git log`).
 
 ## Final status (all milestones done)

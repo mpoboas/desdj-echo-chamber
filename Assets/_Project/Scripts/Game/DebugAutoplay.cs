@@ -30,9 +30,6 @@ namespace EchoChamber
                 case GamePhase.Report:
                     sim.ContinueAfterReport();
                     break;
-                case GamePhase.DayEnd:
-                    sim.BeginNextDay();
-                    break;
             }
         }
     }

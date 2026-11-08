@@ -5,7 +5,6 @@ namespace EchoChamber
         Home,
         Crt,
         Mixer,
-        Board,
         Window,
         Stand
     }

@@ -1,75 +1,30 @@
 {
- "turnNames": [
-  "Manhã",
-  "Tarde",
-  "Noite"
- ],
- "days": [
-  {
-   "name": "Dia 1 · Segunda",
-   "target": 140,
-   "turns": [
-    [
-     "t1",
-     "t2",
-     "t3"
-    ],
-    [
-     3,
-     "+pub"
-    ],
-    [
-     4
-    ]
-   ],
-   "boss": "Bom dia. Sou o Dr. Valente, da Vizinhança S.A. Quero 140 euros de publicidade hoje. Como lá chegas é contigo.",
-   "brief": "És o algoritmo da app <b>Vizinhança</b>. Ninguém te vê, mas tudo o que 14 vizinhos sabem do bairro passa pela tua mesa."
-  },
-  {
-   "name": "Dia 2 · Quarta",
-   "target": 220,
-   "turns": [
-    [
-     "liv1",
-     3
-    ],
-    [
-     "liv2",
-     "liv3",
-     2
-    ],
-    [
-     "liv5",
-     "liv4",
-     3
-    ]
-   ],
-   "boss": "A Letra Viva está nas lonas e o bairro anda agitado. Óptimo para os cliques. Quero 220 euros, mas se a tensão passar dos 70% os anunciantes fogem.",
-   "brief": "A <b>Livraria Letra Viva</b> está a perder clientes e corre o boato de que a Junta vendeu o prédio."
-  },
-  {
-   "name": "Dia 3 · Sábado",
-   "target": 260,
-   "turns": [
-    [
-     "r1",
-     4
-    ],
-    [
-     "r2",
-     "r3",
-     3
-    ],
-    [
-     "r4",
-     "r5",
-     "r6",
-     3
-    ]
-   ],
-   "boss": "Último dia antes da reunião com os investidores. 260 euros. Sem desculpas.",
-   "brief": "Um boato de assaltos vai rebentar e um fundo imobiliário quer a praça. O bairro já tem os hábitos que lhe deste."
-  }
- ],
- "note": "turns: lista de turnos; cada turno tem ids de posts scripted (SP), \"+pub\" (post da Mercearia Central) ou um numero N = N posts aleatorios (pickPost)"
+  "turnNames": [
+    "Manhã",
+    "Tarde",
+    "Noite"
+  ],
+  "days": [
+    {
+      "name": "Dia 1 · Segunda",
+      "target": 140,
+      "turns": [
+        [
+          "t1",
+          "t2",
+          "t3"
+        ],
+        [
+          3,
+          "+pub"
+        ],
+        [
+          4
+        ]
+      ],
+      "boss": "Bom dia. Sou o Dr. Valente, da Vizinhança S.A. Quero 140 euros de publicidade hoje. Como lá chegas é contigo.",
+      "brief": "És o algoritmo da app <b>Vizinhança</b>. Ninguém te vê, mas tudo o que 14 vizinhos sabem do bairro passa pela tua mesa."
+    }
+  ],
+  "note": "turns: lista de turnos; cada turno tem ids de posts scripted (SP), \"+pub\" (post da Mercearia Central) ou um numero N = N posts aleatorios (pickPost)"
 }

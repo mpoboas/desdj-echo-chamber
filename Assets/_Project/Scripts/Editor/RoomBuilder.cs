@@ -24,8 +24,6 @@ namespace EchoChamber.Editor
             public Transform printerSlot;
             public Transform standPose;
             public Transform tubeMouth;
-            public Transform boardAnchor;
-            public Transform phoneHandset;
             public Collider glass;
             public Material paperMat;
             public Transform slipRoot;
@@ -204,9 +202,6 @@ namespace EchoChamber.Editor
                 k.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
             }
             Label("CrtBrand", "VZ-14 COLOR", new Vector2(0.11f, 0.02f), "#E0D6BD", "#6B6455", P(-0.18f, 0.125f, 0.251f), crt, 0.7f);
-            var note = Label("StickyNote", "meta: 140", new Vector2(0.085f, 0.085f), "#FFE86B", "#1E2333", P(0.25f, 0.56f, 0.252f), crt, 0.3f);
-            note.transform.localRotation = Quaternion.Euler(0f, 180f, 0.12f * Mathf.Rad2Deg);
-            note.AddComponent<StickyNoteView>().text = note.GetComponentInChildren<TextMesh>();
             // keyboard
             var kb = B("KeyboardBase", crt, new Vector3(0.5f, 0.028f, 0.18f), new Vector3(0f, 0.014f, 0.37f), beige);
             kb.transform.localRotation = Quaternion.Euler(0.05f * Mathf.Rad2Deg, 0f, 0f);
@@ -359,21 +354,6 @@ namespace EchoChamber.Editor
             }
             res.mixer = mv;
 
-            // phone
-            var phone = G("Phone", t, new Vector3(0.4f, dy, -0.44f), -0.35f);
-            var pbase = B("PhoneBase", phone, new Vector3(0.2f, 0.09f, 0.2f), new Vector3(0f, 0.045f, 0f), Mat("#B83227", 0.3f));
-            Hit(pbase, Vector3.one, Vector3.zero, ClickAction.Phone, "Telefone do chefe");
-            var dial = Cyl("Dial", 0.055f, 0.055f, 0.01f, Mat("#F1ECE0", 0.4f), P(0f, 0.095f, 0.03f), phone);
-            dial.transform.localRotation = Quaternion.Euler(10f, 0f, 0f);
-            var handset = G("Handset", phone, new Vector3(0f, 0.115f, -0.005f));
-            res.phoneHandset = handset;
-            var hmat = Mat("#B83227", 0.3f);
-            var hb = Cyl("HandsetBar", 0.017f, 0.017f, 0.24f, hmat, Vector3.zero, handset);
-            hb.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-            foreach (float x in new[] { -0.12f, 0.12f }) Cyl("HandsetCup", 0.03f, 0.024f, 0.035f, hmat, P(x, -0.005f, 0f), handset);
-            Hit(handset.gameObject, new Vector3(0.3f, 0.08f, 0.08f), Vector3.zero, ClickAction.Phone, "Telefone do chefe");
-            handset.gameObject.AddComponent<PhoneView>().handset = handset;
-
             // desk clutter
             Cyl("PenCup", 0.045f, 0.04f, 0.11f, Mat("#E8B53A", 0.5f), P(0.3f, dy + 0.055f, -0.15f), t);
             string[] penCols = { "#C0392B", "#2980B9", "#27AE60", "#8E44AD", "#1E2333" };
@@ -382,24 +362,6 @@ namespace EchoChamber.Editor
                 var pen = Cyl("Pen", 0.005f, 0.005f, 0.19f, Mat(penCols[i]), P(0.3f + (i - 2) * 0.01f, dy + 0.14f, -0.15f + (i % 2 - 0.5f) * 0.02f), t, false);
                 pen.transform.localRotation = Quaternion.Euler((i - 2) * 6f, 0f, (i - 2) * 5f);
             }
-            var nb = B("Notebook", t, new Vector3(0.2f, 0.016f, 0.26f), new Vector3(0.1f, dy + 0.008f, -0.45f), Mat("#2E4A3F", 0.7f));
-            nb.transform.localRotation = Quaternion.Euler(0f, 0.3f * Mathf.Rad2Deg, 0f);
-            var pg = B("NotebookPage", t, new Vector3(0.19f, 0.004f, 0.25f), new Vector3(0.1f, dy + 0.018f, -0.45f), Mat("#F4F0E6", 0.95f));
-            pg.transform.localRotation = Quaternion.Euler(0f, 0.3f * Mathf.Rad2Deg, 0f);
-
-            // corkboard (left wall in prototype space)
-            B("BoardFrame", t, new Vector3(0.06f, 0.9f, 1.26f), new Vector3(-1.77f, 1.5f, -0.25f), deskDark);
-            var boardAnchor = new GameObject("BoardAnchor");
-            boardAnchor.transform.SetParent(t, false);
-            boardAnchor.transform.localPosition = P(-1.735f, 1.5f, -0.25f);
-            boardAnchor.transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
-            res.boardAnchor = boardAnchor.transform;
-            var boardQuad = Quad("BoardSurface", new Vector2(1.12f, 0.77f), TextureGen.TexMat("tex_cork", Vector2.one, 0.95f), Vector3.zero, boardAnchor.transform);
-            Hit(boardQuad, new Vector3(1f, 1f, 0.1f), Vector3.zero, ClickAction.Zoom, "Quadro dos vizinhos (clica para ver)", ViewId.Board);
-            res.boardAnchor = boardAnchor.transform;
-            var cork = boardAnchor.AddComponent<CorkBoardView>();
-            cork.disc = TextureGen.Spr("spr_disc");
-
             // pneumatic tube
             var tubeGlass = Mat("#DDE8F0", 0.05f, 0f, null, 1f, 0.28f);
             Cyl("Tube", 0.065f, 0.065f, 1.4f, tubeGlass, P(1.58f, 1.68f, -0.42f), t, false);

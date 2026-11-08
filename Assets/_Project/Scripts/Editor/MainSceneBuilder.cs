@@ -99,7 +99,6 @@ namespace EchoChamber.Editor
                 (ViewId.Home, new Vector3(0f, 1.9f, 2.25f), new Vector3(0f, 1.0f, -1.0f)),
                 (ViewId.Crt, new Vector3(-0.6f, 1.2f, 0.62f), new Vector3(-0.93f, 1.12f, -0.2f)),
                 (ViewId.Mixer, new Vector3(-0.68f, 1.42f, 0.95f), new Vector3(-0.74f, 0.82f, 0.55f)),
-                (ViewId.Board, new Vector3(-0.7f, 1.52f, -0.25f), new Vector3(-1.75f, 1.5f, -0.25f)),
                 (ViewId.Window, new Vector3(0f, 2.25f, -3.4f), new Vector3(0f, -0.9f, -12.9f)),
                 (ViewId.Stand, new Vector3(0f, 1.55f, 1.05f), new Vector3(0f, 0.99f, 0.33f)),
             };
@@ -128,7 +127,6 @@ namespace EchoChamber.Editor
             uiGo.AddComponent<OverlayView>();
             uiGo.AddComponent<HudView>();
             uiGo.AddComponent<GameFlow>();
-            uiGo.AddComponent<ObservationController>();
             UiFactoryEditor.EnsureEventSystem();
             var tm = uiGo.AddComponent<TurnManager>();
             tm.printerSlot = room.printerSlot;

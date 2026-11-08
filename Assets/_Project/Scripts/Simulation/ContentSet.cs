@@ -12,7 +12,6 @@ namespace EchoChamber
         public List<DayData> days = new List<DayData>();
         public List<NeighbourData> neighbours = new List<NeighbourData>();
         public List<PlaceData> places = new List<PlaceData>();
-        public List<EndingData> endings = new List<EndingData>();
 
         public PostData FindScripted(string id)
         {
@@ -25,13 +24,6 @@ namespace EchoChamber
         {
             foreach (var p in places)
                 if (p.id == id) return p;
-            return null;
-        }
-
-        public EndingData FindEnding(EndingId id)
-        {
-            foreach (var e in endings)
-                if (e.id == id) return e;
             return null;
         }
     }

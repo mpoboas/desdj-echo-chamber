@@ -10,19 +10,16 @@ namespace EchoChamber.Tests
             var c = TestContent.Content();
             Assert.AreEqual(21, c.pool.Count);
             Assert.AreEqual(14, c.scripted.Count);
-            Assert.AreEqual(3, c.days.Count);
+            Assert.AreEqual(1, c.days.Count);
             Assert.AreEqual(14, c.neighbours.Count);
             Assert.AreEqual(7, c.places.Count);
-            Assert.AreEqual(5, c.endings.Count);
         }
 
         [Test]
-        public void DayTargetsAreFromTheSpec()
+        public void TheDayHasThreeTurns()
         {
             var c = TestContent.Content();
-            Assert.AreEqual(140, c.days[0].target);
-            Assert.AreEqual(220, c.days[1].target);
-            Assert.AreEqual(260, c.days[2].target);
+            Assert.AreEqual(3, c.days[0].turns.Count);
         }
 
         [Test]

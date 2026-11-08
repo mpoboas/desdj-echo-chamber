@@ -41,11 +41,6 @@ namespace EchoChamber
         public float IconTime;
         public int PostsSeen;
 
-        // Discovery
-        public readonly Dictionary<int, float> Links = new Dictionary<int, float>();
-        public readonly List<ObservationNote> Notes = new List<ObservationNote>();
-        public bool TraitKnown;
-
         public bool IsAnxious => Trait == Trait.Anxious;
         public bool IsAddict => Trait == Trait.Addict;
         public bool IsMoving => Path.Count > 0;

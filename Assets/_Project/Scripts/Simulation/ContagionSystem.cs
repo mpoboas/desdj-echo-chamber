@@ -44,8 +44,6 @@ namespace EchoChamber
                     m = (b.Pert - a.Pert) * k;
                     a.Pert = SimMath.Clamp01(a.Pert + m);
                     b.Pert = SimMath.Clamp01(b.Pert - m);
-                    a.Links.TryGetValue(b.Id, out float l);
-                    a.Links[b.Id] = l + dt;
                 }
             }
         }

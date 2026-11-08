@@ -302,16 +302,6 @@ namespace EchoChamber.Editor
                 agent.avoidancePriority = 30 + i;
                 agent.enabled = false;
 
-                var rc = go.AddComponent<RoomClickable>();
-                rc.action = ClickAction.Neighbour;
-                rc.neighbourIndex = i;
-                rc.tooltip = "Observar " + nd.name;
-                var col = go.AddComponent<CapsuleCollider>();
-                col.center = new Vector3(0f, 0.42f, 0f);
-                col.radius = 0.2f;
-                col.height = 0.85f;
-                col.isTrigger = true;
-
                 var visual = new GameObject("Visual");
                 visual.transform.SetParent(go.transform, false);
                 var body = Inst(NpcModels[i % NpcModels.Length], visual.transform, new InstOptions { height = 0.66f });

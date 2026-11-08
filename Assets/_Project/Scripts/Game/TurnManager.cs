@@ -7,6 +7,7 @@ namespace EchoChamber
 {
     /// <summary>
     /// Presentation side of the turn cycle: Decide (printer, slips, stamps) -> Publish (lever) -> Simulate -> Newspaper.
+    /// First prototype: one day of three turns.
     /// The rules live in GameSimulation; this class turns them into physical objects and overlays.
     /// </summary>
     public class TurnManager : MonoBehaviour
@@ -39,7 +40,7 @@ namespace EchoChamber
         private bool torn;
         private DecisionMode? pendingAct;
         private int turnKey = -1;
-        private bool introShown, reportShown, dayEndShown, endShown, simStarted;
+        private bool introShown, reportShown, endShown, simStarted;
         private int tickPrev = 99;
         private bool firstDecisionHinted;
 
@@ -67,7 +68,7 @@ namespace EchoChamber
             sim.EventRaised += OnSimEvent;
         }
 
-        private int Key => sim.Day * 10 + sim.Turn;
+        private int Key => sim.Turn;
 
         // --------------------------------------------------------------- update
 
@@ -101,20 +102,12 @@ namespace EchoChamber
                         ShowReport();
                     }
                     break;
-                case GamePhase.DayEnd:
-                    PhaseText = "-";
-                    if (!dayEndShown)
-                    {
-                        dayEndShown = true;
-                        ShowDayEnd();
-                    }
-                    break;
                 case GamePhase.End:
                     PhaseText = "-";
                     if (!endShown)
                     {
                         endShown = true;
-                        if (GameFlow.Instance != null) GameFlow.Instance.ShowEnding();
+                        if (GameFlow.Instance != null) GameFlow.Instance.ShowEnd();
                     }
                     break;
             }
@@ -127,7 +120,7 @@ namespace EchoChamber
             sim.EventRaised += OnSimEvent;
             ClearSlips();
             turnKey = -1;
-            introShown = reportShown = dayEndShown = endShown = simStarted = false;
+            introShown = reportShown = endShown = simStarted = false;
             firstDecisionHinted = false;
             pendingAct = null;
         }
@@ -150,7 +143,6 @@ namespace EchoChamber
         {
             turnKey = Key;
             reportShown = false;
-            dayEndShown = false;
             simStarted = false;
             ClearSlips();
             foreach (var p in sim.TurnPosts) printQueue.Enqueue(p);
@@ -160,16 +152,6 @@ namespace EchoChamber
             tickPrev = 99;
             RoomEvents.RaiseViewRequested(ViewId.Home);
 
-            if (sim.Turn == 0)
-            {
-                string boss = sim.CurrentDay.boss;
-                StartCoroutine(After(0.6f, () =>
-                {
-                    GameAudio.Ring();
-                    if (PhoneView.Instance != null) PhoneView.Instance.Ring(1.2f);
-                    StartCoroutine(After(0.7f, () => SubtitleView.Say("Telefone · Dr. Valente", boss, SubtitleView.Style.Normal, 8.5f)));
-                }));
-            }
             if (sim.IsFirstTurnEver)
             {
                 StartCoroutine(After(5.2f, () => SubtitleView.Say("Dica",
@@ -218,19 +200,6 @@ namespace EchoChamber
             rot = pq * Quaternion.Euler((Mathf.PI / 2f - ExitTilt) * Mathf.Rad2Deg, 0f, 0f);
         }
 
-        private string PatternText(PostCategory cat)
-        {
-            var top = sim.Discovery.TopPattern(cat);
-            if (top == null) return null;
-            var sb = new StringBuilder();
-            for (int i = 0; i < top.Count; i++)
-            {
-                if (i > 0) sb.Append(" · ");
-                sb.Append(ReactionStyle.Short(top[i].Key)).Append(" ×").Append(top[i].Value);
-            }
-            return sb.ToString();
-        }
-
         private void StartPrint()
         {
             var post = printQueue.Dequeue();
@@ -238,7 +207,7 @@ namespace EchoChamber
             var slip = SlipView.Create(post, author, paperEdge, slipParent);
             slips.Add(slip);
             printing = slip;
-            slip.SetEstimates(sim.EstimateRevenue(post), PatternText(post.category));
+            slip.SetEstimates(sim.EstimateRevenue(post));
             PrintGeometry(out var dir, out var slot, out var rot);
             slip.transform.rotation = rot;
             slip.transform.position = slot - dir * 0.18f;
@@ -279,7 +248,7 @@ namespace EchoChamber
                 printer.Printing = false;
                 printing = null;
                 onStand = s;
-                s.SetEstimates(sim.EstimateRevenue(s.Post), PatternText(s.Post.category));
+                s.SetEstimates(sim.EstimateRevenue(s.Post));
                 Vector3 up = s.transform.position + dir * 0.04f;
                 Quaternion twist = s.transform.rotation * Quaternion.Euler(0f, -0.08f * Mathf.Rad2Deg, 0f);
                 s.MoveTo(up, twist, 0.12f, 0f, -1f, () =>
@@ -320,13 +289,6 @@ namespace EchoChamber
                     if (CameraRig.Instance != null && CameraRig.Instance.Current != ViewId.Stand) RoomEvents.RaiseViewRequested(ViewId.Stand);
                     else SubtitleView.Say("Talão", "Escolhe um carimbo: <b>AMPLIFICAR</b> (A), <b>OCULTAR</b> (O), ou o cesto <b>NORMAL</b> (N).", SubtitleView.Style.Hint, 3f);
                     break;
-                case ClickAction.Phone:
-                {
-                    var d = sim.CurrentDay;
-                    string msg = sim.RevenueDay >= d.target ? "Os números estão bons. Continua assim." : $"Faltam {d.target - sim.RevenueDay} euros para a meta de hoje.";
-                    SubtitleView.Say("Telefone · Dr. Valente", msg, SubtitleView.Style.Normal, 4f);
-                    break;
-                }
                 case ClickAction.Radio:
                 {
                     float t = sim.Metrics.Tension, co = sim.Metrics.Cohesion;
@@ -334,9 +296,6 @@ namespace EchoChamber
                     SubtitleView.Say("Rádio Bairro FM", $"Coesão {Mathf.RoundToInt(co * 100f)}%, tensão {Mathf.RoundToInt(t * 100f)}%. {mood}", SubtitleView.Style.Radio, 4f);
                     break;
                 }
-                case ClickAction.Neighbour:
-                    if (c != null && ObservationController.Instance != null) ObservationController.Instance.Observe(c.neighbourIndex);
-                    break;
             }
         }
 
@@ -446,7 +405,7 @@ namespace EchoChamber
                     "Agora observas. O monitor mostra quem recebe cada post, mas a app não sabe o que as pessoas sentem. <b>Clica na janela</b> para ver a rua.",
                     SubtitleView.Style.Hint, 8f)));
                 StartCoroutine(After(8.8f, () => SubtitleView.Say("Dica",
-                    "Quando um vizinho reage a um post aparece-lhe um símbolo por cima. <b>Clica nele</b> para anotar no caderno. É assim que descobres como cada um funciona.",
+                    "Quando um vizinho reage a um post aparece-lhe um símbolo por cima. Observa quem reage e como.",
                     SubtitleView.Style.Hint, 9f)));
             }
         }
@@ -455,7 +414,7 @@ namespace EchoChamber
         {
             if (e.Kind == SimEventKind.AdsNervous)
             {
-                SubtitleView.Say("Telefone · Dr. Valente", Texts.EventText(e.Kind), SubtitleView.Style.Alarm, 5f);
+                SubtitleView.Say("Dr. Valente", Texts.EventText(e.Kind), SubtitleView.Style.Alarm, 5f);
                 GameAudio.Alarm();
                 return;
             }
@@ -474,10 +433,10 @@ namespace EchoChamber
             card.Para(sim.Content.days[0].brief);
             card.Para("• <b>Decidir:</b> os posts saem da impressora. Carimba <b>AMPLIFICAR</b> ou <b>OCULTAR</b>, ou atira para o cesto <b>NORMAL</b>. A mesa de mistura define o alcance de cada categoria.", 26);
             card.Para("• <b>Publicar:</b> puxa a alavanca. O tempo corre e observas no monitor e pela janela o que os vizinhos fazem com o que viram.", 26);
-            card.Para("• <b>Perceber:</b> a app não sabe o que as pessoas sentem, só o que fazem. Pela janela, clica nos vizinhos quando reagem a um post e anota. O quadro de cortiça junta o que descobres.", 26);
+            card.Para("• <b>Observar:</b> a app não sabe o que as pessoas sentem, só o que fazem. Vê pela janela e no monitor como os vizinhos reagem.", 26);
             card.Para("• O jornal conta o que aconteceu, não porquê. As causas descobres tu.", 26);
-            card.Para("• 3 dias, 3 turnos cada. Garante a receita do chefe sem partir o bairro. Os anéis no monitor enchem e, quando completam, há crise.", 26);
-            card.Small("Clica no monitor, no quadro ou na janela para ver de perto.");
+            card.Para("• Um dia, 3 turnos. Ganha receita sem partir o bairro: o que rende tende a baixar a coesão e a subir a tensão.", 26);
+            card.Small("Clica no monitor, na mesa de mistura ou na janela para ver de perto.");
             card.Button("Entrar na sala", () =>
             {
                 ov.Close();
@@ -536,21 +495,12 @@ namespace EchoChamber
             card.Key("Balanço do turno", right);
             float dC = sim.Metrics.Cohesion - log.StartCohesion, dT = sim.Metrics.Tension - log.StartTension;
             int rev2 = sim.RevenueDay - log.StartRevenue;
-            card.Stat("Receita", $"+{rev2} € ({sim.RevenueDay}/{day.target} €)", null, right);
+            card.Stat("Receita", $"+{rev2} € (total {sim.RevenueDay} €)", null, right);
             card.Stat("Coesão", $"{Pct(sim.Metrics.Cohesion)} ({(dC >= 0 ? "+" : "")}{Mathf.RoundToInt(dC * 100f)})", dC >= 0 ? UiPalette.Good : UiPalette.Claret, right);
             card.Stat("Tensão", $"{Pct(sim.Metrics.Tension)} ({(dT >= 0 ? "+" : "")}{Mathf.RoundToInt(dT * 100f)})", dT <= 0 ? UiPalette.Good : UiPalette.Claret, right);
 
-            var disc = card.Panel(ReactionStyle.Hex("#E5DCC6"), new RectOffset(18, 18, 12, 14));
-            var reveals = new List<string>();
-            foreach (var r in log.Reveals)
-                reveals.Add(r.Kind == RevealKind.Trait ? $"{r.A.Name}: {r.A.Data.traitLabel}" : $"{r.A.Name} e {r.B.Name} andam juntos");
-            string notes = log.Notes > 0 ? $"anotaste {log.Notes} reaç{(log.Notes > 1 ? "ões" : "ão")} neste turno"
-                : "não anotaste nada neste turno. Sem observar, o bairro continua uma caixa negra";
-            string found = reveals.Count > 0 ? " Descobriste: " + string.Join("; ", reveals) + "." : "";
-            card.Para($"<b>O teu caderno:</b> {notes}.{found} Bairro percebido: <b>{Pct(sim.Understanding)}</b>.", 23, disc);
-
             bool last = sim.IsLastTurnOfDay;
-            card.Button(last ? "Fechar o dia" : "Próximo turno: " + Texts.TurnNames[sim.Turn + 1], () =>
+            card.Button(last ? "Terminar o dia" : "Próximo turno: " + Texts.TurnNames[sim.Turn + 1], () =>
             {
                 ov.Close();
                 reportShown = false;
@@ -559,34 +509,5 @@ namespace EchoChamber
             card.Done();
         }
 
-        private void ShowDayEnd()
-        {
-            var ov = OverlayView.Instance;
-            var day = sim.CurrentDay;
-            var goals = sim.DayResults[sim.DayResults.Count - 1];
-            var next = sim.Content.days[Mathf.Min(sim.Day + 1, sim.Content.days.Count - 1)];
-            var card = ov.Open(1100f);
-            string dayShort = day.name.Contains("·") ? day.name.Substring(0, day.name.IndexOf('·')).Trim().ToLowerInvariant() : day.name.ToLowerInvariant();
-            card.Eyebrow("Fim do " + dayShort);
-            card.Title(sim.RevenueDay >= day.target ? "O chefe está satisfeito." : "O chefe não atende o telefone.", 50);
-            foreach (var g in goals)
-            {
-                string label = g.Kind == DayGoalKind.Revenue ? $"Meta do chefe: {day.target} €"
-                    : g.Kind == DayGoalKind.LivrariaOpen ? "Letra Viva aberta" : "Tensão abaixo de 70%";
-                card.Stat(label, g.Achieved ? "cumprido" : "falhado", g.Achieved ? UiPalette.Good : UiPalette.Claret);
-            }
-            card.Para("Os vizinhos dormem sobre o que viram hoje. Acordam um pouco mais calmos, mas a desconfiança e os hábitos ficam.", 26);
-            card.Space(6f);
-            card.Eyebrow("A seguir");
-            card.Title(next.name, 42);
-            card.Para(next.brief, 26);
-            card.Button("Abrir a sala", () =>
-            {
-                ov.Close();
-                dayEndShown = false;
-                sim.BeginNextDay();
-            });
-            card.Done();
-        }
     }
 }

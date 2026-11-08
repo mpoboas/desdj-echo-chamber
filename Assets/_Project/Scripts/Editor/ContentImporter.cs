@@ -35,7 +35,7 @@ namespace EchoChamber.Editor
             }
             AssetDatabase.SaveAssets();
             Debug.Log($"[EchoChamber] Imported {content.pool.Count} pool posts, {content.scripted.Count} scripted posts, " +
-                      $"{content.days.Count} days, {content.neighbours.Count} neighbours, {content.places.Count} places, {content.endings.Count} endings.");
+                      $"{content.days.Count} days, {content.neighbours.Count} neighbours, {content.places.Count} places.");
         }
 
         private static string ProjectRoot => Path.GetDirectoryName(Application.dataPath);
@@ -123,15 +123,6 @@ namespace EchoChamber.Editor
                 set.places.Add(pd);
             }
 
-            foreach (var kv in (JObject)Read("endings.json"))
-            {
-                set.endings.Add(new EndingData
-                {
-                    id = ParseEnding(kv.Key),
-                    headline = (string)kv.Value["h"],
-                    text = (string)kv.Value["p"]
-                });
-            }
             return set;
         }
 
@@ -206,19 +197,6 @@ namespace EchoChamber.Editor
                 case "praca": return PlaceId.Praca;
             }
             throw new System.ArgumentException("Unknown place " + s);
-        }
-
-        public static EndingId ParseEnding(string s)
-        {
-            switch (s)
-            {
-                case "sleep": return EndingId.Sleep;
-                case "locked": return EndingId.Locked;
-                case "alive": return EndingId.Alive;
-                case "balance": return EndingId.Balance;
-                case "gentry": return EndingId.Gentry;
-            }
-            throw new System.ArgumentException("Unknown ending " + s);
         }
     }
 }

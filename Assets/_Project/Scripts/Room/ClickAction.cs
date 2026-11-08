@@ -9,9 +9,7 @@ namespace EchoChamber
         Normal,
         Lever,
         Slip,
-        Phone,
         Radio,
-        Fader,
-        Neighbour
+        Fader
     }
 }

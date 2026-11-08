@@ -67,16 +67,5 @@ namespace EchoChamber.Tests
             b = Place(sim, 1, PlaceId.CasasN, 100f, 0.1f);
             Assert.IsFalse(sim.Contagion.CanInteract(a, b));
         }
-
-        [Test]
-        public void TimeTogetherIsRecordedForDiscovery()
-        {
-            var sim = TestContent.Sim();
-            var a = Place(sim, 0, PlaceId.Cafe, 100f, 0.5f);
-            var b = Place(sim, 1, PlaceId.Cafe, 120f, 0.5f);
-            var list = new System.Collections.Generic.List<Neighbour> { a, b };
-            for (int i = 0; i < 10; i++) sim.Contagion.Step(list, 1f);
-            Assert.AreEqual(10f, a.Links[b.Id], 0.001f);
-        }
     }
 }

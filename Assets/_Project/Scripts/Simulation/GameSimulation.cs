@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace EchoChamber
 {
     /// <summary>
-    /// Orchestrates the whole game logic without any scene: days, turns, neighbours, posts, metrics,
-    /// rings, discovery and endings. Advance it with Tick(dt).
+    /// Orchestrates the whole game logic without any scene: one day of three turns, neighbours, posts,
+    /// metrics and rings. Advance it with Tick(dt).
     /// </summary>
     public class GameSimulation
     {
@@ -18,7 +18,6 @@ namespace EchoChamber
         public readonly ContagionSystem Contagion;
         public readonly Metrics Metrics;
         public readonly CrisisRings Rings;
-        public readonly DiscoveryModel Discovery;
         public readonly TrafficCycle Traffic;
         public readonly WorldRouter Router;
         public readonly PostPicker Picker;
@@ -30,7 +29,6 @@ namespace EchoChamber
         public int Turn;
         public int RevenueDay;
         public int RevenueTotal;
-        public readonly int[] RevenueByDay;
         public readonly float[] Weights = new float[5];
         public readonly List<PostData> TurnPosts = new List<PostData>();
         public readonly List<Delivery> Deliveries = new List<Delivery>();
@@ -40,16 +38,12 @@ namespace EchoChamber
         public float DecideMax;
         /// <summary>The decide clock only runs once the first slip exists (set by the presentation).</summary>
         public bool DecideClockRunning;
-        public readonly List<List<DayGoal>> DayResults = new List<List<DayGoal>>();
-        public readonly List<KeyValuePair<float, float>> History = new List<KeyValuePair<float, float>>();
-        public EndingId? FinalEnding;
 
         public readonly Dictionary<PostCategory, int> CategorySeen = new Dictionary<PostCategory, int>();
 
         public event Action<SimEvent> EventRaised;
 
         private readonly List<SimEvent> eventBuffer = new List<SimEvent>();
-        private float histTimer;
 
         public GameSimulation(ContentSet content, TuningData tuning, int seed) : this(content, tuning, new SimRandom(seed))
         {
@@ -64,17 +58,14 @@ namespace EchoChamber
             Contagion = new ContagionSystem(tuning);
             Metrics = new Metrics(tuning);
             Rings = new CrisisRings(tuning);
-            Discovery = new DiscoveryModel(tuning);
             Traffic = new TrafficCycle(tuning);
             Router = new WorldRouter(tuning, content, rng);
             Picker = new PostPicker(tuning, content, rng);
             Deliverer = new PostDelivery(tuning, rng);
-            RevenueByDay = new int[tuning.daysCount];
             for (int i = 0; i < Weights.Length; i++) Weights[i] = tuning.mixerDefault;
             SpawnNeighbours();
         }
 
-        public int DaysCount => Tuning.daysCount;
         public DayData CurrentDay => Content.days[Day];
         public bool IsLastTurnOfDay => Turn == Tuning.turnsPerDay - 1;
         public bool IsNightTurn => Turn == 2;
@@ -202,16 +193,6 @@ namespace EchoChamber
 
             Traffic.Advance(dt * (Phase == GamePhase.Simulate ? 1f : Tuning.trafficDecideScale));
             Metrics.Update(Neighbours, Rings.RiotActive, Rings.PoliceOnStreet);
-
-            if (Phase == GamePhase.Simulate || Phase == GamePhase.Decide)
-            {
-                histTimer += dt;
-                if (histTimer >= Tuning.histInterval)
-                {
-                    histTimer = 0f;
-                    History.Add(new KeyValuePair<float, float>(Metrics.Cohesion, Metrics.Tension));
-                }
-            }
         }
 
         public bool DecideTimeUp => DecideTime >= DecideMax;
@@ -255,66 +236,19 @@ namespace EchoChamber
             }
         }
 
-        /// <summary>Called when the player closes the newspaper. Moves to the next turn or closes the day.</summary>
+        /// <summary>Called when the player closes the newspaper. Moves to the next turn or ends the day.</summary>
         public void ContinueAfterReport()
         {
             if (Phase != GamePhase.Report) return;
             if (IsLastTurnOfDay)
             {
-                CloseDay();
+                Phase = GamePhase.End;
             }
             else
             {
                 Turn++;
                 StartTurn();
             }
-        }
-
-        public void CloseDay()
-        {
-            DayData d = CurrentDay;
-            RevenueByDay[Day] = RevenueDay;
-            var goals = new List<DayGoal>
-            {
-                new DayGoal { Kind = DayGoalKind.Revenue, Target = d.target, Achieved = RevenueDay >= d.target }
-            };
-            if (Day == 1) goals.Add(new DayGoal { Kind = DayGoalKind.LivrariaOpen, Achieved = Rings.LivrariaOpen });
-            goals.Add(new DayGoal { Kind = DayGoalKind.TensionBelow, Achieved = Metrics.Tension < Tuning.nervousTension });
-            DayResults.Add(goals);
-
-            if (Day == Tuning.daysCount - 1)
-            {
-                FinalEnding = ResolveEnding();
-                Phase = GamePhase.End;
-                return;
-            }
-
-            foreach (var n in Neighbours)
-            {
-                n.Stress = SimMath.Lerp(n.Stress, Tuning.restStress, Tuning.nightStressPull);
-                n.Desc = SimMath.Lerp(n.Desc, Tuning.restDesc, Tuning.nightDescPull);
-                n.Apat = SimMath.Lerp(n.Apat, Tuning.restApat, Tuning.nightApatPull);
-            }
-            if (!Rings.MerceariaOpen && Metrics.AvgStress(Neighbours) < Tuning.merceariaReopenStress) Rings.MerceariaOpen = true;
-            Rings.PoliceOnStreet = false;
-            Phase = GamePhase.DayEnd;
-        }
-
-        public EndingId ResolveEnding()
-        {
-            float lastTarget = Content.days[Tuning.daysCount - 1].target;
-            return EndingResolver.Resolve(Tuning, Metrics.AvgApat(Neighbours), Metrics.Tension, Metrics.Cohesion, RevenueDay, lastTarget);
-        }
-
-        /// <summary>Called when the player closes the end-of-day card.</summary>
-        public void BeginNextDay()
-        {
-            if (Phase != GamePhase.DayEnd) return;
-            Day++;
-            Turn = 0;
-            RevenueDay = 0;
-            Rings.ResetForDay(Day);
-            StartTurn();
         }
 
         // ------------------------------------------------------------------ neighbours
@@ -438,22 +372,5 @@ namespace EchoChamber
                 n.Pert = SimMath.Clamp01(n.Pert + Tuning.livVisitPert);
             }
         }
-
-        // ------------------------------------------------------------------ discovery
-
-        /// <summary>Player clicked a neighbour to note their reaction.</summary>
-        public ObserveResult Observe(Neighbour n)
-        {
-            ObserveResult r = Discovery.Observe(n, Neighbours);
-            if (r.Noted && Log != null)
-            {
-                Log.Notes++;
-                if (r.TraitDiscovered) Log.Reveals.Add(new Reveal { Kind = RevealKind.Trait, A = n });
-                foreach (var m in r.NewRelations) Log.Reveals.Add(new Reveal { Kind = RevealKind.Relation, A = n, B = m });
-            }
-            return r;
-        }
-
-        public float Understanding => Discovery.Understanding(Neighbours);
     }
 }
