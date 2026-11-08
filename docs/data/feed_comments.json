@@ -1,0 +1,135 @@
+{
+ "pools": [
+  {
+   "key": "names",
+   "lines": [
+    "joana_p",
+    "nuno.r",
+    "anabela77",
+    "mr_porto",
+    "carla__",
+    "bruno_fc",
+    "lu.cas",
+    "dona.fatima",
+    "pedro_t",
+    "ines.m"
+   ]
+  },
+  {
+   "key": "generic.calm",
+   "lines": [
+    "que bom",
+    "adorei",
+    "guardado",
+    "isto está tão giro",
+    "partilha com a tua mãe",
+    "também quero",
+    "boa!",
+    "hahaha",
+    "lindo",
+    "vou experimentar"
+   ]
+  },
+  {
+   "key": "generic.hot",
+   "lines": [
+    "é sempre a mesma coisa",
+    "já não se pode dizer nada",
+    "eles é que mandam nisto",
+    "indignado",
+    "vergonha",
+    "quem não deve não teme",
+    "isto não vai ficar assim",
+    "acordem!!",
+    "nunca vi tanta mentira",
+    "exato."
+   ]
+  },
+  {
+   "key": "generic.fight",
+   "lines": [
+    "quem escreve isto não percebe nada",
+    "és mesmo ingénuo",
+    "cala-te e informa-te",
+    "típico",
+    "tu és parte do problema"
+   ]
+  },
+  {
+   "key": "generic.neutral",
+   "lines": [
+    "já viram isto?",
+    "interessante",
+    "vamos ver no que dá"
+   ]
+  },
+  {
+   "key": "Rosa.hot",
+   "lines": [
+    "que triste isto",
+    "calma, pessoal",
+    "podiam falar com educação"
+   ]
+  },
+  {
+   "key": "Rosa.calm",
+   "lines": [
+    "que bom!",
+    "guardei a receita",
+    "obrigada por partilhar",
+    "adorei, beijinhos"
+   ]
+  },
+  {
+   "key": "Tiago.meme",
+   "lines": [
+    "kkkkk",
+    "partilhado",
+    "isto sou eu",
+    "não consigo parar"
+   ]
+  },
+  {
+   "key": "Tiago.other",
+   "lines": [
+    "grande jogo",
+    "epá isto é bom",
+    "mais um"
+   ]
+  },
+  {
+   "key": "Leonor.hot",
+   "lines": [
+    "isto preocupa-me",
+    "podemos conversar sem gritar?",
+    "calma, pessoal"
+   ]
+  },
+  {
+   "key": "Leonor.calm",
+   "lines": [
+    "li este livro",
+    "recomendo muito",
+    "que bonito",
+    "adoro isto"
+   ]
+  },
+  {
+   "key": "Hugo.hot",
+   "lines": [
+    "vergonha de marca",
+    "nunca mais compro lá",
+    "é sempre o mesmo"
+   ]
+  },
+  {
+   "key": "Hugo.calm",
+   "lines": [
+    "onde compro?",
+    "link?",
+    "grande desconto",
+    "já comprei"
+   ]
+  }
+ ]
+}

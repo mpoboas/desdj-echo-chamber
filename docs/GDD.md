@@ -1,6 +1,6 @@
-# Echo Chamber: Game Design Document (rascunho v0.2)
+# Echo Chamber: Game Design Document (rascunho v0.3)
 
-Estado: proposta em iteração. [?] marca o que está por decidir. Substitui a v0.1.
+Estado: proposta em iteração. [?] marca o que está por decidir. Substitui a v0.1. v0.3 (2026-11-08): LCD 16:9, cansaço dos vizinhos, vários posts no dock, vídeos 2D já feitos (ver `docs/DECISIONS.md`).
 
 ## 1. Pitch
 
@@ -30,14 +30,16 @@ Mal-estar que cresce devagar e se torna responsabilidade. Começa leve, quase si
 
 ### A Central de Feeds (ecrã principal do jogo)
 
-O CRT deixa de ser um painel de números e passa a ser a **central de controlo dos feeds do bairro**: uma parede de pequenos ecrãs de telemóvel, um por vizinho (3 no dia 1, até 5 no dia 5). O jogador vê cada pessoa a fazer doomscroll em tempo real.
+O CRT é substituído por um **LCD 16:9** (decidido a 2026-11-08, ver DECISIONS). É a **central de controlo dos feeds do bairro**: **um telemóvel em foco** (grande) e os outros vizinhos em cartões pequenos que só sinalizam eventos (3 no dia 1, até 5 no dia 5). O jogador escolhe quem ver e vê essa pessoa a fazer doomscroll em tempo real: vídeos curtos animados, likes, comentários.
 
 - O feed de cada pessoa corre sozinho com **posts de fundo** gerados pelo sistema (desporto, memes, anúncios, notícias). É o "algoritmo por defeito".
 - Os posts que o jogador dá a uma pessoa **entram nesse feed** passados poucos segundos, no meio do ruído, e a pessoa reage à frente dele.
 - **A reação é o feedback:** se a pessoa pára a rolar (dwell), reage com um coração ou comenta, o post agradou. Se passa a correr, não. O tempo na app sobe em direto.
 - O jogador pode **focar um ecrã** para o ver maior e ler os posts.
 - Os interesses do perfil podem estar incompletos ou enganar: a verdade vê-se pelo que a pessoa realmente lê. Observar o doomscroll é uma forma de descobrir.
-- Resolve três problemas de uma vez: feedback imediato, uma razão para o CRT existir e a ligação direta entre o que o jogador dá e o que a pessoa vê.
+- **Cansaço (decidido a 2026-11-08):** quem só vê vídeos que não o interessam gasta energia e acaba por pousar o telemóvel, e deixa de contar tempo na app. Um post bem entregue acorda-o e prende-o mais uns vídeos. É por isso que o jogador tem de vigiar os cartões e servir quem está parado.
+- **Posts pendentes:** podem estar até 4 na secretária ao mesmo tempo (chegam a horas fixas durante o dia). Um post entregue passa a seguir em menos de 2 s.
+- Resolve três problemas de uma vez: feedback imediato, uma razão para o LCD existir e a ligação direta entre o que o jogador dá e o que a pessoa vê.
 
 Risco: cinco feeds a correr ao mesmo tempo podem ser ilegíveis. Mitigação: o ecrã focado e a introdução gradual de vizinhos.
 
@@ -161,7 +163,7 @@ Dependem do estado do bairro **e do que o jogador percebeu**.
 
 ## 15. Adiado (pinned, só depois de fechar o design e os posts)
 
-- **Posts em vídeo.** Os posts começam como texto. A intenção é que passem a vídeos curtos, na lógica do doomscroll (clips animados em loop, não vídeo real). Só depois de o sistema funcionar com texto.
+- ~~Posts em vídeo~~ **Feito** (2026-11-08, a pedido do dono do projeto): 11 clips 2D animados em loop, com texto por cima. Ver `docs/DECISIONS.md`.
 - **Art bible** de uma página (paleta, tipografia, referências *Retro Story*, UI da Central de Feeds).
 - **Calibração dos dias** (metas, número de posts, duração). Só se faz com playtest real.
 

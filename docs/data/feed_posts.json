@@ -1,0 +1,777 @@
+{
+ "posts": [
+  {
+   "id": 1,
+   "author": "Teresa",
+   "text": "Bacalhau à Brás, receita da minha avó. O segredo é a batata palha caseira.",
+   "theme": "receita",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Bacalhau à Brás",
+   "clip": "receita",
+   "filler": false
+  },
+  {
+   "id": 2,
+   "author": "Fábio",
+   "text": "Quando dizes que vais dormir cedo e são 3 da manhã. #mood",
+   "theme": "meme",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Só mais um vídeo",
+   "clip": "meme_mood",
+   "filler": false
+  },
+  {
+   "id": 3,
+   "author": "Café Aurora",
+   "text": "Hoje há bolo de bolacha. Até acabar.",
+   "theme": "anuncio",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Bolo de bolacha",
+   "clip": "anuncio",
+   "filler": false
+  },
+  {
+   "id": 4,
+   "author": "Junta de Freguesia",
+   "text": "Reunião de moradores sexta às 18h. Tema: iluminação da Rua do Almada.",
+   "theme": "noticia",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Reunião sexta 18h",
+   "clip": "noticia",
+   "filler": false
+  },
+  {
+   "id": 5,
+   "author": "Zé Manel",
+   "text": "O Porto empata outra vez. Alguém me explica este treinador?",
+   "theme": "desporto",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "O Porto empata outra vez",
+   "clip": "desporto",
+   "filler": false
+  },
+  {
+   "id": 6,
+   "author": "Dona Olga",
+   "text": "Perdi o gato. Preto, orelha cortada, atende por Bigodes. Rua das Flores.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Perdido: Bigodes",
+   "clip": "comunidade_gato",
+   "filler": false
+  },
+  {
+   "id": 7,
+   "author": "Anónimo",
+   "text": "Dizem que a Junta já decidiu quem vai ficar com o terreno da praça. Ninguém foi consultado.",
+   "theme": "politica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [
+    "Junta"
+   ],
+   "minDay": 2,
+   "overlay": "NINGUÉM FOI CONSULTADO",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 8,
+   "author": "Hugo",
+   "text": "Outro roubo na Rua das Flores. Quem é que se mete com isto? A polícia não faz nada.",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando",
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "A POLÍCIA NÃO FAZ NADA",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 9,
+   "author": "Fábio",
+   "text": "Quem ainda vota nesta gente é parvo. Digo eu.",
+   "theme": "politica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando",
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "QUEM VOTA NESTA GENTE?",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 10,
+   "author": "Rádio Aurora",
+   "text": "Vizinha queixa-se de barulho. Vizinho diz que a queixa é falsa. Quem tem razão?",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Rosa",
+    "Armando",
+    "Tiago",
+    "Leonor",
+    "Hugo"
+   ],
+   "mentions": [
+    "Rosa",
+    "Armando"
+   ],
+   "minDay": 2,
+   "overlay": "QUEM TEM RAZÃO?",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 11,
+   "author": "Zé Manel",
+   "text": "Este golo vai deixar-te sem palavras. #imperdivel",
+   "theme": "desporto",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Golaço!",
+   "clip": "desporto",
+   "filler": false
+  },
+  {
+   "id": 12,
+   "author": "Teresa",
+   "text": "Aprendi a fazer pão de centeio. A massa-mãe é uma pessoa de paciência.",
+   "theme": "receita",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Pão de centeio",
+   "clip": "receita",
+   "filler": false
+  },
+  {
+   "id": 13,
+   "author": "Livraria Leitura Viva",
+   "text": "Clube de leitura quinta às 21h. Este mês: um romance sobre vizinhos que nunca se falam.",
+   "theme": "livros",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Leonor"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Clube de leitura",
+   "clip": "neutro",
+   "filler": false
+  },
+  {
+   "id": 14,
+   "author": "Leonor",
+   "text": "Terminei o livro. Chorei no autocarro. Recomendo.",
+   "theme": "livros",
+   "inflamed": 0,
+   "role": "base",
+   "matches": [
+    "Leonor"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Chorei no autocarro",
+   "clip": "neutro",
+   "filler": false
+  },
+  {
+   "id": 15,
+   "author": "Livraria Leitura Viva",
+   "text": "Última semana de saldos. Depois fechamos mais cedo ao sábado.",
+   "theme": "anuncio",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Leonor",
+    "Hugo"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Saldos: última semana",
+   "clip": "anuncio",
+   "filler": false
+  },
+  {
+   "id": 16,
+   "author": "Anónimo",
+   "text": "A livraria vai fechar. Dizem que o senhorio já recebeu proposta de um fundo.",
+   "theme": "boato",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Leonor",
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "A LIVRARIA VAI FECHAR",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 17,
+   "author": "Leonor",
+   "text": "Alguém quer trocar livros? Tenho uns 20 em casa.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Leonor",
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "Troca de livros",
+   "clip": "comunidade",
+   "filler": false
+  },
+  {
+   "id": 18,
+   "author": "Leonor",
+   "text": "Há quem diga que as redes nos tornam mais sozinhos. Eu digo que só somos mais barulhentos.",
+   "theme": "opiniao",
+   "inflamed": 0,
+   "role": "pista",
+   "matches": [
+    "Leonor",
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "Mais barulhentos",
+   "clip": "neutro",
+   "filler": false
+  },
+  {
+   "id": 19,
+   "author": "Armando",
+   "text": "Perguntei na Junta sobre o terreno. Mandaram-me voltar para a semana. Sempre a mesma coisa.",
+   "theme": "politica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "VOLTE NA SEMANA",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 20,
+   "author": "Fábio",
+   "text": "Vizinho novo na Rua das Flores. Alguém sabe quem é? Não gosto do ar dele.",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando",
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "QUEM É O VIZINHO NOVO?",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 21,
+   "author": "Fábio",
+   "text": "Os políticos são todos iguais. Só querem o poleiro.",
+   "theme": "politica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando",
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "SÃO TODOS IGUAIS",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 22,
+   "author": "Rádio Aurora",
+   "text": "Sondagem local: 63% dos moradores desconfia da Junta. E tu?",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Rosa",
+    "Armando",
+    "Tiago",
+    "Leonor",
+    "Hugo"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "63% DESCONFIA DA JUNTA",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 23,
+   "author": "Junta de Freguesia",
+   "text": "Esclarecimento: o terreno da praça não foi vendido. Estamos a avaliar propostas.",
+   "theme": "noticia",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "O terreno não foi vendido",
+   "clip": "noticia",
+   "filler": false
+  },
+  {
+   "id": 24,
+   "author": "Rádio Aurora",
+   "text": "Obras na Rua do Almada até ao fim do mês. Trânsito desviado.",
+   "theme": "noticia",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Obras na Rua do Almada",
+   "clip": "noticia",
+   "filler": false
+  },
+  {
+   "id": 25,
+   "author": "Armando",
+   "text": "Reparei que estou a dormir pior. Será do calor?",
+   "theme": "pessoal",
+   "inflamed": 0,
+   "role": "pista",
+   "matches": [
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "Durmo pior",
+   "clip": "neutro",
+   "filler": false
+  },
+  {
+   "id": 26,
+   "author": "Anónimo",
+   "text": "A Dona Rosa sabe mais do que diz sobre o terreno. Perguntem-lhe.",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Armando",
+    "Hugo"
+   ],
+   "mentions": [
+    "Rosa"
+   ],
+   "minDay": 4,
+   "overlay": "PERGUNTEM À ROSA",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 27,
+   "author": "Zé Manel",
+   "text": "Quem diz que o Benfica é melhor não percebe nada de futebol. Ponto final.",
+   "theme": "desporto",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "PONTO FINAL",
+   "clip": "desporto",
+   "filler": false
+  },
+  {
+   "id": 28,
+   "author": "Tiago",
+   "text": "Passei 6 horas a ver vídeos. Não faço ideia do que vi.",
+   "theme": "meme",
+   "inflamed": 0,
+   "role": "pista",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "6 horas a ver vídeos",
+   "clip": "meme_surp",
+   "filler": false
+  },
+  {
+   "id": 29,
+   "author": "Fábio",
+   "text": "Gato a tocar piano. Não percebo, mas não consigo parar de ver.",
+   "theme": "meme",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 2,
+   "overlay": "Gato pianista",
+   "clip": "meme_gato",
+   "filler": false
+  },
+  {
+   "id": 30,
+   "author": "Zé Manel",
+   "text": "Desafio: 24 horas sem telemóvel. Quem aguenta?",
+   "theme": "meme",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 4,
+   "overlay": "24 h sem telemóvel",
+   "clip": "meme_surp",
+   "filler": false
+  },
+  {
+   "id": 31,
+   "author": "MegaShop",
+   "text": "Desconto de 40% em tudo. Só hoje. Só para ti.",
+   "theme": "anuncio",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Hugo",
+    "Tiago"
+   ],
+   "mentions": [],
+   "minDay": 4,
+   "overlay": "-40% só hoje",
+   "clip": "anuncio",
+   "filler": false
+  },
+  {
+   "id": 32,
+   "author": "Hugo",
+   "text": "Comprei na MegaShop e já avariou. Fiquem a saber.",
+   "theme": "polemica",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Hugo",
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 4,
+   "overlay": "JÁ AVARIOU",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 33,
+   "author": "Hugo",
+   "text": "Livros? Quem lê isso hoje. Já viram os descontos da MegaShop?",
+   "theme": "anuncio",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Hugo"
+   ],
+   "mentions": [
+    "Leonor"
+   ],
+   "minDay": 4,
+   "overlay": "QUEM LÊ ISSO HOJE?",
+   "clip": "anuncio",
+   "filler": false
+  },
+  {
+   "id": 34,
+   "author": "Dona Olga",
+   "text": "Encontraram o Bigodes! Obrigada a todos. Em especial ao Sr. Armando, que o viu.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Rosa",
+    "Armando"
+   ],
+   "mentions": [
+    "Armando"
+   ],
+   "minDay": 3,
+   "overlay": "Encontraram o Bigodes!",
+   "clip": "comunidade_gato",
+   "filler": false
+  },
+  {
+   "id": 35,
+   "author": "Teresa",
+   "text": "Convite: almoço de bairro domingo na praça. Cada um leva um prato.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Rosa",
+    "Leonor",
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 4,
+   "overlay": "Almoço de bairro",
+   "clip": "comunidade",
+   "filler": false
+  },
+  {
+   "id": 36,
+   "author": "Rosa",
+   "text": "Alguém precisa de ajuda com as compras esta semana? Eu vou à mercearia.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Rosa",
+    "Armando"
+   ],
+   "mentions": [],
+   "minDay": 3,
+   "overlay": "Ajuda com as compras",
+   "clip": "comunidade",
+   "filler": false
+  },
+  {
+   "id": 37,
+   "author": "Fundo Atlântico",
+   "text": "Investimento no bairro: apartamentos de luxo na Praça Nova. Venha ver.",
+   "theme": "anuncio",
+   "inflamed": 0,
+   "role": "ruido",
+   "matches": [
+    "Hugo"
+   ],
+   "mentions": [],
+   "minDay": 5,
+   "overlay": "Luxo na Praça Nova",
+   "clip": "anuncio",
+   "filler": false
+  },
+  {
+   "id": 38,
+   "author": "Anónimo",
+   "text": "O fundo quer comprar a livraria e o café. Querem que o bairro seja só para turistas.",
+   "theme": "boato",
+   "inflamed": 1,
+   "role": "armadilha",
+   "matches": [
+    "Leonor",
+    "Armando",
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 5,
+   "overlay": "O FUNDO QUER COMPRAR TUDO",
+   "clip": "politica",
+   "filler": false
+  },
+  {
+   "id": 39,
+   "author": "Dona Olga",
+   "text": "Fiz um abaixo-assinado pela livraria. Assinem, se faz favor.",
+   "theme": "comunidade",
+   "inflamed": 0,
+   "role": "ponte",
+   "matches": [
+    "Leonor",
+    "Rosa"
+   ],
+   "mentions": [],
+   "minDay": 5,
+   "overlay": "Assinem pela livraria",
+   "clip": "comunidade",
+   "filler": false
+  },
+  {
+   "id": 100,
+   "author": "@lifehacks",
+   "text": "3 truques com limão que ninguém te ensinou.",
+   "theme": "receita",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "3 truques",
+   "filler": true,
+   "clip": "receita"
+  },
+  {
+   "id": 101,
+   "author": "@treinoemcasa",
+   "text": "Treino de 10 minutos sem material.",
+   "theme": "desporto",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "10 minutos",
+   "filler": true,
+   "clip": "desporto"
+  },
+  {
+   "id": 102,
+   "author": "@portoavista",
+   "text": "Sol ao fim da tarde na Foz.",
+   "theme": "comunidade",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Foz",
+   "filler": true,
+   "clip": "comunidade"
+  },
+  {
+   "id": 103,
+   "author": "@gatosdaruaa",
+   "text": "Este gato a dormir numa caixa pequena demais.",
+   "theme": "meme",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Não cabe",
+   "filler": true,
+   "clip": "meme_gato"
+  },
+  {
+   "id": 104,
+   "author": "@noticiasja",
+   "text": "Trânsito na VCI, evitem a hora de ponta.",
+   "theme": "noticia",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Trânsito na VCI",
+   "filler": true,
+   "clip": "noticia"
+  },
+  {
+   "id": 105,
+   "author": "@lojadaesquina",
+   "text": "Nova coleção. Link na bio.",
+   "theme": "anuncio",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Novo",
+   "filler": true,
+   "clip": "anuncio"
+  },
+  {
+   "id": 106,
+   "author": "@livrosdaanna",
+   "text": "Cinco romances para ler este inverno.",
+   "theme": "livros",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "5 romances",
+   "filler": true,
+   "clip": "neutro"
+  },
+  {
+   "id": 107,
+   "author": "@opiniaodiaria",
+   "text": "Hoje apetece-me dizer uma coisa simples.",
+   "theme": "opiniao",
+   "inflamed": false,
+   "role": "ruido",
+   "matches": [],
+   "mentions": [],
+   "minDay": 1,
+   "overlay": "Sem filtro",
+   "filler": true,
+   "clip": "neutro"
+  }
+ ]
+}

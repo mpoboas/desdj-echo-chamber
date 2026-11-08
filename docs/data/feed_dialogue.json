@@ -1,0 +1,103 @@
+{
+ "days": [
+  {
+   "day": 1,
+   "title": "Dia 1",
+   "subtitle": "Primeiro dia de trabalho",
+   "pre": [
+    {
+     "speaker": "Sara",
+     "text": "Olá! Sou a Sara, trabalho aqui ao lado. Primeiro dia, não é?"
+    },
+    {
+     "speaker": "Sara",
+     "text": "É fácil: chega-te um post, arrastas para o telemóvel de quem quiseres. Clica num vizinho à esquerda para o veres de perto."
+    },
+    {
+     "speaker": "Sara",
+     "text": "Vai tocar o telefone. É o Dr. Valente. Atende sempre."
+    }
+   ],
+   "call": [
+    {
+     "speaker": "Dr. Valente",
+     "text": "Bom dia! Dr. Valente. Hoje o objetivo são {goal} minutos de tempo na app. Simples, não é?"
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "title": "Dia 2",
+   "subtitle": "Mais uma manhã",
+   "pre": [],
+   "call": [
+    {
+     "speaker": "Dr. Valente",
+     "text": "Ontem correu bem. Hoje subimos a fasquia: {goal} minutos. E temos uma nova utilizadora, a Leonor."
+    },
+    {
+     "speaker": "Sara",
+     "text": "Ouvi dizer que as polémicas rendem. Não fui eu que disse."
+    }
+   ]
+  },
+  {
+   "day": 3,
+   "title": "Dia 3",
+   "subtitle": "Um dia diferente",
+   "pre": [],
+   "call": [
+    {
+     "speaker": "Dr. Valente",
+     "text": "Meta de hoje: {goal} minutos. Ah, mandei abrir os estores, isto estava muito escuro."
+    },
+    {
+     "speaker": "Sara",
+     "text": "Agora podes ver a rua. Eu não olharia demasiado."
+    }
+   ]
+  },
+  {
+   "day": 4,
+   "title": "Dia 4",
+   "subtitle": "Segunda metade da semana",
+   "pre": [],
+   "call": [
+    {
+     "speaker": "Dr. Valente",
+     "text": "{goal} minutos. O Hugo entra hoje. Preciso de mais, e sem desculpas."
+    }
+   ]
+  },
+  {
+   "day": 5,
+   "title": "Dia 5",
+   "subtitle": "Último dia",
+   "pre": [],
+   "call": [
+    {
+     "speaker": "Dr. Valente",
+     "text": "Último dia. {goal} minutos. Sei que consegue."
+    }
+   ]
+  }
+ ],
+ "met": [
+  {
+   "speaker": "Dr. Valente",
+   "text": "Meta cumprida. Excelente trabalho."
+  }
+ ],
+ "missed": [
+  {
+   "speaker": "Dr. Valente",
+   "text": "Não chegámos à meta. Isto fica registado."
+  }
+ ],
+ "fired": [
+  {
+   "speaker": "Dr. Valente",
+   "text": "Vamos ter de nos despedir."
+  }
+ ]
+}

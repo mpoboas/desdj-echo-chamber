@@ -30,7 +30,7 @@ namespace EchoChamber
             if (tip != null)
             {
                 if (Hovered != null && !string.IsNullOrEmpty(Hovered.tooltip)) tip.Show(Hovered.tooltip, pos);
-                else if (!MixerView.Dragging) tip.Hide();
+                else tip.Hide();
             }
 
             if (InputBlocked) return;
@@ -41,10 +41,6 @@ namespace EchoChamber
 
             var kb = Keyboard.current;
             if (kb == null) return;
-            if (kb.aKey.wasPressedThisFrame) RoomEvents.RaiseClicked(ClickAction.Amplify, null);
-            if (kb.oKey.wasPressedThisFrame) RoomEvents.RaiseClicked(ClickAction.Hide, null);
-            if (kb.nKey.wasPressedThisFrame) RoomEvents.RaiseClicked(ClickAction.Normal, null);
-            if (kb.spaceKey.wasPressedThisFrame) RoomEvents.RaiseClicked(ClickAction.Lever, null);
             if (kb.escapeKey.wasPressedThisFrame) RoomEvents.RaiseViewRequested(ViewId.Home);
         }
 

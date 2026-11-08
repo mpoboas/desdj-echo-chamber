@@ -1,15 +1,15 @@
 # Progress
 
-## ATUAL (2026-11-08): redesign v2 em curso
+## ATUAL (2026-11-08): redesign v2, Fase 1 quase fechada
 
-O protótipo v1 (tudo o que está abaixo) foi jogado pelo dono do projeto e rejeitado como design: sem objetivo claro, informação em excesso, tutorial a dizer a premissa, caderno e cortiça dispensáveis, e "amplificar tudo" ganha. Foi feito um novo design de raiz.
+Estado: o **dia 1 joga-se de ponta a ponta** em `Assets/_Project/Scenes/Game.unity`. Falta o playtest com alguém externo. Nada da Fase 2 foi feito.
 
-- Estado: **Fase 0 (design) concluída**. Código ainda não alterado.
-- Design: `docs/GDD.md` (v0.2) e `docs/GDD_Posts.md` (39 posts).
-- Plano e próximo passo: `PLAN.md`. Próximo passo: Fase 1, núcleo mínimo (dia 1, 3 vizinhos, Central de Feeds, arrastar post para o feed de um vizinho).
-- Decisões: ver `docs/DECISIONS.md`, entradas de 2026-11-08.
-- O que se mantém do v1: simulação (estados, utilidade, contágio, NavMesh), cena da rua, sala de controlo, testes de simulação, build scripts.
-- O que sai do design (código ainda lá): impressora e talões, carimbos, alavanca, mesa de mistura, jornal longo, categorias de cor, tinta, tensão e coesão como números visíveis.
+- **Como correr:** abrir `Game.unity` (ou menu `Echo Chamber/Build Game Scene (v2)` para a reconstruir) e Play. Clicar no LCD faz zoom, Esc volta à sala. Menus úteis: `Import Feed Content (v2)`, `Import Feed Clips`, `Run EditMode Tests` (resultado em `Logs/test-results.txt`, 105 testes a passar).
+- **Feito:** simulação v2 em C# puro (`FeedSystem`, `FeedViewer`, `FeedDay`, `FeedCareer`), 47 posts (39 do jogador + 8 de fundo) com clip e texto, Central de Feeds em UI Toolkit no LCD 16:9, 11 vídeos 2D, rato lido à mão, telefone com a Sara e o Valente, fim de dia com avisos, janela com estores fechados, código v1 de apresentação removido.
+- **Por fazer (Fase 2):** estores a abrir ao dia 3 e a rua com os 6 sinais ligados ao estado escondido dos vizinhos, caderno e cortiça, misturar e posts-ponte (dia 4), finais, dia 5. Calibração das metas só com playtest.
+- **Conhecido:** o Game view do editor pode renderizar a meia resolução em ecrãs Retina (menu ⋮ do Game view, desmarcar "Low Resolution Aspect Ratios"). Antes de o dia começar o telemóvel em foco está preto. O simulador de rato do MCP só faz cliques simples: para testar arrastos, injetar estados de rato com `InputSystem.QueueStateEvent`.
+- **Decisões:** `docs/DECISIONS.md`, entradas de 2026-11-08 (pivot, LCD, decisões da Fase 1). Plano: `PLAN.md`.
+- **Referência visual:** `docs/prototypes/*.html` (só layout e animações, não fazem parte do jogo).
 
 Tudo o que se segue é o histórico do v1 e **não descreve o jogo atual**.
 

@@ -1,0 +1,112 @@
+/* Central de Feeds: panel 1600x900 rendered into the LCD. Layout mirrors docs/prototypes/echo_chamber.html. */
+.cf-root { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: #0b0d14; flex-direction: column; }
+.cf-top { height: 74px; flex-direction: row; align-items: center; padding-left: 32px; padding-right: 32px; background-color: #0f121b; border-bottom-width: 1px; border-bottom-color: #262b3d; flex-shrink: 0; }
+.cf-brand { -unity-font-style: bold; font-size: 17px; letter-spacing: 3px; color: #ffb547; }
+.cf-day { font-size: 13px; color: #8b93ab; margin-top: 3px; }
+.cf-goal { width: 560px; margin-left: auto; margin-right: 30px; }
+.cf-goal-row { flex-direction: row; justify-content: space-between; margin-bottom: 7px; }
+.cf-goal-label { font-size: 14px; color: #8b93ab; }
+.cf-goal-value { font-size: 14px; color: #eceff7; -unity-font-style: bold; }
+.cf-bar { height: 9px; background-color: #181c29; border-radius: 9px; overflow: hidden; }
+.cf-bar-fill { height: 9px; width: 0; background-color: #ffb547; border-radius: 9px; }
+.cf-bar-fill--met { background-color: #3ddc97; }
+.cf-speed { flex-direction: row; }
+.cf-speed-btn { margin-left: 6px; padding: 7px 13px; border-radius: 9px; background-color: #181c29; border-width: 1px; border-color: #262b3d; color: #8b93ab; font-size: 13px; -unity-font-style: bold; }
+.cf-speed-btn--on { background-color: #222842; border-color: #3a4260; color: #eceff7; }
+
+.cf-body { flex-direction: row; flex-grow: 1; padding: 22px 30px 26px 30px; }
+.cf-rail { width: 340px; margin-right: 26px; flex-shrink: 0; }
+.cf-center { width: 560px; margin-right: 26px; align-items: center; justify-content: center; flex-shrink: 0; }
+.cf-right { flex-grow: 1; }
+
+/* tiles */
+.cf-tile { flex-direction: row; align-items: center; flex-grow: 1; max-height: 148px; margin-bottom: 10px; padding: 10px 14px; border-radius: 16px; background-color: #12151f; border-width: 2px; border-color: #1a1f31; }
+.cf-tile--hidden { display: none; }
+.cf-tile--hover { background-color: #181c29; }
+.cf-tile--sel { background-color: #1a1f31; border-color: #3a4260; }
+.cf-tile--drop { background-color: #2a2415; border-color: #ffb547; }
+.cf-mini { width: 70px; height: 144px; border-radius: 12px; border-width: 2px; border-color: #2b3149; background-color: #000000; flex-shrink: 0; overflow: hidden; }
+.cf-mini-shade { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0); }
+.cf-mini-shade--asleep { background-color: rgba(0,0,0,0.65); }
+.cf-meta { flex-grow: 1; margin-left: 14px; flex-shrink: 1; }
+.cf-name-row { flex-direction: row; align-items: center; }
+.cf-dot { width: 9px; height: 9px; border-radius: 9px; margin-right: 8px; }
+.cf-name { font-size: 20px; color: #eceff7; -unity-font-style: bold; }
+.cf-status { font-size: 14px; color: #8b93ab; margin-top: 5px; height: 38px; overflow: hidden; white-space: normal; }
+.cf-time { font-size: 13px; color: #6c7490; margin-top: 6px; }
+.cf-ring { position: absolute; left: -2px; top: -2px; right: -2px; bottom: -2px; border-radius: 16px; border-width: 3px; border-color: rgba(0,0,0,0); opacity: 0; transition-property: opacity, border-color; transition-duration: 1.2s; }
+.cf-ring--flash { opacity: 1; transition-duration: 0s; }
+
+/* phone */
+.cf-phone { width: 382px; height: 784px; border-radius: 46px; background-color: #000000; border-width: 3px; border-color: #2b3149; padding: 9px; }
+.cf-phone--drop { border-color: #ffb547; }
+.cf-screen { flex-grow: 1; border-radius: 37px; overflow: hidden; background-color: #000000; }
+.cf-video { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+.cf-shade { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+.cf-notch { position: absolute; top: 10px; left: 50%; width: 94px; height: 18px; margin-left: -47px; background-color: #000000; border-radius: 18px; }
+.cf-tabs { position: absolute; top: 36px; left: 0; right: 0; flex-direction: row; justify-content: center; }
+.cf-tab { font-size: 14px; color: rgba(255,255,255,0.65); -unity-font-style: bold; margin-left: 9px; margin-right: 9px; }
+.cf-tab--on { color: #ffffff; border-bottom-width: 2px; border-bottom-color: #ffffff; padding-bottom: 3px; }
+/* caption drawn over the clip: a 540x300 picture from the HTML prototype */
+.cf-overlay { position: absolute; left: 0; right: 0; top: 218px; height: 198px; background-size: contain; background-repeat: no-repeat; background-position-x: center; background-position-y: top; }
+.cf-side { position: absolute; right: 12px; bottom: 150px; align-items: center; }
+.cf-side-btn { align-items: center; margin-top: 18px; }
+.cf-side-count { font-size: 12px; color: #ffffff; -unity-font-style: bold; margin-top: 3px; }
+.cf-avatar { width: 40px; height: 40px; border-radius: 40px; border-width: 2px; border-color: #ffffff; align-items: center; justify-content: center; }
+.cf-avatar-text { font-size: 16px; color: #10131c; -unity-font-style: bold; }
+.cf-bottom { position: absolute; left: 14px; right: 74px; bottom: 22px; }
+.cf-who { font-size: 15px; color: #ffffff; -unity-font-style: bold; margin-bottom: 5px; }
+.cf-cap { font-size: 13px; color: #ffffff; white-space: normal; max-height: 56px; overflow: hidden; }
+.cf-music { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 8px; }
+.cf-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background-color: #ffffff; }
+.cf-heart-pop { position: absolute; left: 50%; top: 44%; width: 96px; height: 96px; margin-left: -48px; margin-top: -48px; opacity: 0; scale: 0.4 0.4; transition-property: opacity, scale; transition-duration: 0.18s; }
+.cf-heart-pop--on { opacity: 1; scale: 1.1 1.1; }
+.cf-asleep { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.82); align-items: center; justify-content: center; display: none; }
+.cf-asleep--on { display: flex; }
+.cf-asleep-text { font-size: 15px; color: #8b93ab; -unity-font-style: bold; }
+
+/* comments sheet */
+.cf-sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 66%; background-color: #14161f; border-top-left-radius: 18px; border-top-right-radius: 18px; translate: 0 105%; transition-property: translate; transition-duration: 0.33s; transition-timing-function: ease-out; }
+.cf-sheet--open { translate: 0 0; }
+.cf-sheet-head { -unity-text-align: middle-center; font-size: 13px; color: #dfe3f1; -unity-font-style: bold; padding-top: 14px; padding-bottom: 12px; border-bottom-width: 1px; border-bottom-color: #262b3d; }
+.cf-sheet-list { flex-grow: 1; padding: 12px 14px; overflow: hidden; justify-content: flex-end; }
+.cf-comment { flex-direction: row; margin-top: 10px; }
+.cf-c-avatar { width: 28px; height: 28px; border-radius: 28px; align-items: center; justify-content: center; margin-right: 9px; flex-shrink: 0; }
+.cf-c-av-text { font-size: 12px; color: #10131c; -unity-font-style: bold; }
+.cf-c-name { font-size: 11px; color: #9aa2ba; -unity-font-style: bold; }
+.cf-c-name--mine { color: #ffb547; }
+.cf-c-text { font-size: 13px; color: #e8ebf5; white-space: normal; }
+.cf-c-body { flex-shrink: 1; }
+.cf-sheet-input { flex-direction: row; align-items: center; padding: 10px 14px 14px 14px; border-top-width: 1px; border-top-color: #262b3d; }
+.cf-field { flex-grow: 1; background-color: #232736; border-radius: 99px; padding: 8px 14px; min-height: 32px; justify-content: center; }
+.cf-field-text { font-size: 13px; color: #e8ebf5; }
+.cf-field-text--empty { color: #6f7893; }
+.cf-send { font-size: 13px; color: #5b8cff; -unity-font-style: bold; margin-left: 10px; opacity: 0.35; }
+
+/* right column */
+.cf-profile { flex-direction: row; align-items: center; padding: 18px 22px; background-color: #12151f; border-radius: 16px; border-width: 1px; border-color: #1a1f31; margin-bottom: 18px; flex-shrink: 0; }
+.cf-p-avatar { width: 70px; height: 70px; border-radius: 70px; align-items: center; justify-content: center; margin-right: 18px; flex-shrink: 0; }
+.cf-p-avatar-text { font-size: 28px; color: #10131c; -unity-font-style: bold; }
+.cf-p-name { font-size: 26px; color: #eceff7; -unity-font-style: bold; }
+.cf-p-bio { font-size: 15px; color: #8b93ab; margin-top: 3px; margin-bottom: 8px; white-space: normal; }
+.cf-chips { flex-direction: row; flex-wrap: wrap; }
+.cf-chip { font-size: 13px; color: #c7cde4; -unity-font-style: bold; background-color: #222842; border-radius: 99px; padding: 4px 11px; margin-right: 7px; }
+.cf-log { flex-grow: 1; background-color: #12151f; border-radius: 16px; padding: 44px 22px 16px 22px; margin-bottom: 18px; justify-content: flex-end; overflow: hidden; }
+.cf-log-title { font-size: 12px; letter-spacing: 2px; color: #6c7490; -unity-font-style: bold; position: absolute; left: 22px; top: 16px; }
+.cf-ev { flex-direction: row; align-items: center; margin-top: 9px; }
+.cf-ev-dot { width: 8px; height: 8px; border-radius: 8px; margin-right: 10px; flex-shrink: 0; }
+.cf-ev-text { font-size: 16px; color: #c3c9de; flex-shrink: 1; white-space: normal; }
+.cf-ev-time { font-size: 12px; color: #5d6580; margin-left: auto; padding-left: 10px; }
+.cf-dock { flex-direction: row; background-color: #12151f; border-radius: 16px; border-width: 1px; border-color: #1a1f31; padding: 16px 18px; height: 300px; flex-shrink: 0; }
+.cf-dock-left { flex-grow: 1; margin-right: 16px; }
+.cf-dock-title { font-size: 12px; letter-spacing: 2px; color: #6c7490; -unity-font-style: bold; margin-bottom: 10px; }
+.cf-cards { flex-direction: row; flex-wrap: wrap; }
+.cf-card { width: 48%; height: 118px; margin-right: 2%; margin-bottom: 12px; background-color: #f1ece0; border-radius: 12px; padding: 12px 14px; overflow: hidden; }
+.cf-card--ghost { position: absolute; width: 270px; margin: 0; rotate: -3deg; }
+.cf-card--gone { opacity: 0.25; }
+.cf-card-author { font-size: 12px; color: #a8325a; -unity-font-style: bold; margin-bottom: 5px; }
+.cf-card-text { font-size: 15px; color: #1e2333; white-space: normal; }
+.cf-empty { font-size: 14px; color: #586080; padding-top: 30px; -unity-text-align: middle-center; width: 100%; }
+.cf-trash { width: 120px; margin-top: 26px; flex-shrink: 0; border-radius: 12px; border-width: 2px; border-color: #3a3347; align-items: center; justify-content: center; }
+.cf-trash--drop { border-color: #ff3b6b; background-color: rgba(255,59,107,0.08); }
+.cf-trash-text { font-size: 13px; color: #7c7390; -unity-font-style: bold; letter-spacing: 2px; }

@@ -1,0 +1,89 @@
+{
+ "profiles": [
+  {
+   "id": 0,
+   "name": "Dona Rosa",
+   "color": "#C0392B",
+   "home": "casasN",
+   "startDay": 1,
+   "interests": [
+    "receita",
+    "comunidade",
+    "anuncio"
+   ],
+   "aggression": 0.2,
+   "openness": 0.7,
+   "social": 0.8,
+   "key": "Rosa",
+   "bio": "Reformada. Vive sozinha, cozinha para toda a rua."
+  },
+  {
+   "id": 1,
+   "name": "Sr. Armando",
+   "color": "#6C5B7B",
+   "home": "casasS",
+   "startDay": 1,
+   "interests": [
+    "politica",
+    "noticia",
+    "polemica"
+   ],
+   "aggression": 0.5,
+   "openness": 0.3,
+   "social": 0.4,
+   "key": "Armando",
+   "bio": "Ex-funcionário da Câmara. Desconfia de tudo."
+  },
+  {
+   "id": 3,
+   "name": "Tiago",
+   "color": "#16A085",
+   "home": "casasS",
+   "startDay": 1,
+   "interests": [
+    "meme",
+    "desporto",
+    "anuncio"
+   ],
+   "aggression": 0.3,
+   "openness": 0.5,
+   "social": 0.6,
+   "key": "Tiago",
+   "bio": "22 anos. Sempre com o telemóvel na mão."
+  },
+  {
+   "id": 10,
+   "name": "Leonor",
+   "color": "#2C3E50",
+   "home": "casasN",
+   "startDay": 2,
+   "interests": [
+    "livros",
+    "opiniao",
+    "comunidade"
+   ],
+   "aggression": 0.15,
+   "openness": 0.8,
+   "social": 0.5,
+   "key": "Leonor",
+   "bio": "Professora. Passa as tardes na livraria."
+  },
+  {
+   "id": 11,
+   "name": "Hugo",
+   "color": "#F39C12",
+   "home": "casasS",
+   "startDay": 4,
+   "interests": [
+    "anuncio",
+    "polemica",
+    "desporto"
+   ],
+   "aggression": 0.4,
+   "openness": 0.4,
+   "social": 0.7,
+   "key": "Hugo",
+   "bio": "Gere uma loja de eletrónica. Vive de promoções."
+  }
+ ]
+}

@@ -1,0 +1,856 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d62481af9fa42a0a1ed86bbd5f7348, type: 3}
+  m_Name: FeedContent
+  m_EditorClassIdentifier: EchoChamber.Game::EchoChamber.FeedContentAsset
+  content:
+    posts:
+    - id: 1
+      author: Teresa
+      text: "Bacalhau \xE0 Br\xE1s, receita da minha av\xF3. O segredo \xE9 a batata palha caseira."
+      theme: 1
+      inflamed: 0
+      role: 0
+      matches:
+      - Rosa
+      mentions: []
+      minDay: 1
+      overlay: "Bacalhau \xE0 Br\xE1s"
+      clip: receita
+      filler: 0
+    - id: 2
+      author: "F\xE1bio"
+      text: "Quando dizes que vais dormir cedo e s\xE3o 3 da manh\xE3. #mood"
+      theme: 0
+      inflamed: 0
+      role: 0
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 1
+      overlay: "S\xF3 mais um v\xEDdeo"
+      clip: meme_mood
+      filler: 0
+    - id: 3
+      author: "Caf\xE9 Aurora"
+      text: "Hoje h\xE1 bolo de bolacha. At\xE9 acabar."
+      theme: 6
+      inflamed: 0
+      role: 0
+      matches:
+      - Rosa
+      mentions: []
+      minDay: 1
+      overlay: Bolo de bolacha
+      clip: anuncio
+      filler: 0
+    - id: 4
+      author: Junta de Freguesia
+      text: "Reuni\xE3o de moradores sexta \xE0s 18h. Tema: ilumina\xE7\xE3o da Rua do Almada."
+      theme: 3
+      inflamed: 0
+      role: 0
+      matches:
+      - Armando
+      mentions: []
+      minDay: 1
+      overlay: "Reuni\xE3o sexta 18h"
+      clip: noticia
+      filler: 0
+    - id: 5
+      author: "Z\xE9 Manel"
+      text: "O Porto empata outra vez. Algu\xE9m me explica este treinador?"
+      theme: 2
+      inflamed: 0
+      role: 0
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 1
+      overlay: O Porto empata outra vez
+      clip: desporto
+      filler: 0
+    - id: 6
+      author: Dona Olga
+      text: Perdi o gato. Preto, orelha cortada, atende por Bigodes. Rua das Flores.
+      theme: 7
+      inflamed: 0
+      role: 0
+      matches:
+      - Rosa
+      mentions: []
+      minDay: 1
+      overlay: 'Perdido: Bigodes'
+      clip: comunidade_gato
+      filler: 0
+    - id: 7
+      author: "An\xF3nimo"
+      text: "Dizem que a Junta j\xE1 decidiu quem vai ficar com o terreno da pra\xE7a. Ningu\xE9m foi consultado."
+      theme: 4
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      mentions:
+      - Junta
+      minDay: 2
+      overlay: "NINGU\xC9M FOI CONSULTADO"
+      clip: politica
+      filler: 0
+    - id: 8
+      author: Hugo
+      text: "Outro roubo na Rua das Flores. Quem \xE9 que se mete com isto? A pol\xEDcia n\xE3o faz nada."
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      - Rosa
+      mentions: []
+      minDay: 2
+      overlay: "A POL\xCDCIA N\xC3O FAZ NADA"
+      clip: politica
+      filler: 0
+    - id: 9
+      author: "F\xE1bio"
+      text: "Quem ainda vota nesta gente \xE9 parvo. Digo eu."
+      theme: 4
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      - Tiago
+      mentions: []
+      minDay: 2
+      overlay: QUEM VOTA NESTA GENTE?
+      clip: politica
+      filler: 0
+    - id: 10
+      author: "R\xE1dio Aurora"
+      text: "Vizinha queixa-se de barulho. Vizinho diz que a queixa \xE9 falsa. Quem tem raz\xE3o?"
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Rosa
+      - Armando
+      - Tiago
+      - Leonor
+      - Hugo
+      mentions:
+      - Rosa
+      - Armando
+      minDay: 2
+      overlay: "QUEM TEM RAZ\xC3O?"
+      clip: politica
+      filler: 0
+    - id: 11
+      author: "Z\xE9 Manel"
+      text: Este golo vai deixar-te sem palavras. #imperdivel
+      theme: 2
+      inflamed: 0
+      role: 4
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 2
+      overlay: "Gola\xE7o!"
+      clip: desporto
+      filler: 0
+    - id: 12
+      author: Teresa
+      text: "Aprendi a fazer p\xE3o de centeio. A massa-m\xE3e \xE9 uma pessoa de paci\xEAncia."
+      theme: 1
+      inflamed: 0
+      role: 0
+      matches:
+      - Rosa
+      mentions: []
+      minDay: 2
+      overlay: "P\xE3o de centeio"
+      clip: receita
+      filler: 0
+    - id: 13
+      author: Livraria Leitura Viva
+      text: "Clube de leitura quinta \xE0s 21h. Este m\xEAs: um romance sobre vizinhos que nunca se falam."
+      theme: 8
+      inflamed: 0
+      role: 4
+      matches:
+      - Leonor
+      mentions: []
+      minDay: 2
+      overlay: Clube de leitura
+      clip: neutro
+      filler: 0
+    - id: 14
+      author: Leonor
+      text: Terminei o livro. Chorei no autocarro. Recomendo.
+      theme: 8
+      inflamed: 0
+      role: 0
+      matches:
+      - Leonor
+      mentions: []
+      minDay: 2
+      overlay: Chorei no autocarro
+      clip: neutro
+      filler: 0
+    - id: 15
+      author: Livraria Leitura Viva
+      text: "\xDAltima semana de saldos. Depois fechamos mais cedo ao s\xE1bado."
+      theme: 6
+      inflamed: 0
+      role: 4
+      matches:
+      - Leonor
+      - Hugo
+      mentions: []
+      minDay: 2
+      overlay: "Saldos: \xFAltima semana"
+      clip: anuncio
+      filler: 0
+    - id: 16
+      author: "An\xF3nimo"
+      text: "A livraria vai fechar. Dizem que o senhorio j\xE1 recebeu proposta de um fundo."
+      theme: 9
+      inflamed: 1
+      role: 1
+      matches:
+      - Leonor
+      - Armando
+      mentions: []
+      minDay: 3
+      overlay: A LIVRARIA VAI FECHAR
+      clip: politica
+      filler: 0
+    - id: 17
+      author: Leonor
+      text: "Algu\xE9m quer trocar livros? Tenho uns 20 em casa."
+      theme: 7
+      inflamed: 0
+      role: 2
+      matches:
+      - Leonor
+      - Rosa
+      mentions: []
+      minDay: 3
+      overlay: Troca de livros
+      clip: comunidade
+      filler: 0
+    - id: 18
+      author: Leonor
+      text: "H\xE1 quem diga que as redes nos tornam mais sozinhos. Eu digo que s\xF3 somos mais barulhentos."
+      theme: 10
+      inflamed: 0
+      role: 3
+      matches:
+      - Leonor
+      - Armando
+      mentions: []
+      minDay: 3
+      overlay: Mais barulhentos
+      clip: neutro
+      filler: 0
+    - id: 19
+      author: Armando
+      text: Perguntei na Junta sobre o terreno. Mandaram-me voltar para a semana. Sempre a mesma coisa.
+      theme: 4
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      mentions: []
+      minDay: 2
+      overlay: VOLTE NA SEMANA
+      clip: politica
+      filler: 0
+    - id: 20
+      author: "F\xE1bio"
+      text: "Vizinho novo na Rua das Flores. Algu\xE9m sabe quem \xE9? N\xE3o gosto do ar dele."
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      - Rosa
+      mentions: []
+      minDay: 3
+      overlay: "QUEM \xC9 O VIZINHO NOVO?"
+      clip: politica
+      filler: 0
+    - id: 21
+      author: "F\xE1bio"
+      text: "Os pol\xEDticos s\xE3o todos iguais. S\xF3 querem o poleiro."
+      theme: 4
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      - Tiago
+      mentions: []
+      minDay: 3
+      overlay: "S\xC3O TODOS IGUAIS"
+      clip: politica
+      filler: 0
+    - id: 22
+      author: "R\xE1dio Aurora"
+      text: 'Sondagem local: 63% dos moradores desconfia da Junta. E tu?'
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Rosa
+      - Armando
+      - Tiago
+      - Leonor
+      - Hugo
+      mentions: []
+      minDay: 3
+      overlay: 63% DESCONFIA DA JUNTA
+      clip: politica
+      filler: 0
+    - id: 23
+      author: Junta de Freguesia
+      text: "Esclarecimento: o terreno da pra\xE7a n\xE3o foi vendido. Estamos a avaliar propostas."
+      theme: 3
+      inflamed: 0
+      role: 4
+      matches:
+      - Armando
+      mentions: []
+      minDay: 2
+      overlay: "O terreno n\xE3o foi vendido"
+      clip: noticia
+      filler: 0
+    - id: 24
+      author: "R\xE1dio Aurora"
+      text: "Obras na Rua do Almada at\xE9 ao fim do m\xEAs. Tr\xE2nsito desviado."
+      theme: 3
+      inflamed: 0
+      role: 4
+      matches:
+      - Armando
+      mentions: []
+      minDay: 2
+      overlay: Obras na Rua do Almada
+      clip: noticia
+      filler: 0
+    - id: 25
+      author: Armando
+      text: "Reparei que estou a dormir pior. Ser\xE1 do calor?"
+      theme: 11
+      inflamed: 0
+      role: 3
+      matches:
+      - Armando
+      mentions: []
+      minDay: 3
+      overlay: Durmo pior
+      clip: neutro
+      filler: 0
+    - id: 26
+      author: "An\xF3nimo"
+      text: A Dona Rosa sabe mais do que diz sobre o terreno. Perguntem-lhe.
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Armando
+      - Hugo
+      mentions:
+      - Rosa
+      minDay: 4
+      overlay: "PERGUNTEM \xC0 ROSA"
+      clip: politica
+      filler: 0
+    - id: 27
+      author: "Z\xE9 Manel"
+      text: "Quem diz que o Benfica \xE9 melhor n\xE3o percebe nada de futebol. Ponto final."
+      theme: 2
+      inflamed: 1
+      role: 1
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 2
+      overlay: PONTO FINAL
+      clip: desporto
+      filler: 0
+    - id: 28
+      author: Tiago
+      text: "Passei 6 horas a ver v\xEDdeos. N\xE3o fa\xE7o ideia do que vi."
+      theme: 0
+      inflamed: 0
+      role: 3
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 3
+      overlay: "6 horas a ver v\xEDdeos"
+      clip: meme_surp
+      filler: 0
+    - id: 29
+      author: "F\xE1bio"
+      text: "Gato a tocar piano. N\xE3o percebo, mas n\xE3o consigo parar de ver."
+      theme: 0
+      inflamed: 0
+      role: 4
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 2
+      overlay: Gato pianista
+      clip: meme_gato
+      filler: 0
+    - id: 30
+      author: "Z\xE9 Manel"
+      text: "Desafio: 24 horas sem telem\xF3vel. Quem aguenta?"
+      theme: 0
+      inflamed: 0
+      role: 2
+      matches:
+      - Tiago
+      mentions: []
+      minDay: 4
+      overlay: "24 h sem telem\xF3vel"
+      clip: meme_surp
+      filler: 0
+    - id: 31
+      author: MegaShop
+      text: "Desconto de 40% em tudo. S\xF3 hoje. S\xF3 para ti."
+      theme: 6
+      inflamed: 0
+      role: 4
+      matches:
+      - Hugo
+      - Tiago
+      mentions: []
+      minDay: 4
+      overlay: "-40% s\xF3 hoje"
+      clip: anuncio
+      filler: 0
+    - id: 32
+      author: Hugo
+      text: "Comprei na MegaShop e j\xE1 avariou. Fiquem a saber."
+      theme: 5
+      inflamed: 1
+      role: 1
+      matches:
+      - Hugo
+      - Armando
+      mentions: []
+      minDay: 4
+      overlay: "J\xC1 AVARIOU"
+      clip: politica
+      filler: 0
+    - id: 33
+      author: Hugo
+      text: "Livros? Quem l\xEA isso hoje. J\xE1 viram os descontos da MegaShop?"
+      theme: 6
+      inflamed: 1
+      role: 1
+      matches:
+      - Hugo
+      mentions:
+      - Leonor
+      minDay: 4
+      overlay: "QUEM L\xCA ISSO HOJE?"
+      clip: anuncio
+      filler: 0
+    - id: 34
+      author: Dona Olga
+      text: Encontraram o Bigodes! Obrigada a todos. Em especial ao Sr. Armando, que o viu.
+      theme: 7
+      inflamed: 0
+      role: 2
+      matches:
+      - Rosa
+      - Armando
+      mentions:
+      - Armando
+      minDay: 3
+      overlay: Encontraram o Bigodes!
+      clip: comunidade_gato
+      filler: 0
+    - id: 35
+      author: Teresa
+      text: "Convite: almo\xE7o de bairro domingo na pra\xE7a. Cada um leva um prato."
+      theme: 7
+      inflamed: 0
+      role: 2
+      matches:
+      - Rosa
+      - Leonor
+      - Armando
+      mentions: []
+      minDay: 4
+      overlay: "Almo\xE7o de bairro"
+      clip: comunidade
+      filler: 0
+    - id: 36
+      author: Rosa
+      text: "Algu\xE9m precisa de ajuda com as compras esta semana? Eu vou \xE0 mercearia."
+      theme: 7
+      inflamed: 0
+      role: 2
+      matches:
+      - Rosa
+      - Armando
+      mentions: []
+      minDay: 3
+      overlay: Ajuda com as compras
+      clip: comunidade
+      filler: 0
+    - id: 37
+      author: "Fundo Atl\xE2ntico"
+      text: "Investimento no bairro: apartamentos de luxo na Pra\xE7a Nova. Venha ver."
+      theme: 6
+      inflamed: 0
+      role: 4
+      matches:
+      - Hugo
+      mentions: []
+      minDay: 5
+      overlay: "Luxo na Pra\xE7a Nova"
+      clip: anuncio
+      filler: 0
+    - id: 38
+      author: "An\xF3nimo"
+      text: "O fundo quer comprar a livraria e o caf\xE9. Querem que o bairro seja s\xF3 para turistas."
+      theme: 9
+      inflamed: 1
+      role: 1
+      matches:
+      - Leonor
+      - Armando
+      - Rosa
+      mentions: []
+      minDay: 5
+      overlay: O FUNDO QUER COMPRAR TUDO
+      clip: politica
+      filler: 0
+    - id: 39
+      author: Dona Olga
+      text: Fiz um abaixo-assinado pela livraria. Assinem, se faz favor.
+      theme: 7
+      inflamed: 0
+      role: 2
+      matches:
+      - Leonor
+      - Rosa
+      mentions: []
+      minDay: 5
+      overlay: Assinem pela livraria
+      clip: comunidade
+      filler: 0
+    - id: 100
+      author: '@lifehacks'
+      text: "3 truques com lim\xE3o que ningu\xE9m te ensinou."
+      theme: 1
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: 3 truques
+      clip: receita
+      filler: 1
+    - id: 101
+      author: '@treinoemcasa'
+      text: Treino de 10 minutos sem material.
+      theme: 2
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: 10 minutos
+      clip: desporto
+      filler: 1
+    - id: 102
+      author: '@portoavista'
+      text: Sol ao fim da tarde na Foz.
+      theme: 7
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: Foz
+      clip: comunidade
+      filler: 1
+    - id: 103
+      author: '@gatosdaruaa'
+      text: Este gato a dormir numa caixa pequena demais.
+      theme: 0
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: "N\xE3o cabe"
+      clip: meme_gato
+      filler: 1
+    - id: 104
+      author: '@noticiasja'
+      text: "Tr\xE2nsito na VCI, evitem a hora de ponta."
+      theme: 3
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: "Tr\xE2nsito na VCI"
+      clip: noticia
+      filler: 1
+    - id: 105
+      author: '@lojadaesquina'
+      text: "Nova cole\xE7\xE3o. Link na bio."
+      theme: 6
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: Novo
+      clip: anuncio
+      filler: 1
+    - id: 106
+      author: '@livrosdaanna'
+      text: Cinco romances para ler este inverno.
+      theme: 8
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: 5 romances
+      clip: neutro
+      filler: 1
+    - id: 107
+      author: '@opiniaodiaria'
+      text: Hoje apetece-me dizer uma coisa simples.
+      theme: 10
+      inflamed: 0
+      role: 4
+      matches: []
+      mentions: []
+      minDay: 1
+      overlay: Sem filtro
+      clip: neutro
+      filler: 1
+    profiles:
+    - id: 0
+      key: Rosa
+      name: Dona Rosa
+      bio: Reformada. Vive sozinha, cozinha para toda a rua.
+      color: '#C0392B'
+      home: 2
+      startDay: 1
+      interests: 010000000700000006000000i
+      aggression: 0.2
+      openness: 0.7
+      social: 0.8
+    - id: 1
+      key: Armando
+      name: Sr. Armando
+      bio: "Ex-funcion\xE1rio da C\xE2mara. Desconfia de tudo."
+      color: '#6C5B7B'
+      home: 5
+      startDay: 1
+      interests: 040000000300000005000000i
+      aggression: 0.5
+      openness: 0.3
+      social: 0.4
+    - id: 3
+      key: Tiago
+      name: Tiago
+      bio: "22 anos. Sempre com o telem\xF3vel na m\xE3o."
+      color: '#16A085'
+      home: 5
+      startDay: 1
+      interests: 000000000200000006000000i
+      aggression: 0.3
+      openness: 0.5
+      social: 0.6
+    - id: 10
+      key: Leonor
+      name: Leonor
+      bio: Professora. Passa as tardes na livraria.
+      color: '#2C3E50'
+      home: 2
+      startDay: 2
+      interests: 080000000a00000007000000i
+      aggression: 0.15
+      openness: 0.8
+      social: 0.5
+    - id: 11
+      key: Hugo
+      name: Hugo
+      bio: "Gere uma loja de eletr\xF3nica. Vive de promo\xE7\xF5es."
+      color: '#F39C12'
+      home: 5
+      startDay: 4
+      interests: 060000000500000002000000i
+      aggression: 0.4
+      openness: 0.4
+      social: 0.7
+    commentPools:
+    - key: names
+      lines:
+      - joana_p
+      - nuno.r
+      - anabela77
+      - mr_porto
+      - carla__
+      - bruno_fc
+      - lu.cas
+      - dona.fatima
+      - pedro_t
+      - ines.m
+    - key: generic.calm
+      lines:
+      - que bom
+      - adorei
+      - guardado
+      - "isto est\xE1 t\xE3o giro"
+      - "partilha com a tua m\xE3e"
+      - "tamb\xE9m quero"
+      - boa!
+      - hahaha
+      - lindo
+      - vou experimentar
+    - key: generic.hot
+      lines:
+      - "\xE9 sempre a mesma coisa"
+      - "j\xE1 n\xE3o se pode dizer nada"
+      - "eles \xE9 que mandam nisto"
+      - indignado
+      - vergonha
+      - "quem n\xE3o deve n\xE3o teme"
+      - "isto n\xE3o vai ficar assim"
+      - acordem!!
+      - nunca vi tanta mentira
+      - exato.
+    - key: generic.fight
+      lines:
+      - "quem escreve isto n\xE3o percebe nada"
+      - "\xE9s mesmo ing\xE9nuo"
+      - cala-te e informa-te
+      - "t\xEDpico"
+      - "tu \xE9s parte do problema"
+    - key: generic.neutral
+      lines:
+      - "j\xE1 viram isto?"
+      - interessante
+      - "vamos ver no que d\xE1"
+    - key: Rosa.hot
+      lines:
+      - que triste isto
+      - calma, pessoal
+      - "podiam falar com educa\xE7\xE3o"
+    - key: Rosa.calm
+      lines:
+      - que bom!
+      - guardei a receita
+      - obrigada por partilhar
+      - adorei, beijinhos
+    - key: Tiago.meme
+      lines:
+      - kkkkk
+      - partilhado
+      - isto sou eu
+      - "n\xE3o consigo parar"
+    - key: Tiago.other
+      lines:
+      - grande jogo
+      - "ep\xE1 isto \xE9 bom"
+      - mais um
+    - key: Leonor.hot
+      lines:
+      - isto preocupa-me
+      - podemos conversar sem gritar?
+      - calma, pessoal
+    - key: Leonor.calm
+      lines:
+      - li este livro
+      - recomendo muito
+      - que bonito
+      - adoro isto
+    - key: Hugo.hot
+      lines:
+      - vergonha de marca
+      - "nunca mais compro l\xE1"
+      - "\xE9 sempre o mesmo"
+    - key: Hugo.calm
+      lines:
+      - onde compro?
+      - link?
+      - grande desconto
+      - "j\xE1 comprei"
+    dialogue:
+      days:
+      - day: 1
+        title: Dia 1
+        subtitle: Primeiro dia de trabalho
+        pre:
+        - speaker: Sara
+          text: "Ol\xE1! Sou a Sara, trabalho aqui ao lado. Primeiro dia, n\xE3o \xE9?"
+        - speaker: Sara
+          text: "\xC9 f\xE1cil: chega-te um post, arrastas para o telem\xF3vel de quem quiseres. Clica num vizinho \xE0 esquerda para o veres de perto."
+        - speaker: Sara
+          text: "Vai tocar o telefone. \xC9 o Dr. Valente. Atende sempre."
+        call:
+        - speaker: Dr. Valente
+          text: "Bom dia! Dr. Valente. Hoje o objetivo s\xE3o {goal} minutos de tempo na app. Simples, n\xE3o \xE9?"
+      - day: 2
+        title: Dia 2
+        subtitle: "Mais uma manh\xE3"
+        pre: []
+        call:
+        - speaker: Dr. Valente
+          text: 'Ontem correu bem. Hoje subimos a fasquia: {goal} minutos. E temos uma nova utilizadora, a Leonor.'
+        - speaker: Sara
+          text: "Ouvi dizer que as pol\xE9micas rendem. N\xE3o fui eu que disse."
+      - day: 3
+        title: Dia 3
+        subtitle: Um dia diferente
+        pre: []
+        call:
+        - speaker: Dr. Valente
+          text: 'Meta de hoje: {goal} minutos. Ah, mandei abrir os estores, isto estava muito escuro.'
+        - speaker: Sara
+          text: "Agora podes ver a rua. Eu n\xE3o olharia demasiado."
+      - day: 4
+        title: Dia 4
+        subtitle: Segunda metade da semana
+        pre: []
+        call:
+        - speaker: Dr. Valente
+          text: '{goal} minutos. O Hugo entra hoje. Preciso de mais, e sem desculpas.'
+      - day: 5
+        title: Dia 5
+        subtitle: "\xDAltimo dia"
+        pre: []
+        call:
+        - speaker: Dr. Valente
+          text: "\xDAltimo dia. {goal} minutos. Sei que consegue."
+      met:
+      - speaker: Dr. Valente
+        text: Meta cumprida. Excelente trabalho.
+      missed:
+      - speaker: Dr. Valente
+        text: "N\xE3o cheg\xE1mos \xE0 meta. Isto fica registado."
+      fired:
+      - speaker: Dr. Valente
+        text: Vamos ter de nos despedir.

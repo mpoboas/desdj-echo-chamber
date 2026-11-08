@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f30d6ef179e4e4ba9f17b9eb3d3855, type: 3}
+  m_Name: FeedClipCatalog
+  m_EditorClassIdentifier: EchoChamber.Game::EchoChamber.FeedClipCatalog
+  entries:
+  - name: anuncio
+    clip: {fileID: 32900000, guid: 8f5008c689eff407d8da26c56fcbbcd7, type: 3}
+  - name: comunidade
+    clip: {fileID: 32900000, guid: b5faa709a7ab2443b9927f4e36468fa4, type: 3}
+  - name: comunidade_gato
+    clip: {fileID: 32900000, guid: 8e451faae89f2469980a3dd16440b31f, type: 3}
+  - name: desporto
+    clip: {fileID: 32900000, guid: 5d424e19d255e4f6c8ec6c00d7a33c04, type: 3}
+  - name: meme_gato
+    clip: {fileID: 32900000, guid: 76f5471fb03e64cf1adfa92245042d11, type: 3}
+  - name: meme_mood
+    clip: {fileID: 32900000, guid: baa537d9fcb914c85af8e7a831163c0c, type: 3}
+  - name: meme_surp
+    clip: {fileID: 32900000, guid: 9d9db663dbfa54ecdb0ca38be138e357, type: 3}
+  - name: neutro
+    clip: {fileID: 32900000, guid: 1d886d94a7f52458f99a6c79452ad013, type: 3}
+  - name: noticia
+    clip: {fileID: 32900000, guid: 7fd7b45bf2b604dc3b806941b688e387, type: 3}
+  - name: politica
+    clip: {fileID: 32900000, guid: 84ffde15db0ba4fd8be2d6a00604055f, type: 3}
+  - name: receita
+    clip: {fileID: 32900000, guid: e1c77b56c868e40a7b0e31b878487383, type: 3}
+  overlays:
+  - postId: 1
+    texture: {fileID: 2800000, guid: cec176b8bb99347ea8107e9967ff0dd4, type: 3}
+  - postId: 10
+    texture: {fileID: 2800000, guid: b226a10581769469ebb28f6bce5d1866, type: 3}
+  - postId: 100
+    texture: {fileID: 2800000, guid: c01c88456b9124a0b91c59f0704f0fd4, type: 3}
+  - postId: 101
+    texture: {fileID: 2800000, guid: 976bbe74ed853440fab8193a4ac03c11, type: 3}
+  - postId: 102
+    texture: {fileID: 2800000, guid: cc7bd39ec9a2b4daab98e596406f4fd2, type: 3}
+  - postId: 103
+    texture: {fileID: 2800000, guid: 9fc1dbbd7116341abbf8e5a7237bd246, type: 3}
+  - postId: 104
+    texture: {fileID: 2800000, guid: 2b57342210f4e41d49efddfe456ef15d, type: 3}
+  - postId: 105
+    texture: {fileID: 2800000, guid: c8392c79cab4f47d0972cf176b8d408d, type: 3}
+  - postId: 106
+    texture: {fileID: 2800000, guid: 35411b1434d9f4928841269131ce45e2, type: 3}
+  - postId: 107
+    texture: {fileID: 2800000, guid: fb3402694e81340c18ef92f60599549e, type: 3}
+  - postId: 11
+    texture: {fileID: 2800000, guid: 56cefca5d4d9547a1bb8686aca6078c4, type: 3}
+  - postId: 12
+    texture: {fileID: 2800000, guid: a3b766da2ceac4076a92a632f0dfee6f, type: 3}
+  - postId: 13
+    texture: {fileID: 2800000, guid: cc73e870174e04a2cabfcf564bdf034e, type: 3}
+  - postId: 14
+    texture: {fileID: 2800000, guid: 16e78961928ef424fb9cf19b043e0364, type: 3}
+  - postId: 15
+    texture: {fileID: 2800000, guid: fb08ff1abe67343fcbeca7715eff9365, type: 3}
+  - postId: 16
+    texture: {fileID: 2800000, guid: c7f843fef97a445e7b27acbde7126c89, type: 3}
+  - postId: 17
+    texture: {fileID: 2800000, guid: 7fea2b133ef394e51854cff48a9743c4, type: 3}
+  - postId: 18
+    texture: {fileID: 2800000, guid: 00ad72ab194cc4c45935372433f40dae, type: 3}
+  - postId: 19
+    texture: {fileID: 2800000, guid: 0ba7edb50dd854d5da4ca0fca3dce52e, type: 3}
+  - postId: 2
+    texture: {fileID: 2800000, guid: 09d6afb6e12b140aaa95fc6a6b884020, type: 3}
+  - postId: 20
+    texture: {fileID: 2800000, guid: 836fae90e486c48c485b3bbcf68a203f, type: 3}
+  - postId: 21
+    texture: {fileID: 2800000, guid: d9ceb5cdb83fd473ca9955b3a9ab278b, type: 3}
+  - postId: 22
+    texture: {fileID: 2800000, guid: 53119f221bdf042e5a3b71be394902b4, type: 3}
+  - postId: 23
+    texture: {fileID: 2800000, guid: 1961b3fd9be2a465aae0e43df6bd8413, type: 3}
+  - postId: 24
+    texture: {fileID: 2800000, guid: 8cb57489aa84e4500b917e07d9e42b5b, type: 3}
+  - postId: 25
+    texture: {fileID: 2800000, guid: b6bf51a3246554f9bb15d4ed742bf818, type: 3}
+  - postId: 26
+    texture: {fileID: 2800000, guid: 3b6cf24b293ca4eeca74b1970d2bd497, type: 3}
+  - postId: 27
+    texture: {fileID: 2800000, guid: c93de7cc49a634c719404e98c183eb3c, type: 3}
+  - postId: 28
+    texture: {fileID: 2800000, guid: a501e3cfb05d14e6a933fb3a9457dbfc, type: 3}
+  - postId: 29
+    texture: {fileID: 2800000, guid: 98abf5400309244259512223912d2f83, type: 3}
+  - postId: 3
+    texture: {fileID: 2800000, guid: 4a7ee5fba726b45e6996cebe281df525, type: 3}
+  - postId: 30
+    texture: {fileID: 2800000, guid: a65562d631c9e419881f3dc872b1e2be, type: 3}
+  - postId: 31
+    texture: {fileID: 2800000, guid: 760fd6b5f98894b5a9437a26b9c6f599, type: 3}
+  - postId: 32
+    texture: {fileID: 2800000, guid: 80163013bcba54ac9aa32c102ddd1996, type: 3}
+  - postId: 33
+    texture: {fileID: 2800000, guid: 78cb3865dce7e48d89ae19e9bd7c8136, type: 3}
+  - postId: 34
+    texture: {fileID: 2800000, guid: 9937807a3cd1b416398b25dca014364a, type: 3}
+  - postId: 35
+    texture: {fileID: 2800000, guid: 18ace4dcc58e746ff84a8c6bf5f81302, type: 3}
+  - postId: 36
+    texture: {fileID: 2800000, guid: 15a92dda521e249e4a802dc2c6ee1908, type: 3}
+  - postId: 37
+    texture: {fileID: 2800000, guid: 76fab0b29a94741959b41e12877716db, type: 3}
+  - postId: 38
+    texture: {fileID: 2800000, guid: 28bf8c2eef1f64a83bc86fe46db71cce, type: 3}
+  - postId: 39
+    texture: {fileID: 2800000, guid: 7fb25a10878b9487a89fac3c10986961, type: 3}
+  - postId: 4
+    texture: {fileID: 2800000, guid: 6e2c582eb6369468aa13e61dd7996ed5, type: 3}
+  - postId: 5
+    texture: {fileID: 2800000, guid: 9bef5bedd8b304aa799fd0e0a05ac63d, type: 3}
+  - postId: 6
+    texture: {fileID: 2800000, guid: 68dfd8db4792e48239d81aca9b5ef609, type: 3}
+  - postId: 7
+    texture: {fileID: 2800000, guid: fcbcea0a75cc847458c38bc089e2b5bf, type: 3}
+  - postId: 8
+    texture: {fileID: 2800000, guid: ce92af6622e9f42c2b29ed9227297177, type: 3}
+  - postId: 9
+    texture: {fileID: 2800000, guid: 8993c5c4a74f54f20bfb2919072e9bc5, type: 3}

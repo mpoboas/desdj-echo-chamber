@@ -6,7 +6,7 @@ Jogo 3D da cadeira DESDJ (ISEP, mestrado), grupo de 2. Tema do enunciado: **Invi
 
 O jogador começa o primeiro dia de trabalho numa empresa de tecnologia do Porto: numa cave, escolhe o que cada vizinho de um bairro vê no telemóvel, numa Central de Feeds (parede de ecrãs com o doomscroll de cada pessoa). O chefe só quer tempo na app. O sistema invisível é o algoritmo estilo TikTok: o que prende as pessoas (conteúdo inflamado, o que já pensam) é o que as fecha, irrita e separa, e o jogador só o descobre ao abrir os estores e ver o que o seu feed fez ao bairro.
 
-O design v1 (impressora, carimbos amplificar/ocultar, alavanca, 14 vizinhos, 3 dias x 3 turnos) foi abandonado após playtest. O código v1 ainda existe e é removido por fases (ver `PLAN.md`).
+O design v1 (impressora, carimbos amplificar/ocultar, alavanca, 14 vizinhos, 3 dias x 3 turnos) foi abandonado após playtest. O código v1 de apresentação já foi removido; ficam a rua, os vizinhos, a simulação v1 e a cortiça para a Fase 2 (ver `PLAN.md` e `docs/PROGRESS.md`).
 
 ## Leitura obrigatória antes de qualquer trabalho
 
@@ -39,15 +39,17 @@ O design v1 (impressora, carimbos amplificar/ocultar, alavanca, 14 vizinhos, 3 d
 - Língua do jogo e dos textos visíveis ao jogador: **português de Portugal**. Código, nomes de classes e comentários: inglês.
 - Sem travessões longos (em dash) nem aspas curvas em textos do jogo. Aspas retas.
 - C#, namespace `EchoChamber`. Uma classe por ficheiro. Pastas: `Assets/_Project/{Scripts,Data,Prefabs,Scenes,Art,Audio,UI}`.
-- Pipeline: usar o render pipeline que o projeto já tem (esperado URP). Ver `ProjectSettings` antes de assumir.
-- Input: usar o sistema de input que o projeto já tem configurado. Jogo v2: rato para tudo (arrastar o post para o feed de um vizinho ou para o lixo, focar um ecrã), Esc volta à vista da mesa. As teclas A/O/N e Espaço são do v1 e saem.
+- Pipeline: URP. UI do jogo em UI Toolkit (`Assets/_Project/UI/*.uss`, painéis em `FeedPanelSettings` para o LCD e `FeedHudPanelSettings` para o HUD). A RenderTexture do LCD precisa de depth/stencil.
+- Cena do jogo: `Assets/_Project/Scenes/Game.unity`, reconstruída pelo menu `Echo Chamber/Build Game Scene (v2)` (`GameSceneBuilder`, `RoomV2Builder`). Alterações manuais na cena perdem-se ao reconstruir: mudar os builders.
+- Conteúdo do v2 em `docs/data/feed_*.json` (posts, perfis, comentários, diálogos), importado pelos menus `Import Feed Content (v2)` e `Import Feed Clips`. Vídeos em `Art/Videos`, textos sobre o vídeo em `Art/Overlays`.
+- Input: usar o sistema de input que o projeto já tem configurado. Jogo v2: rato para tudo (arrastar o post para o feed de um vizinho ou para o lixo, focar um vizinho, atender o telefone), Esc volta à vista da mesa. O rato sobre o LCD e o HUD é lido à mão em `FeedGameController.PollMouse` (painéis UI Toolkit em RenderTexture não recebem eventos do EventSystem). As teclas A/O/N e Espaço do v1 foram removidas.
 - Lógica separada da apresentação: `Simulation` (C# puro, sem MonoBehaviour onde possível, testável) e `Presentation` (cenas, animação, UI). A simulação tem de poder correr sem cena, para testes e para calibração.
 - Determinismo: toda a aleatoriedade da simulação passa por um `System.Random` com semente injetável.
-- Git: commits pequenos e frequentes, mensagens em inglês no imperativo. Usar Git LFS para binários (`.glb`, `.png`, `.wav`, `.fbx`). Nunca fazer commit de `Library/`, `Temp/`, `Logs/`, `UserSettings/`.
+- Git: commits pequenos e frequentes, mensagens em inglês no imperativo. Usar Git LFS para binários (`.glb`, `.png`, `.wav`, `.fbx`, `.mp4`; ainda falta acrescentar `.mp4` ao `.gitattributes`). Nunca fazer commit de `Library/`, `Temp/`, `Logs/`, `UserSettings/`.
 
 ## Assets
 
-`assets/models` e `assets/room` têm os GLB usados no protótipo (Kenney, KayKit, pmndrs, todos de licença livre). Importar para Unity com um importador de glTF (glTFast) ou converter, e registar a origem em `CREDITS.md`. Objetos centrais da mesa (impressora, carimbos, CRT, mesa de mistura) são construídos no protótipo com primitivas e podem ser reconstruídos em Unity com primitivas e materiais, ou modelados depois.
+`assets/models` e `assets/room` têm os GLB usados no protótipo (Kenney, KayKit, pmndrs, todos de licença livre). Importar para Unity com um importador de glTF (glTFast) ou converter, e registar a origem em `CREDITS.md`. A sala v2 (`RoomV2Builder`) usa primitivas e estes modelos: secretária, LCD 16:9 (o ecrã é um quad com a RenderTexture da Central de Feeds), telefone, estores, candeeiro. O vídeo e as imagens do ecrã são geradas por nós (ver `docs/DECISIONS.md`), sem material de terceiros além dos GLB acima.
 
 ## Como trabalhar neste projeto
 
