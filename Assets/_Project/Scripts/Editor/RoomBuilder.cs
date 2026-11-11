@@ -71,7 +71,7 @@ namespace EchoChamber.Editor
             go.transform.localRotation = Quaternion.Euler(90f, 180f + yaw, 0f);
             var tm = go.AddComponent<TextMesh>();
             tm.font = DefaultFont();
-            go.GetComponent<MeshRenderer>().sharedMaterial = tm.font.material;
+            go.GetComponent<MeshRenderer>().sharedMaterial = TextMaterial();
             tm.text = text;
             tm.fontSize = 64;
             tm.characterSize = charSize;
@@ -467,7 +467,7 @@ namespace EchoChamber.Editor
             go.transform.localPosition = localPos;
             var tm = go.AddComponent<TextMesh>();
             tm.font = DefaultFont();
-            go.GetComponent<MeshRenderer>().sharedMaterial = tm.font.material;
+            go.GetComponent<MeshRenderer>().sharedMaterial = TextMaterial();
             tm.text = text;
             tm.fontSize = 64;
             tm.characterSize = charSize;

@@ -155,6 +155,19 @@ namespace EchoChamber.Editor
             return go;
         }
 
+        /// <summary>Depth-tested material for TextMesh (the built-in font material draws through walls).</summary>
+        public static Material TextMaterial()
+        {
+            const string path = "Assets/_Project/Art/Materials/TextDepth.mat";
+            var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (m == null)
+            {
+                m = new Material(Shader.Find("EchoChamber/TextDepth"));
+                AssetDatabase.CreateAsset(m, path);
+            }
+            return m;
+        }
+
         public static Font DefaultFont()
         {
             return Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -166,13 +179,13 @@ namespace EchoChamber.Editor
             var bg = Quad(name, size, Unlit(bgHex), localPos, parent);
             var t = new GameObject("Text");
             t.transform.SetParent(bg.transform, false);
-            t.transform.localPosition = new Vector3(0f, 0f, 0.01f);
+            t.transform.localPosition = new Vector3(0f, 0f, -0.01f); // quad is yawed 180, so -z is in front of it
             // Quad is scaled by size; counter-scale so the text keeps its proportions.
             t.transform.localScale = new Vector3(1f / size.x, 1f / size.y, 1f);
             var tm = t.AddComponent<TextMesh>();
             tm.text = text;
             tm.font = DefaultFont();
-            tm.GetComponent<MeshRenderer>().sharedMaterial = tm.font.material;
+            tm.GetComponent<MeshRenderer>().sharedMaterial = TextMaterial();
             tm.anchor = TextAnchor.MiddleCenter;
             tm.alignment = TextAlignment.Center;
             tm.color = Hex(fgHex);

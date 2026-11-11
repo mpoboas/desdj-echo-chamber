@@ -327,7 +327,7 @@ namespace EchoChamber.Editor
                 glyph.transform.localPosition = new Vector3(0f, 0f, -0.01f);
                 var tm = glyph.AddComponent<TextMesh>();
                 tm.font = DefaultFont();
-                tm.GetComponent<MeshRenderer>().sharedMaterial = tm.font.material;
+                tm.GetComponent<MeshRenderer>().sharedMaterial = TextMaterial();
                 tm.anchor = TextAnchor.MiddleCenter;
                 tm.alignment = TextAlignment.Center;
                 tm.fontSize = 64;
